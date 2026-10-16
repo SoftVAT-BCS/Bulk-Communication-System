@@ -1,0 +1,34 @@
+"use client";
+import type { Recipient, RecipientQuery, RecipientStatus } from "@bcs/contracts";
+import { ActionButton, DetailDialog, EnterpriseGrid, Icon, Panel, SmartMultiSelect, type GridColumn } from "@bcs/ui";
+import { useState } from "react";
+import { cascadeGroups, eligible, groups, initialQuery, matching, syntheticProvider, updateSelection } from "./synthetic";
+const columns: GridColumn<Recipient>[] = [
+  { key: "id", label: "Student ID", render: row => <span className="key">{row.id}</span>, sortable: true },
+  { key: "name", label: "Student / Name", render: row => <div className="name-flex"><div className={"avatar " + (row.id.charCodeAt(7) % 3 === 1 ? "lilac" : row.id.charCodeAt(7) % 3 === 2 ? "mint" : "")}>{row.name.split(" ").map(part => part[0]).join("")}</div><div><div className="table-name">{row.name}</div><div className="table-secondary">{row.stage}</div></div></div>, sortable: true },
+  { key: "email", label: "Email address", render: row => row.email, sortable: true },
+  { key: "group", label: "Course / Group", render: row => row.group, sortable: true },
+  { key: "subgroup", label: "Batch / Subgroup", render: row => row.subgroup, sortable: true },
+  { key: "status", label: "Email status", render: row => <span className={"badge " + (row.status === "Active" ? "good" : row.status === "Inactive" ? "warn" : "bad")}>{row.status}</span>, sortable: true },
+  { key: "joined", label: "Joined on", render: row => row.joined, sortable: true },
+];
+export function syntheticCsv(rows: readonly Recipient[]): string {
+  const cell = (value: string) => '"' + (/^[\s]*[=+@-]/.test(value) ? "'" + value : value).replaceAll('"', '""') + '"';
+  return [["Student ID", "Name", "Email", "Group", "Subgroup", "Status"], ...rows.map(row => [row.id, row.name, row.email, row.group, row.subgroup, row.status])].map(row => row.map(cell).join(",")).join("\r\n");
+}
+export function RecipientSelection({ selected, setSelected, onCompose }: { selected: Set<string>; setSelected(value: Set<string>): void; onCompose(): void }) {
+  const [query, setQuery] = useState(initialQuery);
+  const [page, setPage] = useState(0);
+  const [size, setSize] = useState(10);
+  const [visible, setVisible] = useState(["id", "name", "email", "group", "subgroup", "status"]);
+  const [detail, setDetail] = useState<Recipient | null>(null);
+  const changeQuery = (next: RecipientQuery) => { setQuery(next); setPage(0); };
+  const result = syntheticProvider.page(query, page, size);
+  const subgroupOptions = groups.filter(group => !query.groups.length || query.groups.includes(group.value)).flatMap(group => group.subgroups.map(label => ({ label, value: label })));
+  const exportCsv = () => { const url = URL.createObjectURL(new Blob([syntheticCsv(matching(query))], { type: "text/csv;charset=utf-8" })); const link = document.createElement("a"); link.href = url; link.download = "UniversalNotify_Synthetic_Recipients.csv"; link.click(); setTimeout(() => URL.revokeObjectURL(url), 1000); };
+  return <><div className="bcs-recipient-card"><Panel title="Choose recipients" subtitle="Searchable multi-select and a high-density review grid" actions={<div className="inline-actions"><ActionButton className="sm" onClick={exportCsv} title="Export filtered fictional records only"><Icon name="download" size="sm" />Export CSV</ActionButton><ActionButton className="sm" primary onClick={onCompose}><Icon name="arrow" size="sm" />Continue to compose</ActionButton></div>}>
+    <div className="grid-bar"><div className="filter-group"><SmartMultiSelect label="Course / Group" noun="groups" options={groups} value={query.groups} onChange={values => changeQuery(cascadeGroups(query, values))} /></div><div className="filter-group"><SmartMultiSelect label="Batch / Subgroup" noun="subgroups" options={subgroupOptions} value={query.subgroups} onChange={subgroups => changeQuery({ ...query, subgroups })} /></div><div className="filter-group wide"><label className="label" htmlFor="recipient-search">Search grid</label><input className="input" id="recipient-search" placeholder="Name, email, student ID, course…" value={query.search} onChange={event => changeQuery({ ...query, search: event.target.value })} /></div><div className="filter-group bcs-status-filter"><label className="label" htmlFor="recipient-status">Email status</label><select className="select" id="recipient-status" value={query.status} onChange={event => changeQuery({ ...query, status: event.target.value as RecipientStatus | "All statuses" })}>{["All statuses", "Active", "Inactive", "Bounced", "Unsubscribed"].map(status => <option key={status}>{status}</option>)}</select></div></div>
+    <EnterpriseGrid<Recipient> rows={result.rows} columns={columns} visibleColumns={visible} onColumnsChange={setVisible} selected={selected} eligible={eligible} onSelect={(ids, value) => setSelected(updateSelection(selected, ids, value))} onSelectMatching={value => setSelected(updateSelection(selected, syntheticProvider.matchingEligibleIds(query), value))} onClear={() => setSelected(new Set())} total={result.total} eligibleCount={result.eligible} page={page} pageSize={size} onPage={setPage} onPageSize={value => { setSize(value); setPage(0); }} sort={query.sort} descending={query.descending} onSort={key => changeQuery({ ...query, sort: key as keyof Recipient, descending: key === query.sort && !query.descending })} onDetail={setDetail} />
+    {detail && <DetailDialog title="Synthetic recipient details" onClose={() => setDetail(null)}><dl className="bcs-details">{Object.entries(detail).map(([key, value]) => <div key={key}><dt>{key}</dt><dd>{value}</dd></div>)}</dl><p className="tiny">Fictional IPX-equivalent fixture. APIs and workers must independently authorize and revalidate every recipient before any future send.</p></DetailDialog>}
+  </Panel></div><div className="split equal"><section className="card"><div className="card-body"><h2 className="section-title">Selection intelligence</h2><p className="section-intro">Selections persist when you search, paginate or change groups. In production, the server must re-check membership, permissions and suppression before sending.</p><div className="row between"><div><strong className="bcs-selection-number">{selected.size}</strong><p className="tiny">Students in current selection</p></div><span className="badge blue">Demo selection only</span></div></div></section><section className="card"><div className="card-body"><h2 className="section-title">Reuse in your existing portal</h2><p className="section-intro">Group → Subgroup → Student search. Supports select all matching, individual selection, filtering, column chooser, density and synthetic CSV export.</p><div className="row wrap">{["MySQL", "SQL Server", "PostgreSQL", "REST API"].map(label => <span className="chip" key={label}>{label}</span>)}</div></div></section></div></>;
+}
