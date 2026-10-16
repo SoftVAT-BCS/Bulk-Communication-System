@@ -1,0 +1,23 @@
+UNIVERSAL NOTIFY — PARTNER FEEDBACK
+
+Partner name / organization: __________________________
+Review date: __________________________
+
+1. Overall design (1–10): ______
+2. Ease of navigation (1–10): ______
+3. Desktop grid usability (1–10): ______
+4. Mobile usability (1–10): ______
+5. Are the 5 pages and page-level tabs sufficient? __________________
+6. Which recipient-grid features should be improved? __________________
+7. Is Group > Subgroup > Student selection intuitive? ________________
+8. Class schedule / reschedule / cancel flow feedback: ______________
+9. Email composer / attachments / templates feedback: ______________
+10. Integration configuration / database mapping feedback: __________
+11. Reports and sending-queue feedback: ___________________________
+12. Missing functionality / additional requirements: ______________
+13. Top 3 changes requested before development:
+   a. __________________
+   b. __________________
+   c. __________________
+
+Note: This is a static-data interactive HTML prototype only.

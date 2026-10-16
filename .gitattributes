@@ -1,0 +1,27 @@
+# BCS / Universal Notify - explicit line-ending policy
+# This file does not rewrite files already on disk.
+* text=auto eol=lf
+
+# Windows command launchers check out with CRLF.
+*.cmd text eol=crlf
+*.bat text eol=crlf
+
+# Binary assets must not be normalized.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.woff binary
+*.woff2 binary
+*.mp4 binary
+
+# Archived handover is also an original, byte-preserved reference.
+docs/reference/ORIGINAL-PROJECT-HANDOVER.md -text -filter -ident !eol !working-tree-encoding
+
+# Approved IPX: no text normalization, clean/smudge filters or ident expansion.
+# Keep this rule last. Do not add nested attributes or format IPX.
+IPX/** -text -filter -ident !eol !working-tree-encoding

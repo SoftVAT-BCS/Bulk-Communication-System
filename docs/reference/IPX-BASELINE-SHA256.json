@@ -1,0 +1,68 @@
+{
+    "schemaVersion":  1,
+    "relativeRoot":  "IPX",
+    "fileCount":  12,
+    "treeSha256":  "80ed449e2fe93538c4602951779bb77ec391d3b3a7d9fca80b11e0aff878b843",
+    "files":  [
+                  {
+                      "path":  "IPX-BCS/Assets/app.js",
+                      "length":  85647,
+                      "sha256":  "932312d56892d8a2e744d9d9e71c3dacaadb0bc71103b65c634c9599a698c94f"
+                  },
+                  {
+                      "path":  "IPX-BCS/Assets/favicon.svg",
+                      "length":  268,
+                      "sha256":  "aa0e1760d24d228dc250b0aff5b1abf7968a7dd2536fd452bd85c70a7e902da9"
+                  },
+                  {
+                      "path":  "IPX-BCS/Assets/styles.css",
+                      "length":  24771,
+                      "sha256":  "46bc7f263f6178d6ede21810314f2e6deb9f6ef32b47c741df064b43aa2dfc0a"
+                  },
+                  {
+                      "path":  "IPX-BCS/communication.html",
+                      "length":  565,
+                      "sha256":  "d010d574bc54831e482b41dac2eac075e674bcc81172a41e75581daab3f2c5df"
+                  },
+                  {
+                      "path":  "IPX-BCS/configuration.html",
+                      "length":  565,
+                      "sha256":  "6a63b4d2ed5d7d7ed75dd98d46408d6b11c533ec8a415fee67e11491cb3e08de"
+                  },
+                  {
+                      "path":  "IPX-BCS/dashboard.html",
+                      "length":  557,
+                      "sha256":  "acd8ee6788faf3ec7c9fb7b271b68892aac9b4b72de092f6c12f4b6d468c26ca"
+                  },
+                  {
+                      "path":  "IPX-BCS/index.html",
+                      "length":  557,
+                      "sha256":  "acd8ee6788faf3ec7c9fb7b271b68892aac9b4b72de092f6c12f4b6d468c26ca"
+                  },
+                  {
+                      "path":  "IPX-BCS/PARTNER_FEEDBACK.txt",
+                      "length":  1033,
+                      "sha256":  "a8f8302463f2a639a568d7d81f707c066c73bd82a9b05207928dd831d0ec68b1"
+                  },
+                  {
+                      "path":  "IPX-BCS/READ_ME_FIRST.txt",
+                      "length":  4466,
+                      "sha256":  "d36b8733bf7804c9de2d4447cc75b487775575a79d3a393a4f3b67e964a4d8fa"
+                  },
+                  {
+                      "path":  "IPX-BCS/reports.html",
+                      "length":  553,
+                      "sha256":  "086aeca908d0f5d5417c54a9996d1a84cbb44660b8198eca59c85554ad9247bf"
+                  },
+                  {
+                      "path":  "IPX-BCS/scheduling.html",
+                      "length":  559,
+                      "sha256":  "5265fa871413b998eb5f3f64abc76954d4e05dfcbc065bf7d95fa69e6531fb79"
+                  },
+                  {
+                      "path":  "Universal_Notify_Partner_UI_Review_V1.zip",
+                      "length":  38269,
+                      "sha256":  "0c60b951ea59161cf50fa84a7d9f379dbeaab7a60ff9e771f04ff40a884e7147"
+                  }
+              ]
+}

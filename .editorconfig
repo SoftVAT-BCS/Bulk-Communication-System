@@ -1,0 +1,35 @@
+# BCS / Universal Notify - editing defaults for supported editors
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.md]
+# Preserve intentional Markdown hard-break spaces.
+trim_trailing_whitespace = false
+
+[*.{cmd,bat}]
+end_of_line = crlf
+
+# Do not apply these editing defaults to preserved reference material.
+# This does not make files read-only: the no-edit IPX rule still applies.
+[IPX/**]
+charset = unset
+end_of_line = unset
+indent_style = unset
+indent_size = unset
+insert_final_newline = unset
+trim_trailing_whitespace = unset
+
+[docs/reference/ORIGINAL-PROJECT-HANDOVER.md]
+charset = unset
+end_of_line = unset
+indent_style = unset
+indent_size = unset
+insert_final_newline = unset
+trim_trailing_whitespace = unset

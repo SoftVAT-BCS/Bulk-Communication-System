@@ -1,0 +1,77 @@
+{
+    "schemaVersion":  1,
+    "packId":  "BCS-PHASE1-STEP1C-1.0",
+    "result":  "SUCCESS",
+    "completedUtc":  "2026-10-16T08:14:35.1640150Z",
+    "workspace":  "E:\\Bulk-Communicatio-System",
+    "markdownCount":  14,
+    "markdownHashesVerified":  true,
+    "existingFilesOverwritten":  0,
+    "ipxFileCount":  12,
+    "ipxTreeSha256":  "80ed449e2fe93538c4602951779bb77ec391d3b3a7d9fca80b11e0aff878b843",
+    "ipxContentUnchangedDuringSetup":  true,
+    "gitOperationPerformed":  false,
+    "dependenciesInstalled":  false,
+    "networkCallsMade":  false,
+    "applicationOrDatabaseChangesMade":  false,
+    "ownerAcceptance":  "Pending review of CMD output",
+    "documents":  [
+                      {
+                          "path":  "AGENTS.md",
+                          "sha256":  "cd72a76262b2a8efb783b7b6a97b8c8fdee0c02ee0d051a6d89d0819f034d1b9"
+                      },
+                      {
+                          "path":  "docs/README.md",
+                          "sha256":  "4839aef039bdc89decd3eed38b9630bc12877b1eda74e5f8950518e3062a312c"
+                      },
+                      {
+                          "path":  "docs/PROJECT-MASTER.md",
+                          "sha256":  "8379a13462a2be08a21d7e9cbd170142855bfd297fa7c0bc5fe33c2a52834295"
+                      },
+                      {
+                          "path":  "docs/architecture/ARCHITECTURE.md",
+                          "sha256":  "34e021de796cfb0443308d6d9387e3b602bd242a7b7c7a884c6359ccd2f6a988"
+                      },
+                      {
+                          "path":  "docs/architecture/DATABASE-ARCHITECTURE.md",
+                          "sha256":  "a6ffe6634085f852b3e5679bde5242dab217cbcfda6eea178b7b9284100ec208"
+                      },
+                      {
+                          "path":  "docs/standards/UI-DESIGN-SYSTEM.md",
+                          "sha256":  "55bd78a78a57f41b12c920002544f8f886e31c16d98aeab77b7cbdce01a83a59"
+                      },
+                      {
+                          "path":  "docs/standards/REUSABLE-COMPONENTS.md",
+                          "sha256":  "9b3ae89190c031c109633308044ed8fc87a15e864e8b39b4ad1e003fd00cc54c"
+                      },
+                      {
+                          "path":  "docs/standards/SECURITY-STANDARDS.md",
+                          "sha256":  "a8d719fefc9b78f27247e9dfa1c7ee05d37916f64b6026c2bc06ee72034f45e3"
+                      },
+                      {
+                          "path":  "docs/standards/TESTING-AND-ACCEPTANCE.md",
+                          "sha256":  "10254ba262b5ddbd5c5802fc55c8458ad9578a7e34d17f65b55efbe504d6a06d"
+                      },
+                      {
+                          "path":  "docs/requirements/DEVELOPMENT-ROADMAP.md",
+                          "sha256":  "8e70cb8714f97c0cb4e270a02579a7fbefc017a26b73fda8f401bbc7185c86a5"
+                      },
+                      {
+                          "path":  "docs/adr/DECISION-LOG.md",
+                          "sha256":  "79830bf55450fc93c572f4f661dfff0d1a6cab85a4be29dbf524613986caefc6"
+                      },
+                      {
+                          "path":  "docs/handover/WORK-STATUS.md",
+                          "sha256":  "9e9757325956e623aa802515f2fb0a74d5c35ad9861e4c211d7cbce97670addd"
+                      },
+                      {
+                          "path":  "docs/reference/IPX-BASELINE.md",
+                          "sha256":  "98835e86726d154ee63f4cb89806cb411ff13ff00926ca2d050ebbfe492e4d00"
+                      },
+                      {
+                          "path":  "docs/reference/ORIGINAL-PROJECT-HANDOVER.md",
+                          "sha256":  "3e20a50fadc1cdd231ef774cc24e001a68687b1984bd4dbbadc2533695bbaf6a"
+                      }
+                  ],
+    "limitations":  "Checksums are not a backup. Browser storage and future file changes are outside this check. Application tests were not run."
+}

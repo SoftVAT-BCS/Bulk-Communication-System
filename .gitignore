@@ -1,0 +1,72 @@
+# BCS / Universal Notify - repository exclusions
+# Ignore rules are not secret scanning. Review every first commit.
+# Keep approved IPX HTML/CSS/JS, Markdown, migrations and lockfiles trackable.
+
+# Local downloads and private working material (root folders only)
+/Downloads/
+/.local/
+/.backups/
+/backups/
+
+# Secrets and machine-specific credentials
+.env
+.env.*
+!.env.example
+.npmrc
+.pypirc
+.netrc
+.aws/
+.secrets/
+secrets/
+*.pem
+*.key
+*.pfx
+*.p12
+id_rsa
+id_ed25519
+
+# Dependencies and generated output
+node_modules/
+.next/
+dist/
+build/
+out/
+.turbo/
+.cache/
+.pnpm-store/
+*.tsbuildinfo
+
+# Test output and local logs (not test source)
+coverage/
+playwright-report/
+test-results/
+*.log
+*.log.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local databases and backups. Do not ignore *.sql: migrations are source.
+*.db
+*.sqlite
+*.sqlite3
+*.dump
+*.bak
+*.backup
+
+# Local tool/deployment state
+.vercel/
+.serverless/
+.terraform/
+*.tfstate
+*.tfstate.*
+
+# Editor and operating-system temporary files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~

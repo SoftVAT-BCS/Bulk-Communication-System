@@ -1,0 +1,34 @@
+{
+    "schemaVersion":  1,
+    "packId":  "BCS-PHASE1-STEP1E-1.0",
+    "result":  "SUCCESS",
+    "completedUtc":  "2026-10-16T10:00:07.1226832Z",
+    "workspace":  "E:\\Bulk-Communicatio-System",
+    "branch":  "main",
+    "commitsPresent":  false,
+    "stagedFilesPresent":  false,
+    "existingFilesOverwritten":  0,
+    "ipxFileCount":  12,
+    "ipxTreeSha256":  "80ed449e2fe93538c4602951779bb77ec391d3b3a7d9fca80b11e0aff878b843",
+    "ipxMatchesStep1CBaseline":  true,
+    "originalMarkdownFilesUnchanged":  14,
+    "downloadsExcludedNotDeleted":  true,
+    "gitConfigurationWritten":  false,
+    "networkCallsMade":  false,
+    "ruleFiles":  [
+                      {
+                          "path":  ".gitignore",
+                          "sha256":  "f0a9e05714c20efe537f7ae9bebe4b9e783c470f2a1fcdc80ebdac26ca2e1d80"
+                      },
+                      {
+                          "path":  ".gitattributes",
+                          "sha256":  "04e8d12543396486ed622445132093621ab610cfa2472043541626ce74d73cc4"
+                      },
+                      {
+                          "path":  ".editorconfig",
+                          "sha256":  "9f8ddc980724555e87c9ddb269542722cf1f8717b24c1cebdc678b5f1103ac6c"
+                      }
+                  ],
+    "ownerAcceptance":  "Pending review of CMD output",
+    "note":  "New-file-only setup; original WORK-STATUS.md was not edited. Read this report and actual Git state for the later checkpoint. Ignore rules are not secret scanning, immutability or a backup."
+}
