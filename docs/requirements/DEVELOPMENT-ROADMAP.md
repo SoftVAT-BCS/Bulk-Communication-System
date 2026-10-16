@@ -5,13 +5,22 @@ sub-step was added. The owner authorizes one activity at a time and reviews each
 
 ## Phase 1 foundation sub-steps
 
-| Activity | Checkpoint as this pack was prepared |
+| Activity | Checkpoint reconciled 16 October 2026 (Step 2C) |
 |---|---|
 | Step 1A - read-only workspace verification | Confirmed by owner's CMD transcript: correct path, IPX files and installed Git; no Git repository then |
 | Step 1B - safe folder creation | Confirmed by owner's CMD transcript and Explorer screenshot on 16 October 2026 |
-| Step 1C - populated documentation and preservation evidence | This package; local execution and owner confirmation pending |
-| Step 1D - repository/baseline protection | Next proposed activity only; review ignore/line-ending/backup strategy before separately authorized Git initialization |
-| Step 2 - production architecture review | Pending; settle framework versions, contracts, security, development environment and technical ADRs |
+| Step 1C - populated documentation and preservation evidence | SUCCESS recorded in immutable STEP-1C-INSTALL-REPORT.json; original acceptance field retained |
+| Step 1D - repository/baseline protection | Repository rules now exist; independent backup verification remains pending |
+| Step 1E / first baseline checkpoint | STEP-1E-REPOSITORY-RULES-REPORT.json records success; later Git HEAD e50dfea on main contains 34 tracked files |
+| Step 2A - read-only intake | Completed; baseline, IPX and installed tools verified; no application tests |
+| Step 2B - recovered references and architecture proposal | Completed; five reference files and source/architecture reviews; choices were Proposed at that checkpoint |
+| Step 2C - conditional ratification and local checkpoint | Owner approved high-level direction; react-select/TanStack conditional on IPX parity; exact versions and reuse rights unresolved; one verified 16-path local commit authorized |
+
+See [architecture proposal](../architecture/PHASE-1-ARCHITECTURE-PROPOSAL.md) and
+[reference review](../reference/SMART-CONTROLS-REVIEW.md). The next activity requires fresh
+Step 2D authorization: readiness review of exact compatibility, source rights/dependencies
+and supported testing route. Scaffolding requires a separate decision after remaining gates.
+No scaffold is authorized by ratification or by this roadmap.
 
 Step 1D must not blanket-add secret files or change IPX bytes through line-ending conversion.
 Git is version history, not an independent/off-device backup. Establish an appropriate

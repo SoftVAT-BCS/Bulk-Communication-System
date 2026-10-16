@@ -20,9 +20,16 @@ hidden state. Stable keys identify options and rows, not displayed labels or row
 The owner requests React Select-style searchable controls and the previously supplied
 SmartSelect / SmartMultiSelect / SmartSearchLookup patterns. The HTML IPX uses dependency-free
 JavaScript; it is not an installed React Select implementation. The three TSX reference
-files are not bundled in that archive and have not been inspected for this documentation
-pack. Search the existing workspace/project references before asking the owner for them once.
-Do not claim source reuse until the actual files, compatibility and licensing are reviewed.
+files were not bundled in that archive and were absent during Step 2A. Step 2B imported
+the recovered historical snapshots under docs/reference/smart-controls/ and reviewed
+their actual source. See [review and integrity evidence](../reference/SMART-CONTROLS-REVIEW.md).
+FormContext/styles and reuse rights remain unresolved; no browser/build/accessibility
+test has run. The snapshots are custom React controls, not the react-select package.
+Step 2C conditionally approves one react-select engine behind stable BCS wrappers;
+see [ratified direction](../architecture/PHASE-1-ARCHITECTURE-PROPOSAL.md). Exact IPX
+interaction/accessibility parity must be demonstrated. Missing FormContext/CSS, provenance
+and reuse rights must be resolved before recovered code enters production. No direct
+snapshot copying, second engine or default library appearance is approved.
 
 Preserve the searchable dropdown panel, checkbox options for multi-selection, selected
 count, Clear/Done actions, visible selected rows, configurable labels/display fields,
@@ -41,6 +48,11 @@ not silently clear the deliberately preserved recipient selection. Changing port
 security scope must invalidate/revalidate the old selection before it can be used.
 
 ## EnterpriseGrid
+
+Step 2C conditionally approves headless TanStack Table, preserving the approved IPX.
+Filtering, sorting and pagination must be server-driven for production; visible-page
+selection must never imply all authorized matches were selected. Explicit include/exclude
+semantics, scope-safe export, dense/mobile parity and send-time revalidation remain required.
 
 One shared grid implementation supports configurable typed columns, authorized data source,
 row keys, query state, sorting, filtering, page size, counts, selection mode, column visibility,

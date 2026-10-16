@@ -1,0 +1,30 @@
+{
+  "package": "BCS Smart Controls Reference V1",
+  "prepared_date": "2026-10-16",
+  "purpose": "Unmodified historical source snapshots for architecture review only; not a production library.",
+  "source_surface": "Previously uploaded user Library files",
+  "version_note": "Each recovered file is the available Library version 1. This does not establish latest upstream or local-project versions.",
+  "source_files": [
+    {
+      "filename": "SmartSelect(1).tsx",
+      "source_file_id": "file_0000000094748210af702ef5891c2119",
+      "source_version_id": "1",
+      "size_bytes": 5711,
+      "sha256": "4e60508cfb3cd137de3dd0165d5798503770625c601226b19cbeeda2473ccd45"
+    },
+    {
+      "filename": "SmartMultiSelect(1).tsx",
+      "source_file_id": "file_0000000034a08210a36347400d0eddb5",
+      "source_version_id": "1",
+      "size_bytes": 1550,
+      "sha256": "49f43540edbc2535bf85183d0c12156422866b425c5a53bf6d640fdb8893d8bb"
+    },
+    {
+      "filename": "SmartSearchLookup(1).tsx",
+      "source_file_id": "file_00000000dd908210932f656831f20014",
+      "source_version_id": "1",
+      "size_bytes": 23770,
+      "sha256": "257113927428e3d64b8b1429dfe8875ae3d6fa4e27b0fb70ceab9335544b567c"
+    }
+  ]
+}

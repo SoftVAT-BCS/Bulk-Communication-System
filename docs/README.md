@@ -14,6 +14,9 @@ verbatim archive of the entire project.
 |---|---|
 | [PROJECT-MASTER](PROJECT-MASTER.md) | Product scope, five-page structure, requirements and authority |
 | [ARCHITECTURE](architecture/ARCHITECTURE.md) | Logical boundaries and proposed technology decisions |
+| [PHASE-1-ARCHITECTURE-PROPOSAL](architecture/PHASE-1-ARCHITECTURE-PROPOSAL.md) | Step 2B evidence and Step 2C ratification; approved direction, conditional tools and unresolved gates |
+| [SMART-CONTROLS-REVIEW](reference/SMART-CONTROLS-REVIEW.md) | Recovered source integrity, dependency gaps and comparison with IPX |
+| [Smart reference snapshots](reference/smart-controls/README.md) | Historical unchanged sources and provenance; not production code |
 | [DATABASE-ARCHITECTURE](architecture/DATABASE-ARCHITECTURE.md) | Central data ownership, integration and mapping contracts |
 | [UI-DESIGN-SYSTEM](standards/UI-DESIGN-SYSTEM.md) | Visual fidelity, themes and responsive standards |
 | [REUSABLE-COMPONENTS](standards/REUSABLE-COMPONENTS.md) | Shared control contracts and selection semantics |
@@ -31,13 +34,16 @@ verbatim archive of the entire project.
 owner. **Proposed** means a recommendation awaiting decision. **Implemented** means
 files/code exist. **Tested** requires named checks and results. **Owner-accepted** is a
 separate recorded decision. Do not substitute any one of these labels for another.
+Step 2C distinguishes OWNER-APPROVED HIGH-LEVEL DIRECTION, CONDITIONAL IMPLEMENTATION
+CHOICE and PROPOSED/UNRESOLVED. Exact package versions and source reuse rights are not
+finally Accepted. A fresh owner decision is required before any scaffold.
 
 Preserve the original handover as historical evidence. Later explicit owner decisions
 and the verified workspace update its old paths/status; they do not silently remove
 its business requirements. When instructions or evidence conflict, identify the conflict
 and request a decision rather than fabricating a reconciliation.
 
-The setup creates new documentation only. It does not initialize Git, install packages,
+The original Step 1C setup creates new documentation only. It does not initialize Git, install packages,
 connect databases, call AWS, start services, create application code or grant permissions.
 The additional safeguards and test contracts are proposed implementation requirements,
 not claims that these controls already work.
@@ -48,6 +54,12 @@ not claims that these controls already work.
   owner's entire local `IPX` folder at setup. This inventory is not a backup.
 - `handover/STEP-1C-INSTALL-REPORT.json`: successful initial setup evidence and the
   expected Markdown hashes. It is a historical record, not a continuously updated status.
+- `handover/STEP-1E-REPOSITORY-RULES-REPORT.json`: later repository-rule setup evidence;
+  predates the verified main/e50dfea first commit. Independent backup remains unverified.
+- Step 2A verified the baseline read-only. Step 2B imports five reference files and updates
+  only authorized Markdown; see the two new documents above. No application tests ran.
+- Step 2C records conditional ratification and narrowly scoped archival TSX protection;
+  one verified local documentation/reference commit is authorized, with no push or scaffold.
 
 The installer never changes an existing different file. Identical Markdown is retained;
 conflicts are reported before new files are written. A later approved documentation edit

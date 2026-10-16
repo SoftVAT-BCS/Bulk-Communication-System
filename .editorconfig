@@ -26,6 +26,15 @@ indent_size = unset
 insert_final_newline = unset
 trim_trailing_whitespace = unset
 
+[docs/reference/smart-controls/*.tsx]
+# Advisory protection for historical TSX only; not a byte-preservation guarantee.
+charset = unset
+end_of_line = unset
+indent_style = unset
+indent_size = unset
+insert_final_newline = unset
+trim_trailing_whitespace = unset
+
 [docs/reference/ORIGINAL-PROJECT-HANDOVER.md]
 charset = unset
 end_of_line = unset

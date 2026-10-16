@@ -1,7 +1,14 @@
 # BCS production architecture
 
-Status: **Proposed logical architecture; no technical ADR accepted by this document.**
+Status: **OWNER-APPROVED HIGH-LEVEL DIRECTION (Step 2C); conditional tools and unresolved implementation details.**
 Folder creation is complete; executable application scaffolding is not.
+
+Step 2B (16 October 2026): [architecture proposal](PHASE-1-ARCHITECTURE-PROPOSAL.md)
+adds current official version/support evidence, alternatives, approval questions and
+separate scaffold/live-data/sending gates. Step 2C conditionally ratifies direction only;
+exact versions remain illustrative candidates requiring fresh verification/approval. The
+[reference review](../reference/SMART-CONTROLS-REVIEW.md) covers recovered Smart sources;
+their availability does not establish production readiness or React Select equivalence.
 
 ## Boundaries mapped to the created folders
 
@@ -25,10 +32,11 @@ layout, hosting vendor or deployment topology.
 
 ## Preferred candidates from the handover
 
-React/Next.js, TypeScript, Node.js and PostgreSQL are preferred. Amazon SES is already a
-product delivery decision. Queue implementation, object storage deployment, identity
-provider, ORM/query layer, package manager, grid implementation and exact versions remain
-open. The owner requests React Select-style searchable controls; the library/reuse decision
+Step 2C approves React 19/Next.js 16/TypeScript direction, prefers npm workspaces, and
+approves future Fastify API/durable worker boundaries. Central PostgreSQL and SES remain
+requirements. react-select wrappers and headless TanStack Table are conditional on full
+IPX/accessibility parity. Queue infrastructure, topology, identity provider, ORM/query
+layer, exact runtime/packages and compatibility remain open. The owner requests React Select-style searchable controls; the library/reuse decision
 must preserve the IPX contract and be reviewed with the supplied Smart control patterns.
 Do not silently substitute default HTML selects or default library visuals.
 

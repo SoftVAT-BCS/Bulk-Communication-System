@@ -1,16 +1,18 @@
 # BCS current work status
 
-Prepared checkpoint: 16 October 2026, Phase 1 Step 1C documentation package.
-This file records known evidence; it does not declare the local installation successful.
+Updated checkpoint: 16 October 2026, Phase 1 Step 2C conditional ratification and safe local checkpoint.
+The original Step 1C checkpoint is retained in Git and immutable setup reports.
 
 ## Workspace
 
 - Canonical: `E:\Bulk-Communicatio-System`.
 - Approved reference: `IPX/IPX-BCS/`; preserve its HTML, Assets and support files.
 - Confirmed top-level folders: apps, database, docs, IPX, packages, scripts, tests.
-- Git version observed in the owner's log: `2.54.0.windows.1`.
-- Last observed repository state: `fatal: not a git repository`; initialization not performed.
-- Node/package-manager/runtime versions: not yet verified for this project.
+- Observed Git `2.54.0.windows.1`, Node `v24.16.0`, npm.cmd `11.13.0`; these are not approved stack versions.
+- Verified Step 2C starting baseline: `main`, HEAD `e50dfeadf8cd468cc9cf6a8adb124f8d728a59b5`, one commit and 34 tracked files.
+- Baseline message: `chore(bcs): preserve approved IPX and project foundation`.
+- Step 2A and Step 2B starting state: no tracked/staged changes; only untracked `scripts/BCS_Phase1_Step1G_FirstBaseline.cmd`. Preserve without execution/staging.
+- Observed Windows 10 Pro, build 19045. Current Playwright does not list native Windows 10 support; see proposal for a supported testing route.
 
 ## Completed / confirmed
 
@@ -29,14 +31,25 @@ interactive offline prototype plus a production foundation, not a live communica
 
 ## Current activity
 
-**Step 1C - create populated master Markdown safely.** The setup performs no-overwrite
-preflight, new-file creation/hash verification and before/after IPX content comparison.
-Local execution result and owner acceptance remain pending when this document is generated.
+Step 1C installation and Step 1E repository rules have SUCCESS reports beside this file.
+The first baseline commit is verified above; do not repeat setup because the older
+reports predate that commit. Their original owner-acceptance fields remain historical.
+Step 2A completed read-only intake and tool/source review; no application tests ran.
 
-Evidence after success: `STEP-1C-INSTALL-REPORT.json` beside this file, and
-`../reference/IPX-BASELINE-SHA256.json`. Read the actual report and console result before
-marking installation confirmed. Do not infer success from the presence of this Markdown:
-an interrupted setup can leave some newly created files without a final report.
+**Step 2B - historical reference import, source review and proposed architecture.**
+Imported five exact archive entries without overwrite; all five match archive bytes,
+and all three TSX sources match SOURCE-MANIFEST sizes/SHA-256. All 12 IPX files match
+the original inventory. Historical reports, scripts and protection rules are unchanged.
+See [Smart controls review](../reference/SMART-CONTROLS-REVIEW.md) and
+[architecture proposal](../architecture/PHASE-1-ARCHITECTURE-PROPOSAL.md).
+Step 2B left seven modified documents and seven new files for review.
+Step 2C records OWNER-APPROVED HIGH-LEVEL DIRECTION and CONDITIONAL IMPLEMENTATION
+CHOICES; exact versions, compatibility and source reuse rights remain unresolved.
+The owner authorizes one local 16-path checkpoint after all pre/post-staging gates pass.
+The commit containing this checkpoint is identifiable by message:
+`docs(bcs): ratify architecture direction and preserve UI references`.
+No remote/push or application development is authorized; final commit verification is
+reported separately, without amending this checkpoint to insert its own hash.
 
 ## Not yet developed / not authorized in this activity
 
@@ -47,20 +60,22 @@ No authority to access another project's database, cloud resource or repository.
 
 ## Open items
 
-Partner feedback is a pending review input. The original SmartSelect(1).tsx,
-SmartMultiSelect(1).tsx and SmartSearchLookup(1).tsx files are not in the inspected IPX ZIP;
-locate them in the approved workspace/project references before deciding whether reuse
-is appropriate. No production code needs those files during the documentation step.
+Partner feedback remains a pending review input. The three historical Smart TSX files
+were absent during Step 2A and are now available under docs/reference/smart-controls/.
+They are not production-ready: FormContext/styles, reuse rights and compatibility
+remain unresolved. Step 2C applies Git/editor preservation only to archived smart-controls/*.tsx;
+manifest and raw-versus-staged blob checks gate the local commit. Independent backup
+verification remains pending. Supported browser-test environment and provisional version validation
+are detailed in the proposal; no browser/accessibility/compatibility tests have run.
 
 The archived handover names the original ZIP folder; the canonical local extraction
 folder is now IPX/IPX-BCS. Keep this intentional path update without renaming user files.
 
 ## Next activity (proposed, not automatically authorized)
 
-After the owner confirms Step 1C output, review Git/baseline protection as Step 1D:
-ignore rules, IPX line-ending preservation and an independent backup plan, followed by
-explicitly authorized repository initialization. Architecture review follows the safe
-foundation. Do not proceed automatically.
+Request fresh authorization for Step 2D readiness review: exact supported versions/platform,
+Smart-source reuse rights/dependencies and supported browser-test route. Resolve these
+before requesting separate scaffold authorization. No development starts automatically.
 
 ## Update discipline
 

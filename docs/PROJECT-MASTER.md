@@ -74,6 +74,17 @@ standards documents; do not repeat or weaken those rules here.
 
 Owner-approved: IPX visual direction, five-page navigation and the core business scope.
 Observed: the offline prototype and the new production folder foundation exist locally.
+Step 2B reconciliation, 16 October 2026: setup reports record success; Git main/e50dfea
+contains the 34-file baseline. Step 2A intake is complete. Historical Smart sources are
+now imported for reference only; see the [source review](reference/SMART-CONTROLS-REVIEW.md).
+Step 2C records OWNER-APPROVED HIGH-LEVEL DIRECTION for React 19/Next.js 16/TypeScript,
+preferred npm workspaces, future Fastify API/durable worker boundaries and secure
+multi-portal/data architecture. react-select and headless TanStack Table are CONDITIONAL
+IMPLEMENTATION CHOICES requiring exact IPX/accessibility parity. The
+[ratified proposal](architecture/PHASE-1-ARCHITECTURE-PROPOSAL.md) distinguishes these from
+unresolved exact versions (TypeScript 7.0.2 remains provisional), compatibility, source
+provenance/reuse rights and supported testing environment. Step 2D and any scaffold need
+fresh owner authorization; the local documentation commit is not development approval.
 Not yet established at this checkpoint: a production framework, API, database schema,
 authentication, actual connector, queue worker, SES sending, real reports, production
 hosting or application test suite. Browser-saved demo templates do not establish backend
@@ -86,8 +97,9 @@ visual change or scope change; only accepted changes alter the baseline.
 
 ChatGPT plans/reviews; Codex implements approved increments; the owner approves important
 decisions. Use exact CMD commands and one activity at a time. Keep source-of-truth Markdown
-updated to avoid repeating full instructions. Git history and durable file copies will
-provide continuity after their setup is separately approved.
+updated to avoid repeating full instructions. Git history now provides the verified baseline;
+independent backup verification remains pending. Do not rerun historical installers to
+undo later authorized documentation changes.
 
 Source: the owner's original handover (archived under `docs/reference`), the 16 October
 2026 workspace screenshots/CMD transcript, and the explicit UI/reuse/documentation requests
