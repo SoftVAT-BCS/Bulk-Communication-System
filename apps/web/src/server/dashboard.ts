@@ -2,7 +2,7 @@ import 'server-only';
 import { authorized } from './app-service';
 import { ReadError } from './validation';
 export function dashboardDays(params:URLSearchParams){if([...params.keys()].some(k=>k!=='days')||params.getAll('days').length>1)throw new ReadError(400,'INVALID_FILTER');const days=Number(params.get('days')??30);if(![7,30,90].includes(days))throw new ReadError(400,'INVALID_FILTER');return days;}
-export async function dashboard(request:Request){const days=dashboardDays(new URL(request.url).searchParams);return authorized(request,'dashboard.view',async(c,s)=>{
+export async function dashboard(request:Request,permission="dashboard.view"){const days=dashboardDays(new URL(request.url).searchParams);return authorized(request,permission,async(c,s)=>{
  const result=await c.query(`SELECT jsonb_build_object(
  'scope',(SELECT jsonb_build_object('company',co.company_name,'portal',p.portal_name,'portalStatus',p.status) FROM bcs.companies co JOIN bcs.portals p ON p.company_id=co.id WHERE co.id=$1 AND p.id=$2),
  'recipients',(SELECT coalesce(jsonb_object_agg(status,n),'{}'::jsonb) FROM (SELECT status,count(id)::int n FROM bcs.recipients WHERE company_id=$1 AND portal_id=$2 GROUP BY status) r),

@@ -2,7 +2,9 @@
 
 ## Consolidated dynamic application — partial, 17 October 2026
 
-The current owner master authorization supersedes historical stop/approval text below. Authenticated local owner sessions and PostgreSQL template/draft persistence are implemented; live dashboard aggregates and bounded authorized CSV export added; migrations 011–013 applied. The complete five-page/13-tab SaaS task remains unfinished. No completion commit was created. See [actual implementation, permission matrix, tests and exact remaining modules](../implementation/MASTER-DYNAMIC-IMPLEMENTATION-STATUS.md). All 106 automated tests (including 11 live reader tests), 23 live document assertions 8 restricted-backend, 11 tenant/operator, 9 dashboard and 6 export assertions passed. Production build passed; no deployment or sending.
+The current master authorization supersedes historical stop/approval text below. Local baseline checkpoint **e68340f** preserves authentication, recipients, templates/drafts, dashboard and export. This continuation adds database-backed scheduling revisions, report/queue lists and safe queue/manual-suppression operations; migrations **014�015** applied. **124 tests**, typecheck, lint and production build passed; live scheduling **18**, activity **22**, restricted-role **12** assertions passed. Original **28 IPX/reference hashes** match; targeted source/bundle credential scan clean. No emails, AWS calls, deployment or push.
+
+The complete five-page/13-tab task remains **partial**. Configuration CRUD, full campaigns/selection/queue preparation and SaaS client/import API are still unimplemented. See the [consolidated matrix, verification limits and remaining work](../implementation/MASTER-DYNAMIC-IMPLEMENTATION-STATUS.md). Next activity: transactional recipient-selection-to-campaign snapshots and non-sending queue preparation.
 
 
 ## Step 3B-2 offline isolation refinement — 17 October 2026
