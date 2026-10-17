@@ -1,5 +1,10 @@
 # BCS current work status
 
+## Consolidated dynamic application — partial, 17 October 2026
+
+The current owner master authorization supersedes historical stop/approval text below. Authenticated local owner sessions and PostgreSQL template/draft persistence are implemented; live dashboard aggregates and bounded authorized CSV export added; migrations 011–013 applied. The complete five-page/13-tab SaaS task remains unfinished. No completion commit was created. See [actual implementation, permission matrix, tests and exact remaining modules](../implementation/MASTER-DYNAMIC-IMPLEMENTATION-STATUS.md). All 106 automated tests (including 11 live reader tests), 23 live document assertions 8 restricted-backend, 11 tenant/operator, 9 dashboard and 6 export assertions passed. Production build passed; no deployment or sending.
+
+
 ## Step 3B-2 offline isolation refinement — 17 October 2026
 
 Verified main/44eeb3f6b983da76279ba87dd468202e8feba5e3 and the six Step 3B-1 working files. Removed only the proposed global demo taxonomy constraint, replacing it with required nonblank group/category checks. The fixture validator remains unchanged. [Step 3B-2 review](../architecture/STEP-3B-2-ISOLATION-REVIEW.md) documents role preflights, future Step 3B-3 access/import gates and synthetic optional-field test cases.

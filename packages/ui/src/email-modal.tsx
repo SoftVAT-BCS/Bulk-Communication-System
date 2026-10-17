@@ -9,7 +9,7 @@ export function EmailModal({ title, children, footer, onRequestClose, compact = 
     if (event.key === "Escape") { event.preventDefault(); event.stopPropagation(); onRequestClose(); }
     if (event.key === "Tab") { const nodes = [...event.currentTarget.querySelectorAll<HTMLElement>('button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[contenteditable=true],[tabindex="0"]')].filter(node => node.tabIndex >= 0 && !node.closest("[hidden]")); const first = nodes[0], last = nodes[nodes.length-1]; if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); } else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); } }
   }} onPointerDown={event => { if (event.target !== event.currentTarget) return; const b = event.currentTarget.getBoundingClientRect(); if (event.clientX < b.left || event.clientX > b.right || event.clientY < b.top || event.clientY > b.bottom) { event.preventDefault(); onRequestClose(); } }}>
-    <header className="bcs-email-modal-head"><div><div className="eyebrow">BROWSER-LOCAL DESIGN STUDIO</div><h2 id={id}>{title}</h2></div><ActionButton aria-label={`Close ${title}`} onClick={onRequestClose}>Close ✕</ActionButton></header>
+    <header className="bcs-email-modal-head"><div><div className="eyebrow">EMAIL DESIGN STUDIO</div><h2 id={id}>{title}</h2></div><ActionButton aria-label={`Close ${title}`} onClick={onRequestClose}>Close ✕</ActionButton></header>
     <div className="bcs-email-modal-body">{children}</div>{footer && <footer className="bcs-email-modal-foot">{footer}</footer>}
   </dialog>;
 }

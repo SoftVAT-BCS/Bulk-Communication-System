@@ -39,7 +39,7 @@ export function RichEmailEditor({ value, onChange, ariaLabel="Email body", readO
     {linkOpen && <div className="bcs-email-link-form"><label htmlFor={`${id}-link`}>HTTPS or mailto link</label><input className="input" id={`${id}-link`} value={url} onChange={event=>setUrl(event.target.value)} placeholder="https://example.com/resources" /><button className="btn sm primary" type="button" onClick={()=>{const safe=safeEmailUrl(url);if(!safe){setValidation("Enter an HTTPS link or a plain mailto address. Other protocols are blocked.");return;}run(e=>e.chain().focus().extendMarkRange("link").setLink({href:safe}).run());setLinkOpen(false);setValidation("");}}>Apply link</button><button type="button" className="btn sm" onClick={()=>{setLinkOpen(false);editor?.commands.focus();}}>Cancel link</button></div>}
     {(error||validation) && <p className="bcs-email-error" role="alert">{error||validation}</p>}
     {!editor ? <p className="bcs-email-loading">Loading local editor…</p> : <EditorContent editor={editor} />}
-    <div className="bcs-email-editor-foot"><span>{saving ? "Saving in this browser…" : readOnly ? "Read-only content" : "Rich HTML · synthetic demo only"}</span><span>{value.plainText.length} characters · Ctrl+B / I / U</span></div>
+    <div className="bcs-email-editor-foot"><span>{saving ? "Saving…" : readOnly ? "Read-only content" : "Rich HTML · synthetic demo only"}</span><span>{value.plainText.length} characters · Ctrl+B / I / U</span></div>
   </div>;
   return expanded ? <EmailModal title="Focus email editor" onRequestClose={()=>setExpanded(false)}>{body}</EmailModal> : body;
 }

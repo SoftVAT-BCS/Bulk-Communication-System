@@ -1,0 +1,31 @@
+import "server-only";
+import { authorized,jsonBody } from "./app-service";
+import { cleanDocument } from "./document-safety";
+import { ReadError,uuid } from "./validation";
+const categories:Record<string,string>={"Class Schedule":"class_schedule",Reschedule:"reschedule",Cancellation:"cancellation",Reminder:"reminder",Newsletter:"newsletter",Resource:"other",Announcement:"announcement"};
+function field(v:unknown,max:number,required=false){if(typeof v!=="string"||v.length>max||(required&&!v.trim()))throw new ReadError(400,"INVALID_FIELD");return v.trim();}
+export async function listDocuments(request:Request){return authorized(request,"templates.view",async(c,s)=>{
+ const templates=await c.query("SELECT id,template_name,category,subject,html_body,editor_document,revision,updated_at FROM bcs.email_templates WHERE company_id=$1 AND portal_id=$2 AND status<>'archived' ORDER BY updated_at DESC LIMIT 100",[s.company_id,s.portal_id]);
+ const drafts=await c.query("SELECT id,subject,category,html_body,editor_document,version FROM bcs.email_drafts WHERE company_id=$1 AND portal_id=$2 AND owner_principal_id=$3 AND state='draft' ORDER BY updated_at DESC LIMIT 1",[s.company_id,s.portal_id,s.principal_id]);
+ const category=(code:string)=>Object.keys(categories).find(k=>categories[k]===code)??"Announcement";
+ return {templates:templates.rows.map(t=>({id:'custom-'+t.id,name:t.template_name,category:category(t.category),subject:t.subject,description:t.editor_document?.description??'',content:cleanDocument(t.html_body),revision:t.revision,updatedAt:t.updated_at,builtIn:false})),draft:drafts.rows[0]?{id:drafts.rows[0].id,version:drafts.rows[0].version,subject:drafts.rows[0].subject,category:category(drafts.rows[0].category),sender:drafts.rows[0].editor_document?.sender??'',replyTo:drafts.rows[0].editor_document?.replyTo??'',content:cleanDocument(drafts.rows[0].html_body)}:null};
+ });}
+export async function saveDocument(request:Request){const b=await jsonBody(request);const kind=b.kind;if(!['template','draft','archive'].includes(String(kind)))throw new ReadError(400,"INVALID_KIND");return authorized(request,kind==='draft'?'compose.draft':'templates.manage',async(c,s)=>{
+ if(kind==='archive'){if(!Number.isInteger(b.version))throw new ReadError(409,'VERSION_REQUIRED');const id=String(b.id??'').replace(/^custom-/,'');if(!uuid.test(id))throw new ReadError(400,'INVALID_ID');const r=await c.query("UPDATE bcs.email_templates SET status='archived',revision=revision+1 WHERE company_id=$1 AND portal_id=$2 AND id=$3 AND revision=$4 RETURNING id",[s.company_id,s.portal_id,id,b.version]);if(!r.rowCount)throw new ReadError(409,'VERSION_CONFLICT');await c.query("INSERT INTO bcs.audit_events(company_id,portal_id,actor_principal_id,action,entity_type,entity_reference) VALUES($1,$2,$3,'template.archived','template',$4)",[s.company_id,s.portal_id,s.principal_id,id]);return {archived:true};}
+ const subject=field(b.subject,200,kind==='template'),label=field(b.category,40),category=categories[label];if(!category)throw new ReadError(400,'INVALID_CATEGORY');
+ const content=cleanDocument(b.html);if(kind==='template'&&!content.plainText)throw new ReadError(400,'EMPTY_TEMPLATE');const id=typeof b.id==='string'?b.id.replace(/^custom-/,''):'';if(id&&!uuid.test(id))throw new ReadError(400,'INVALID_ID');
+ let row: {id:string;revision?:number;version?:number};
+ if(kind==='template'){
+ const name=field(b.name,100,true),description=field(b.description??'',300);
+ await c.query('SELECT pg_advisory_xact_lock(hashtextextended($1,0))',[s.company_id+':'+s.portal_id+':'+name.toLowerCase()]);
+ const conflict=await c.query("SELECT id FROM bcs.email_templates WHERE company_id=$1 AND portal_id=$2 AND lower(template_name)=lower($3) AND status<>'archived' AND ($4::uuid IS NULL OR id<>$4::uuid)",[s.company_id,s.portal_id,name,id||null]);if(conflict.rowCount)throw new ReadError(409,'DUPLICATE_NAME');
+ if(id){if(!Number.isInteger(b.version))throw new ReadError(409,'VERSION_REQUIRED');const r=await c.query("UPDATE bcs.email_templates SET template_name=$4,category=$5,subject=$6,html_body=$7,text_body=$8,editor_document=$9,revision=revision+1 WHERE company_id=$1 AND portal_id=$2 AND id=$3 AND revision=$10 AND status<>'archived' RETURNING id,revision",[s.company_id,s.portal_id,id,name,category,subject,content.html,content.plainText,{description},b.version]);if(!r.rowCount)throw new ReadError(409,'VERSION_CONFLICT');row=r.rows[0];}
+ else{row=(await c.query("INSERT INTO bcs.email_templates(company_id,portal_id,template_key,template_name,category,subject,html_body,text_body,editor_document,created_by) VALUES($1,$2,'template_'||replace(gen_random_uuid()::text,'-',''),$3,$4,$5,$6,$7,$8,$9) RETURNING id,revision",[s.company_id,s.portal_id,name,category,subject,content.html,content.plainText,{description},s.principal_id])).rows[0];}
+ await c.query("INSERT INTO bcs.email_template_revisions(company_id,template_id,revision,subject_snapshot,html_snapshot,text_snapshot,recorded_by) VALUES($1,$2,$3,$4,$5,$6,$7)",[s.company_id,row.id,row.revision,subject,content.html,content.plainText,s.principal_id]);
+ }else{
+ const sender=field(b.sender??'',100),replyTo=field(b.replyTo??'',254);if(replyTo&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(replyTo))throw new ReadError(400,'INVALID_REPLY_TO');
+ if(id){const r=await c.query("UPDATE bcs.email_drafts SET subject=$4,category=$5,html_body=$6,text_body=$7,editor_document=$8,version=version+1 WHERE company_id=$1 AND portal_id=$2 AND id=$3 AND version=$9 AND state='draft' RETURNING id,version",[s.company_id,s.portal_id,id,subject,category,content.html,content.plainText,{sender,replyTo},b.version]);if(!r.rowCount)throw new ReadError(409,'VERSION_CONFLICT');row=r.rows[0];}
+ else row=(await c.query("INSERT INTO bcs.email_drafts(company_id,portal_id,owner_principal_id,category,subject,html_body,text_body,editor_document) VALUES($1,$2,$3,$4,$5,$6,$7,$8) RETURNING id,version",[s.company_id,s.portal_id,s.principal_id,category,subject,content.html,content.plainText,{sender,replyTo}])).rows[0];
+ }
+ await c.query("INSERT INTO bcs.audit_events(company_id,portal_id,actor_principal_id,action,entity_type,entity_reference) VALUES($1,$2,$3,$4,$5,$6)",[s.company_id,s.portal_id,s.principal_id,'document.saved',kind,row.id]);return row;
+ });}

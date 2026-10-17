@@ -1,0 +1,5 @@
+import { authorized, login, response, requestToken, sessionCookie, digest } from "../../../../../src/server/app-service";
+export const runtime="nodejs";
+export async function GET(request:Request){return response(()=>authorized(request,"dashboard.view",async (_c,s)=>({name:s.display_name,permissions:s.permissions})));}
+export async function POST(request:Request){const r=await response(async()=>({token:await login(request)}));if(r.ok){const payload=await r.json();return Response.json({data:{authenticated:true}},{headers:{"Cache-Control":"no-store","Set-Cookie":`${sessionCookie}=${payload.data.token}; HttpOnly; SameSite=Strict; Path=/; Max-Age=28800${new URL(request.url).protocol==='https:'?'; Secure':''}`}});}return r;}
+export async function DELETE(request:Request){const r=await response(()=>authorized(request,"dashboard.view",async c=>{await c.query("UPDATE bcs.application_sessions SET revoked_at=now() WHERE token_hash=$1",[digest(requestToken(request))]);return {loggedOut:true};}));r.headers.set("Set-Cookie",`${sessionCookie}=; HttpOnly; SameSite=Strict; Path=/; Max-Age=0`);return r;}

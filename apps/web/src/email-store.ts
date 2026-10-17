@@ -44,10 +44,10 @@ export function templateValidation(template:EmailTemplate,all:EmailTemplate[],ex
   return "";
 }
 export function copyTemplateName(name:string,all:EmailTemplate[]):string {let next=`${name.slice(0,85)} (copy)`,i=2;while(all.some(t=>t.name.toLowerCase()===next.toLowerCase()))next=`${name.slice(0,85)} (copy ${i++})`;return next;}
-export function useEmailWorkspace() {
+export function useEmailWorkspace(enabled=true) {
   const [ready,setReady]=useState(false),[custom,setCustom]=useState<EmailTemplate[]>([]),[draft,setDraft]=useState<EmailDraft>(blankDraft),[saved,setSaved]=useState("");
   const [warnings,setWarnings]=useState<string[]>([]),[blocked,setBlocked]=useState({templates:false,draft:false}),[notice,setNotice]=useState("");
-  useEffect(()=>{try{const result=loadDemoStore(window.localStorage);setCustom(result.templates);setDraft(result.draft);setSaved(JSON.stringify(result.draft));setWarnings(result.warnings);setBlocked({templates:result.templatesBlocked,draft:result.draftBlocked});}catch{setWarnings(["Browser storage is unavailable. Demo edits remain in memory only; nothing can be saved."]);setBlocked({templates:true,draft:true});}setReady(true);},[]);
+  useEffect(()=>{if(!enabled)return;try{const result=loadDemoStore(window.localStorage);setCustom(result.templates);setDraft(result.draft);setSaved(JSON.stringify(result.draft));setWarnings(result.warnings);setBlocked({templates:result.templatesBlocked,draft:result.draftBlocked});}catch{setWarnings(["Browser storage is unavailable. Demo edits remain in memory only; nothing can be saved."]);setBlocked({templates:true,draft:true});}setReady(true);},[enabled]);
   const dirty=ready&&JSON.stringify(draft)!==saved;
   useEffect(()=>{if(!dirty)return;const guard=(event:BeforeUnloadEvent)=>{event.preventDefault();event.returnValue="";};window.addEventListener("beforeunload",guard);return()=>window.removeEventListener("beforeunload",guard);},[dirty]);
   const templates=ready?[...starterTemplates(),...custom]:[];

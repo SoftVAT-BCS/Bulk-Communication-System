@@ -1,0 +1,2 @@
+import type { Recipient } from '@bcs/contracts';
+export function recipientCsv(rows:readonly Recipient[]){const cell=(value:string)=>{const guarded=/^[\s]*[=+@-]/.test(value)||/^[\t\r\n]/.test(value)?`'${value}`:value;return `"${guarded.replaceAll('"','""')}"`;};return '\ufeff'+[['Student ID','Name','Email','Group','Subgroup','Status'],...rows.map(r=>[r.targetId??r.id,r.name,r.email,r.group,r.subgroup,r.status])].map(row=>row.map(cell).join(',')).join('\r\n')+'\r\n';}

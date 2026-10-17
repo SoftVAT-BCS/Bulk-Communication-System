@@ -21,11 +21,13 @@ function safeColor(value: string) {
   return rgb?.slice(1).every(n => Number(n) <= 255) ? `#${rgb.slice(1).map(n => Number(n).toString(16).padStart(2,"0")).join("")}` : "";
 }
 /** All imports, paste, storage and previews use this boundary. Never returns raw input on SSR. */
-export function sanitizeEmailHtml(input: string): string {
-  if (typeof document === "undefined") return "";
+export function sanitizeEmailHtml(input: string, environment?: { document: Document; sanitize(value: string, options: typeof policy): string }): string {
+  const doc = environment?.document ?? (typeof document === "undefined" ? undefined : document);
+  if (!doc) return "";
   if (input.length > maxEmailHtml) throw new Error("Email body exceeds the 100,000-character demo limit.");
-  const clean = DOMPurify.sanitize(input, policy);
-  const template = document.createElement("template"); template.innerHTML = clean;
+  const purify = environment?.sanitize ?? ((value: string) => DOMPurify.sanitize(value, policy));
+  const clean = purify(input, policy);
+  const template = doc.createElement("template"); template.innerHTML = clean;
   for (const element of template.content.querySelectorAll<HTMLElement>("*")) {
     const style = element.style; const allowed: string[] = [];
     for (const property of ["color", "background-color"]) { const color = safeColor(style.getPropertyValue(property)); if (color) allowed.push(`${property}:${color}`); }
@@ -41,7 +43,7 @@ export function sanitizeEmailHtml(input: string): string {
     element.removeAttribute("href"); element.removeAttribute("target"); element.removeAttribute("rel");
     if (href) { element.setAttribute("href", href); element.setAttribute("target", "_blank"); element.setAttribute("rel", "noopener noreferrer"); }
   }
-  return DOMPurify.sanitize(template.innerHTML, policy);
+  return purify(template.innerHTML, policy);
 }
 export function emailContent(input: string): EmailContent {
   const html = sanitizeEmailHtml(input);
