@@ -80,3 +80,15 @@ Checked 16 October 2026:
 
 Tool documentation is time-sensitive. Recheck official guidance when changing setup or
 Codex configuration. No account connection or cloud service is needed for this step.
+
+## Step 3B-1 offline proposal
+
+[Recipient data foundation](architecture/RECIPIENT-DATA-FOUNDATION.md): schema, complete CSV mapping, aggregate validation, security, import procedure and execution gates.
+
+## Step 3B-2 offline review
+
+[Isolation refinement and proposed Step 3B-3](architecture/STEP-3B-2-ISOLATION-REVIEW.md): revised SQL scope, role/RLS preflights, deployment decision, importer gates and optional-field test design.
+
+- [Step 3C-1 dynamic data foundation](implementation/STEP-3C1-DYNAMIC-DATA-FOUNDATION.md) — optional server-side recipient read path; pending access proposal and owner connection gate.
+
+Step 3C-2B: [restricted reader deployment and actual dynamic acceptance](implementation/STEP-3C2B-DYNAMIC-INTEGRATION-RESULT.md).

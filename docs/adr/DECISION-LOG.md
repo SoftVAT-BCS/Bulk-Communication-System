@@ -60,3 +60,7 @@ rollback/migration and approval evidence. States: Proposed, Accepted, Rejected o
 Include an owner approval date/reference before Accepted. Do not invent ADR numbers for
 an implementation that has not been discussed. Update this registry and the relevant
 source-of-truth document after an accepted change.
+
+## Proposed — Step 3C-1 recipient read boundary (17 October 2026)
+
+Use same-origin Next Node Route Handlers, pinned node-postgres and a modular repository for the first optional recipient read slice. Dedicated fixed synthetic identity is development/loopback only; proposed010 grants only six-table scoped reads and is not executed. This is not accepted SaaS authentication. Later Fastify extraction and authenticated tenant resolution remain separate decisions. See [Step 3C-1](../implementation/STEP-3C1-DYNAMIC-DATA-FOUNDATION.md).
