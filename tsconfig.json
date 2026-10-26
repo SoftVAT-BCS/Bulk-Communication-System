@@ -2,9 +2,9 @@
   "compilerOptions": {
     "target": "ES2022", "lib": ["DOM", "DOM.Iterable", "ES2022"],
     "module": "ESNext", "moduleResolution": "Bundler", "jsx": "react-jsx",
-    "strict": true, "noEmit": true, "esModuleInterop": true, "skipLibCheck": true,
+    "allowImportingTsExtensions": true, "strict": true, "noEmit": true, "esModuleInterop": true, "skipLibCheck": true,
     "resolveJsonModule": true, "isolatedModules": true
   },
-  "include": ["apps/web/**/*.ts", "apps/web/**/*.tsx", "packages/**/*.ts", "packages/**/*.tsx", "tests/**/*.ts", "tests/**/*.tsx"],
+  "include": ["apps/worker/**/*.ts", "apps/web/**/*.ts", "apps/web/**/*.tsx", "packages/**/*.ts", "packages/**/*.tsx", "tests/**/*.ts", "tests/**/*.tsx"],
   "exclude": ["node_modules", "apps/web/.next", "docs", "IPX", "Downloads"]
 }

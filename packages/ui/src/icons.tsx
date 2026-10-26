@@ -14,6 +14,7 @@ const icons: Record<string, ReactNode> = {
   search: <><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></>,
   shield: <><path d="m12 22 7-4V6l-7-4-7 4v12l7 4z"/><path d="m9 12 2 2 4-4"/></>,
   bell: <><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9ZM10 21h4"/></>,
+  logout: <><path d="M10 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5"/><path d="M14 7l5 5-5 5M8 12h11"/></>,
   menu: <><path d="M3 6h18M3 12h18M3 18h18"/></>,
   x: <><path d="M5 5 19 19M19 5 5 19"/></>,
   clock: <><circle cx="12" cy="12" r="9"/><path d="M12 7v5l4 2"/></>,

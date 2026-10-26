@@ -1,0 +1,4 @@
+import {ReadError} from './validation';
+const allowed=['student_name','course_name','batch_name'];
+export function validateVariables(subject:string,html:string){if(/<[^>]*\{\{/.test(html))throw new ReadError(400,'VARIABLES_IN_ATTRIBUTES_NOT_ALLOWED');for(const value of [subject,html]){const remaining=value.replace(/\{\{([a-z_]+)\}\}/g,(_token,key:string)=>{if(!allowed.includes(key))throw new ReadError(400,'UNKNOWN_PERSONALIZATION_VARIABLE');return '';});if(remaining.includes('{{')||remaining.includes('}}'))throw new ReadError(400,'INVALID_PERSONALIZATION_VARIABLE');}}
+export function personalize(value:string,values:Record<string,string>,html=false){return value.replace(/\{\{([a-z_]+)\}\}/g,(_token,key:string)=>{if(!allowed.includes(key)||!values[key])throw new ReadError(422,'MISSING_PERSONALIZATION_VALUE');const text=values[key];return html?text.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]??c)):text;});}

@@ -18,7 +18,7 @@ describe("read contract validation", () => {
     expect(filters(new URLSearchParams()).search).toBe("");
     for (const size of [10,20,50]) expect(filters(new URLSearchParams(`size=${size}&page=2`))).toMatchObject({ size, page: 2 });
   });
-  it.each(["sort=name;DROP TABLE bcs.recipients", "sort=__proto__", "company_id=x", "portal_id=x", "size=11", "page=-1", "page=100001", "search=a&search=b", "descending=yes", "status=active", "groups=x", "search=" + "a".repeat(121)])("rejects unsafe or ambiguous params: %s", value => {
+  it.each(["sort=name;DROP TABLE bcs.recipients", "sort=__proto__", "company_id=x", "portal_id=x", "size=11", "page=-1", "page=100001", "search=a&search=b", "descending=yes", "status=active", "groups=x", `search=${"a".repeat(121)}`])("rejects unsafe or ambiguous params: %s", value => {
     expect(() => filters(new URLSearchParams(value))).toThrow();
   });
   it("keeps a SQL injection string as data and rejects production / cross-origin", () => {

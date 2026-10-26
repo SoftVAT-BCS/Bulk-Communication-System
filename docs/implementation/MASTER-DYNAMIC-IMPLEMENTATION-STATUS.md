@@ -165,3 +165,50 @@ All six Scheduling/Reports tabs were opened in the authenticated browser. Class 
 After final server restart, dashboard (9 assertions) and recipient CSV (6 assertions, 240 total/213 Active) regression probes passed again. Catalog verification confirmed 59 FORCE-RLS tables, 15 migrations and 240 recipients. Local hidden development server remains at http://127.0.0.1:3000/ (launcher PID 27400 at handover). Pre-existing next-env bytes restored; unrelated files remain untracked/unstaged.
 
 Continuation changed-file groups: scheduling/activity/report-overview API routes; scheduling/activity validators and server repositories; DatabaseScheduling/DatabaseActivity UI; workspace tab routing; report-mode dashboard reuse; optional shared grid non-selection mode; migrations 014–015; three focused test files; this report and WORK-STATUS. No dependencies, IPX files, secrets or other projects changed.
+
+## Dynamic campaign, Configuration and client API continuation â€” 17 October 2026
+
+This section supersedes the earlier unimplemented-module list. The requested non-sending increment is implemented against dedicated bcs-dev; this is not a production release or full master-roadmap acceptance.
+
+### Delivered behavior
+
+| Area | Database-backed behavior | Boundary |
+|---|---|---|
+| Recipients | Explicit/page/all-matching immutable selections; 24-hour expiry; server-side filters; membership-aware selection; add/remove matching preserves other selections; individual amendments | Maximum 1,000 selected recipients; expired snapshots must be replaced |
+| Drafts | Saved-draft registry and reopening; selected database recipient preview; existing HTML designer retained | Attachment uploads unavailable without approved private storage |
+| Campaigns | Create/edit, idempotency, optimistic revisions, review/approval, scheduling, cancellation, audit history and dry-run | Current selection ownership is creator-bound; cross-principal campaign approval with another owner's selection is not supported |
+| Queue preparation | Rechecks Active state, consent with evidence, suppressions and duplicate addresses; snapshots personalized subjects/HTML/text; creates paused jobs | No sender/worker or AWS integration; no delivery occurs |
+| Configuration | Company/timezone, portal lifecycle, connector metadata, immutable mapping versions, native sample validation/approval/disable, provider metadata, sender identity creation, disabled rate policies, custom roles/permission matrix and principal portal assignments | External database adapters require separately implemented/approved adapters; identity/account provisioning and sender identity editing remain separate |
+| SaaS contact API | Scoped bearer identity, strict batches, idempotency, row errors, normalized groups/memberships, usage counters and 60/minute rate limit | Local development only; scoped client token must be provisioned privately for a real caller; no public endpoint or billing enforcement |
+
+Campaign variable allowlist: student_name, course_name, batch_name. Unknown/malformed variables and variables in HTML attributes are rejected. Recipient values are HTML-escaped; subject line breaks are removed. History remains accessible after snapshot expiry; current eligibility explicitly reports unavailable rather than hiding history.
+
+Configuration uses company-wide permissions in both backend checks and PostgreSQL policies. Built-in roles and self-permission changes are blocked; administrators cannot grant unheld permissions. Connector forms accept approved aliases, never passwords/connection strings. Native validation supports only the current portal and bcs-native recipients source. SES policy saves always keep sending disabled and cannot manufacture provider verification or quotas. The authenticated settings export preview is disabled rather than pretending to export real configuration.
+
+Migrations 016_campaign_workspace, 017_configuration_workspace, 018_contact_api and 019_contact_taxonomy were applied transactionally under the earlier owner authorization to bcs-dev only. No earlier migration rerun. Verified catalog: 60 FORCE-RLS tables, 19 migrations, 240 recipients. Runtime remains restricted bcs_app_backend with verified TLS. The original read-only recipient role is unchanged; backend contact-write grants are new, column-limited and API-context-scoped. Earlier statements that the backend never has recipient UPDATE are historical and superseded.
+
+### Verification and preservation
+
+- Automated suite: 145/145 passed (17 files), including 11 live restricted-reader tests. An earlier run had 143 passes and two fixed-count failures because the temporary UI recipient was still present; exact cleanup restored 240/213 and the unchanged assertions passed.
+- Typecheck and lint passed; lint has informational suggestions only. Production build passed with new campaign, selection, configuration and contact routes.
+- Live Configuration probe: 22 assertions passed (persistence, company permission, raw connector rejection, native five-row sample, mapping approval, provider/policy state, role constraints).
+- Live contact API probe: 15 assertions passed (import, replay/conflict, per-row errors, tenant denial, inactive defaults, normalized memberships, unsubscribe preservation, usage, rate limit and revocation).
+- Live negative operator/tenant probe: 18 assertions passed; unauthorized campaign/configuration/scheduling/queue/export/selection access denied.
+- Browser actually executed: select dedicated recipient, continue to compose, personalize preview, save draft, choose persisted draft, create campaign, request review, approve, prepare queue, open eligibility/audit history. Database independently confirmed one paused job and resolved personalized body. Screenshot: .local/dynamic-campaign-browser.png.
+- Exact browser and API probe records removed by generated IDs or unique test tag; recipient count restored to 240. No user data cleanup or general reset.
+- Original 28 IPX/reference hashes matched; known saved credential values absent from unignored source and the 10 built browser JavaScript chunks checked. This is a targeted leak check, not a full security audit.
+- No framework/dependency upgrade, real email, AWS request, deployment or push. No staging or commit in this continuation. Pre-existing unrelated files preserved.
+
+### Remaining acceptance and integration prerequisites
+
+The core requested modules now use PostgreSQL rather than synthetic browser storage. Complete production/SaaS readiness is not claimed. Full mobile/accessibility acceptance, all CRUD browser permutations, cross-principal approval, multi-portal switching, large-list pagination/export, template history/import/assets, attachment storage, external source adapters and principal/client credential lifecycle UI remain outside the verified increment. Configuration metadata does not establish external connectivity. Rate-window/idempotency retention maintenance and billing enforcement are not installed. Existing scheduling limits and reminder-to-campaign automation remain as documented previously.
+
+See SAAS-CONTACT-API.md for the private token setup and request contract. Next activity: owner acceptance of the local non-sending workflow, followed by a separately scoped integration/production-readiness increment. Sending remains disabled.
+
+Final live campaign probe: 21 assertions passed, including add/remove matching selection preservation, empty result clearing and expired-snapshot audit history. Exact test records cleaned. Configuration browser tabs were opened; mutation coverage for Configuration is HTTP/database, not full browser CRUD acceptance.
+
+Changed-file groups in this continuation: app campaign/selection/configuration/contact API routes; campaign, configuration, contact and personalization server modules/validators; CampaignWorkspace and DatabaseConfiguration; existing Communication, EmailWorkspace, composer, saved-draft store, documents API and workspace routing; migrations 016-019; dynamic workflow/personalization tests and one recipient UI regression; this report, WORK-STATUS and SAAS-CONTACT-API. No shared grid/control or IPX source modifications in this continuation.
+
+Verification note: the selection-preservation follow-up initially sent an empty ids array in an otherwise server-only all-matching request; the existing new UI assertion caught this. Empty ids are now omitted and the assertion was retained. No tests were weakened. Final rerun results supersede the interim run.
+
+Final handover: post-fix 145/145 tests and production build passed. Local hidden development launcher PID 2336; all five page routes returned HTTP 200 after restart. Original next-env bytes restored. Git index empty; no push. Final catalog remains 60 FORCE-RLS tables / 19 migrations / 240 recipients. Final targeted scan again matched all 28 protected hashes and found no known credential values in source or 10 built browser chunks.

@@ -1,0 +1,24 @@
+REVIEW ONLY. Apply the matching block once in an explicitly disposable SOURCE database.
+Grant the source reader SELECT on this view only. No write, DDL, file, network,
+EXECUTE, administrative, cross-database or role-membership privileges.
+TLS certificates must verify the configured host/IP. Never turn verification off.
+
+PostgreSQL (database bcs_connector_isolated; create source_demo schema separately):
+CREATE VIEW source_demo.contacts AS
+SELECT '00001'::text target_id,'Synthetic One'::text name,'one@example.invalid'::text email,'Demo'::text group_name,'Batch A'::text subgroup_name,'Active'::text status
+UNION ALL SELECT '00002','Synthetic Two','two@example.invalid','Demo','Batch A','Active';
+
+MySQL / MariaDB (database bcs_connector_isolated):
+CREATE VIEW contacts AS
+SELECT '00001' target_id,'Synthetic One' name,'one@example.invalid' email,'Demo' group_name,'Batch A' subgroup_name,'Active' status
+UNION ALL SELECT '00002','Synthetic Two','two@example.invalid','Demo','Batch A','Active';
+
+SQL Server (database bcs_connector_isolated):
+CREATE VIEW dbo.contacts AS
+SELECT CAST('00001' AS nvarchar(200)) target_id,'Synthetic One' name,'one@example.invalid' email,'Demo' group_name,'Batch A' subgroup_name,'Active' status
+UNION ALL SELECT '00002','Synthetic Two','two@example.invalid','Demo','Batch A','Active';
+
+REST response shape (approved HTTPS endpoint; after and limit query parameters):
+[{"target_id":"00001","name":"Synthetic One","email":"one@example.invalid","group_name":"Demo","subgroup_name":"Batch A","status":"Active"}]
+REST fixture execution is offline in this delivery. Public IPv4 HTTPS only in the
+real adapter; do not use localhost or weaken SSRF protections to run REST tests.

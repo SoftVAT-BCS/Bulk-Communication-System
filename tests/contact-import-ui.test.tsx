@@ -1,0 +1,6 @@
+import {render,screen,fireEvent} from '@testing-library/react';
+import {it,expect,vi} from 'vitest';
+vi.mock('../apps/web/src/session-gate',()=>({useSessionRights:()=>[]}));
+import {ContactImport} from '../apps/web/src/contact-import';
+it('offers the template and accessible preview without pretending synthetic persistence',()=>{render(<ContactImport database={false} onCommitted={vi.fn()}/>);expect(screen.getByRole('button',{name:'Download Sample CSV'}).hasAttribute('disabled')).toBe(false);fireEvent.click(screen.getByRole('button',{name:'Import CSV'}));expect(screen.getByRole('dialog')).toBeTruthy();expect(screen.getByLabelText('Choose or drop CSV file').getAttribute('type')).toBe('file');expect(screen.getByRole('button',{name:'Confirm import'}).hasAttribute('disabled')).toBe(true);expect(screen.getByText(/Preview only/)).toBeTruthy();});
+it('denies import and history for a session lacking import rights',()=>{render(<ContactImport database onCommitted={vi.fn()}/>);fireEvent.click(screen.getByRole('button',{name:'Import CSV'}));expect(screen.getByRole('button',{name:'Confirm import'}).hasAttribute('disabled')).toBe(true);expect(screen.getByRole('button',{name:'Import history'}).hasAttribute('disabled')).toBe(true);expect((screen.getByLabelText('Duplicate handling') as HTMLSelectElement).value).toBe('INSERT_NEW_ONLY');});

@@ -11,7 +11,7 @@ export class RecipientRepository {
     const subgroups = await this.db.query("SELECT s.id::text, s.subgroup_name AS name, s.group_id::text AS \"groupId\" FROM bcs.audience_subgroups s JOIN bcs.audience_groups g ON g.company_id=s.company_id AND g.portal_id=s.portal_id AND g.id=s.group_id WHERE s.company_id=$1::uuid AND s.portal_id=$2::uuid AND s.status='active' AND g.status='active' ORDER BY s.subgroup_name,s.id", values);
     return { groups: groups.rows, subgroups: subgroups.rows };
   }
-  async page(filter: RecipientFilter): Promise<DatabaseRecipientPage> {
+  async page(filter: RecipientFilter, forExport = false): Promise<DatabaseRecipientPage> {
     if (filter.groups.length || filter.subgroups.length) {
       const options = await this.options();
       if (filter.groups.some(id => !options.groups.some(g => g.id === id)) || filter.subgroups.some(id => !options.subgroups.some(s => s.id === id && (!filter.groups.length || filter.groups.includes(s.groupId))))) throw new ReadError(400, "INVALID_FILTER");
@@ -25,7 +25,8 @@ export class RecipientRepository {
     const count = await this.db.query(`SELECT count(*)::int AS total, count(*) FILTER (WHERE r.status='Active')::int AS eligible FROM bcs.recipients r WHERE ${where}`, values);
     const { total, eligible } = count.rows[0];
     const page = Math.min(filter.page, Math.max(0, Math.ceil(total / filter.size) - 1));
-    const result = await this.db.query<Recipient>(`SELECT ${summary}, r.target_id AS "targetId" FROM bcs.recipients r WHERE ${where} ORDER BY ${sortColumns[filter.sort]} ${filter.descending ? 'DESC' : 'ASC'}, r.id ASC LIMIT $7 OFFSET $8`, [...values, filter.size, page * filter.size]);
+    const result = await this.db.query<Recipient>(`SELECT ${summary}, r.target_id AS "targetId"${forExport ? `, ${details}, r.category,
+ (SELECT sg.subgroup_name FROM bcs.recipient_group_memberships m JOIN bcs.audience_groups g ON g.company_id=m.company_id AND g.portal_id=m.portal_id AND g.id=m.group_id JOIN bcs.audience_subgroups sg ON sg.company_id=m.company_id AND sg.portal_id=m.portal_id AND sg.id=m.subgroup_id AND sg.group_id=g.id WHERE m.company_id=r.company_id AND m.portal_id=r.portal_id AND m.recipient_id=r.id AND g.group_name=r.recipient_group AND g.status='active' AND sg.status='active') AS subgroup` : ''} FROM bcs.recipients r WHERE ${where} ORDER BY ${sortColumns[filter.sort]} ${filter.descending ? 'DESC' : 'ASC'}, r.id ASC LIMIT $7 OFFSET $8`, [...values, filter.size, page * filter.size]);
     return { rows: result.rows, total, eligible, meta: { page, size: filter.size, total, eligible } };
   }
   async detail(id: string): Promise<RecipientDetails> {

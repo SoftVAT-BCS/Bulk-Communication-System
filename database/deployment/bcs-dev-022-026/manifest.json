@@ -1,0 +1,42 @@
+{
+  "status": "PROPOSED_NOT_EXECUTED",
+  "embedding": "DISABLED_RLS_FALSE",
+  "worker": "NOLOGIN_NO_SCOPES",
+  "entries": [
+    {
+      "version": 22,
+      "source": "database/migrations/022_simulation_policy_and_receipts.sql",
+      "sourceSha256": "268fd116c94a054d7722c25fb8d418046d6fd357066fbc3d472ba3867e081abb",
+      "variant": "database/deployment/bcs-dev-022-026/022_reviewed_bcs_dev.sql",
+      "variantSha256": "47ddf8e40a8e97283079b96bde30ceec25cbc790f43871a69ace213db01ef558"
+    },
+    {
+      "version": 23,
+      "source": "database/migrations/023_isolated_simulation_worker.sql",
+      "sourceSha256": "2eabb19810da1e479b7bdded452429712d45976623dc775bbe536d8ee4235655",
+      "variant": "database/deployment/bcs-dev-022-026/023_reviewed_bcs_dev.sql",
+      "variantSha256": "4db2f03469bce764b7db54a53986229cb4d5b59b3a6ba2d4b050398f7ae42e03"
+    },
+    {
+      "version": 24,
+      "source": "database/migrations/024_tenant_embed_and_workflows.sql",
+      "sourceSha256": "2665902776913d516f9fb5505ecff7cb2cf44c26a0049e560680c45cf7bc7854",
+      "variant": "database/deployment/bcs-dev-022-026/024_reviewed_bcs_dev.sql",
+      "variantSha256": "22e4c90f7e90d1d3fff2f0fe9b109dd1fe933124ec3d40c8a48e7fda2c6d9b65"
+    },
+    {
+      "version": 25,
+      "source": "database/migrations/025_quotas_and_independent_review.sql",
+      "sourceSha256": "696e6e8c2a035add898a421a56bb84f0404cead32bafc397b70423402a216559",
+      "variant": "database/deployment/bcs-dev-022-026/025_reviewed_bcs_dev.sql",
+      "variantSha256": "29367ccb65ea16cb34d704c0536012bd339017bd1ef7f2b015ee516cdd389983"
+    },
+    {
+      "version": 26,
+      "source": "database/proposals/026_session_csv_import_PENDING_APPROVAL.sql",
+      "sourceSha256": "f0fcdce8ade862267dcdd5c9c391e1af1f632a683d73fcdb4a9b9c04d5b27077",
+      "variant": "database/deployment/bcs-dev-022-026/026_reviewed_bcs_dev.sql",
+      "variantSha256": "c0e7e669fb610c425c5970c41f5ffa376e4b4d05c201329c564b8bb510f6a790"
+    }
+  ]
+}

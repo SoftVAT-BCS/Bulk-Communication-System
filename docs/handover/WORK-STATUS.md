@@ -1,10 +1,64 @@
 # BCS current work status
 
-## Consolidated dynamic application — partial, 17 October 2026
+## CSV workspace scrolling correction — 19 October 2026
 
-The current master authorization supersedes historical stop/approval text below. Local baseline checkpoint **e68340f** preserves authentication, recipients, templates/drafts, dashboard and export. This continuation adds database-backed scheduling revisions, report/queue lists and safe queue/manual-suppression operations; migrations **014�015** applied. **124 tests**, typecheck, lint and production build passed; live scheduling **18**, activity **22**, restricted-role **12** assertions passed. Original **28 IPX/reference hashes** match; targeted source/bundle credential scan clean. No emails, AWS calls, deployment or push.
+Removed the owner-requested identity banner, retaining status in the action row and authenticated scope logic unchanged. Workspace scrolling now applies at all viewport sizes; report tables have an independent bounded scroll area so controls cannot collapse rows. Actual 1920x920 and 390x844 browser measurements confirm outer scrolling, grid overflow and no workspace horizontal overflow. Focused CSV tests: 18 passed; typecheck and lint passed (one pre-existing informational diagnostic). No imports, database changes or Git staging.
 
-The complete five-page/13-tab task remains **partial**. Configuration CRUD, full campaigns/selection/queue preparation and SaaS client/import API are still unimplemented. See the [consolidated matrix, verification limits and remaining work](../implementation/MASTER-DYNAMIC-IMPLEMENTATION-STATUS.md). Next activity: transactional recipient-selection-to-campaign snapshots and non-sending queue preparation.
+## Phase 2 full-screen CSV workspace — 19 October 2026
+
+Implemented the full-screen import workspace with four shared Enterprise Grid reports, all 18 fields, bounded read-only database preview, truthful historical receipts, row outcomes for future receipts, cancellation/recovery and responsive layouts. Authenticated desktop/tablet/mobile preview/history checked; no Confirm Import or data mutation. Typecheck/lint/build pass; 406 tests pass, 16 skipped (41 focused CSV checks also pass). Database fingerprints remain unchanged. Current session exposes one owned rejected chunk; the 241-row receipt scenario is automated-tested, not falsely claimed as visible live. See [complete implementation and rollback report](../implementation/BCS-CSV-FULLSCREEN-ENTERPRISE-IMPORT.md).
+
+## CSV migration applied; acceptance blocked by portal mismatch — 19 October 2026
+
+Owner authorized development-only 026 activation and waived backup/restore. Applied only CSV migration 026 atomically to verified bcs-dev; original policies, roles, authentication functions and 240 recipients preserved. The single approved fixture was submitted through the existing authenticated app but rejected: session portal softvat_crm differs from fixture taxonomy portal skillmonk-demo. Zero inserted/updated; matching rejection receipt/audit verified. Stopped without retry. See [actual SQL/import evidence](../implementation/BCS-CSV-REAL-ACTIVATION.md).
+
+## CSV-only database activation review — 19 October 2026
+
+Read-only bcs-dev checks confirm ledger 001–021, 240 unchanged recipients, forced RLS and the assigned active BCS Internal Development plan (10,000 contacts; live emails zero). Prepared a separate guarded CSV-only 026 with restrictive receipt/error ownership and audit checks, one fictional-contact fixture and SQL Editor steps. No migration/import executed; explicit owner approval and verified backup/restore remain required. Typecheck/lint/build pass; 396 tests pass, 16 integration tests skipped. See [activation review and gates](../implementation/BCS-CSV-IMPORT-ACTIVATION.md).
+
+## CSV regional date support — 19 October 2026
+
+Implemented locale-independent date parsing, explicit searchable ambiguity/Excel-system selection, normalized preview/submission, optional browser-local per-portal format preferences and selectable export formatting (ISO default). No schema, contact, authentication or permission changes. Automated 241-row fixture preview passes; the owner's exact 241-row/18-column CSV validates with zero errors in Auto and Indian modes. Actual authenticated preview verified: 241 rows, zero local errors in Auto/Indian, 0 imported. Typecheck/lint/build pass; 396 tests pass, 16 skipped. Recipient grid separately reports database unavailable; no connection configuration was changed. See [date-format support and evidence](../implementation/BCS-CSV-DATE-FORMATS.md).
+
+## CSV export/import round trip — 19 October 2026
+
+Authenticated export now shares the 18-column import contract, exports ISO DOB and independent Category/Status, and uses scoped subgroup membership. Spreadsheet-protected phone numbers round-trip; preview exposes DOB/category/status. Existing statuses/consent/suppression and authentication are preserved. Prepared a CSV-only alternative 026 on the 001–021 baseline; no SQL or live import executed. See [correction, verification and approval boundary](../implementation/BCS-CSV-ROUNDTRIP-CORRECTION.md).
+
+## Authenticated workspace restoration — 19 October 2026
+
+Restored normal localhost:3000 startup with a guarded dedicated launcher; the 3107 synthetic preview had overridden existing private authenticated/database modes. Existing authentication and user management retained. Typecheck/lint/build pass; 341 tests pass, 16 live cases skipped. Browser login and unauthenticated Administration gate verified; owner/restricted-user live acceptance remains pending. No database, CSV or permission changes. See [restoration evidence and startup instructions](../implementation/BCS-AUTHENTICATED-WORKSPACE-RESTORATION.md).
+
+## Supabase read-only reconciliation and CSV integration — 19 October 2026
+
+Implemented CSV sample download, preview, session-authorized chunked import, receipts/history, duplicate modes and safe error export. Read-only bcs-dev inspection confirms migrations 001–021 and the owner inventory (60 tables / 582 columns / 445 constraints / 147 indexes / 110 policies / 10 triggers). Prepared separate guarded 022–026 deployment variants; no SQL applied. Worker remains NOLOGIN in the proposed deployment, embedding deny-all pending isolated security acceptance. One company lacks a current resource plan. Source tests: 341 passed, 16 live tests skipped; typecheck/lint/build passed. Protected references/migrations/authentication preserved. Database import and PostgreSQL worker execution remain BLOCKED pending explicit approval, verified backup/restore, plan/provenance review and isolated acceptance. See [full evidence, change list, commands and limitations](../implementation/BCS-SUPABASE-END-TO-END-INTEGRATION.md).
+
+## Consolidated SaaS source implementation — 19 October 2026
+
+Implemented tenant administration, four source adapters, scoped embedding, independent review, a guarded PostgreSQL simulation adapter, additive migrations 023–025, integrated panels/reporting and acceptance runners. Local source tests/build pass; database behavior remains unverified because no isolated PostgreSQL environment/baseline is available. No SQL or live services accessed. All prior IPX/Smart/migration bytes preserved. This is not production or end-to-end acceptance. See [complete implementation, verification, blockers and rollback](../implementation/BCS-CONSOLIDATED-SAAS-COMPLETION.md).
+
+## SaaS increment 1 — 19 October 2026
+
+Implemented local simulation policy validation, explicit multi-company login context, campaign policy controls/API source and a separately runnable durable synthetic-fixture worker. Existing live queues remain paused. Proposed migration 022 and its isolated fixture were not executed. Database-backed worker, persistence/RLS and campaign progress remain blocked pending separately authorized isolated PostgreSQL work. No SES, database connection, package installation or Git staging/commit/push. See [implementation, verification, inventory and rollback](../implementation/BCS-SAAS-INCREMENT-1-IMPLEMENTATION.md). Final checks: typecheck 0, lint 0 (no diagnostics), tests 0 (230 passed, 16 live tests skipped), build 0; all 12 IPX and three archival hashes match. Owner visual acceptance remains pending.
+
+## Regression stabilization — 19 October 2026
+
+Reviewed main/2c073ba7b3c11965703e92f52a21cd24b105065e with all pre-existing edits retained. Corrected stale administration mocks/assertions and the Connected portal query; isolated real editor workflows and used bulk paste events to remove timing overhead without raising timeouts. Added mocked server-backed persistence/failure coverage. Reviewed and resolved 42 string-template lint suggestions with scoped expression edits only; authentication/activation/user-management behavior and migrations are unchanged.
+
+Final local checks: typecheck 0, lint 0 (no diagnostics), tests 0 (190 passed, 16 explicitly skipped live-database tests), build 0. Baseline was 182 passed / 6 failed / 16 skipped, including an additional transient UI timeout. No SQL, live authentication/provider call, credential change, email, stage, commit or push. See [verification and rollback report](../implementation/REGRESSION-STABILIZATION-2026-10-19.md). Next activity: owner review before further SaaS development; this is not production certification.
+
+## Supabase Auth login correction - 17 October 2026
+
+Local bootstrap login was the cause of the owner email/password rejection. Login now verifies Supabase password authentication server-side and maps its verified subject/issuer to the existing BCS owner principal. Roles/scopes unchanged; old bootstrap sessions revoked. Confirmed email required; opaque hashed sessions expire within one hour. No Data API, new users, email or push.
+
+Publishable key configured and accepted; Supabase email/password and confirmation requirements verified. Owner confirmed successful real sign-in; new Supabase Auth and correctly scoped BCS sessions independently confirmed. Live incorrect password returned 401 without a session. Full 163-test suite passed again, including real database logout/expiry/replay checks with mocked external identities. Roles/scopes and 28 IPX/reference hashes unchanged. Owner session left open at http://127.0.0.1:3000/. No authentication setup blocker remains. See [actual results and boundaries](../implementation/SUPABASE-AUTH-LOGIN-CORRECTION.md).
+
+## Dynamic non-sending continuation - 17 October 2026
+
+Recipient snapshots, saved-draft registry, database personalization, campaign review/approval/scheduling/cancellation and paused queue preparation are implemented. All four Configuration tabs now use authenticated PostgreSQL APIs for metadata/mappings/rights. The scoped SaaS contact API supports idempotent imports, safe row errors, normalized membership, usage and rate limiting. Migrations 016-019 applied to dedicated bcs-dev only; no old migrations rerun. Catalog: 60 FORCE-RLS tables, 19 migrations, 240 recipients after exact test cleanup.
+
+Verification: 145 automated tests passed; typecheck, lint and build passed. Live campaign probe 21, Configuration 22, API 15 and negative operator/tenant 18 assertions passed. Browser selection, draft, campaign, review, approval, paused queue and audit history executed; personalized persisted message and pause flag independently confirmed. Original 28 IPX/reference hashes match. No email, AWS call, push, staging or commit in this continuation. Development URL: http://127.0.0.1:3000/communication.
+
+This is a local non-sending increment, not complete production readiness. External adapters, attachment storage, cross-principal campaign approval, credential lifecycle UI, broader pagination/acceptance and other remaining boundaries are explicit in [the consolidated report](../implementation/MASTER-DYNAMIC-IMPLEMENTATION-STATUS.md) and [SaaS API contract](../implementation/SAAS-CONTACT-API.md). Next activity: owner acceptance of this workflow. Earlier stop/approval and unimplemented-module statements below are historical.
 
 
 ## Step 3B-2 offline isolation refinement — 17 October 2026

@@ -1,3 +1,4 @@
 import type { NextConfig } from "next";
-const config: NextConfig = { transpilePackages: ["@bcs/ui", "@bcs/contracts"], poweredByHeader: false, agentRules: false };
+const frameOrigins=(process.env.BCS_EMBED_FRAME_ORIGINS??'').split(',').filter(Boolean).map(value=>{const u=new URL(value);if(u.origin!==value||u.protocol!=='https:'&&!(u.protocol==='http:'&&['localhost','127.0.0.1'].includes(u.hostname)))throw Error('INVALID_EMBED_FRAME_ORIGIN');return u.origin;});
+const config: NextConfig = { transpilePackages: ["@bcs/ui", "@bcs/contracts"], poweredByHeader: false, agentRules: false, async headers(){return [{source:'/embed',headers:[{key:'Content-Security-Policy',value:`frame-ancestors ${frameOrigins.length?frameOrigins.join(' '):"'none'"}; object-src 'none'; base-uri 'self'`},{key:'Referrer-Policy',value:'no-referrer'},{key:'Cache-Control',value:'no-store'}]},{source:'/((?!embed$).*)',headers:[{key:'Content-Security-Policy',value:"frame-ancestors 'none'"}]}];} };
 export default config;

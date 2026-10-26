@@ -1,0 +1,77 @@
+{
+  "synthetic-pg": {
+    "companyId": "11111111-1111-4111-8111-111111111111",
+    "portalId": "22222222-2222-4222-8222-222222222222",
+    "enabled": false,
+    "engine": "postgresql",
+    "host": "127.0.0.1",
+    "port": 55433,
+    "database": "bcs_connector_isolated",
+    "user": "bcs_source_reader",
+    "schema": "source_demo",
+    "views": [
+      "contacts"
+    ],
+    "passwordEnv": "BCS_SOURCE_PASSWORD",
+    "caEnv": "BCS_SOURCE_CA_PEM",
+    "ingestTokenEnv": "BCS_SOURCE_INGEST_TOKEN"
+  },
+  "synthetic-mysql": {
+    "companyId": "11111111-1111-4111-8111-111111111111",
+    "portalId": "22222222-2222-4222-8222-222222222222",
+    "enabled": false,
+    "engine": "mysql",
+    "host": "127.0.0.1",
+    "port": 53306,
+    "database": "bcs_connector_isolated",
+    "user": "bcs_source_reader",
+    "schema": "bcs_connector_isolated",
+    "views": [
+      "contacts"
+    ],
+    "passwordEnv": "BCS_SOURCE_PASSWORD",
+    "caEnv": "BCS_SOURCE_CA_PEM",
+    "ingestTokenEnv": "BCS_SOURCE_INGEST_TOKEN"
+  },
+  "synthetic-mssql": {
+    "companyId": "11111111-1111-4111-8111-111111111111",
+    "portalId": "22222222-2222-4222-8222-222222222222",
+    "enabled": false,
+    "engine": "mssql",
+    "host": "127.0.0.1",
+    "port": 51433,
+    "database": "bcs_connector_isolated",
+    "user": "bcs_source_reader",
+    "schema": "dbo",
+    "views": [
+      "contacts"
+    ],
+    "passwordEnv": "BCS_SOURCE_PASSWORD",
+    "caEnv": "BCS_SOURCE_CA_PEM",
+    "ingestTokenEnv": "BCS_SOURCE_INGEST_TOKEN"
+  },
+  "synthetic-rest": {
+    "companyId": "11111111-1111-4111-8111-111111111111",
+    "portalId": "22222222-2222-4222-8222-222222222222",
+    "enabled": false,
+    "engine": "portal_api",
+    "host": "127.0.0.1",
+    "port": 55433,
+    "database": "bcs_connector_isolated",
+    "user": "bcs_source_reader",
+    "schema": "api",
+    "views": [
+      "target_id",
+      "name",
+      "email",
+      "group_name",
+      "subgroup_name",
+      "status"
+    ],
+    "passwordEnv": "BCS_SOURCE_PASSWORD",
+    "caEnv": "BCS_SOURCE_CA_PEM",
+    "ingestTokenEnv": "BCS_SOURCE_INGEST_TOKEN",
+    "endpoint": "https://approved-fixture.example.invalid/contacts",
+    "bearerEnv": "BCS_SOURCE_BEARER"
+  }
+}

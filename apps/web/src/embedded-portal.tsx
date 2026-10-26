@@ -1,0 +1,12 @@
+"use client";
+import { useEffect,useRef,useState } from 'react';
+import { ActionButton,Panel } from '@bcs/ui';
+export function EmbeddedPortal(){
+ const token=useRef(''),[status,setStatus]=useState('Waiting for authorized host…'),[data,setData]=useState<{company:string;portal:string;campaigns:{id:string;title:string;state:string}[]}>();
+ useEffect(()=>{let disposed=false;let exchanging=false;let expiry:ReturnType<typeof setTimeout>|undefined;
+  async function receive(event:MessageEvent){if(event.source!==window.parent||window.parent===window||event.data?.type!=='bcs:authorize'||typeof event.data.code!=='string'||token.current||exchanging)return;
+   exchanging=true;try{const r=await fetch('/api/bcs/app/embed',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'redeem',code:event.data.code,parentOrigin:event.origin})});const j=await r.json();if(!r.ok)throw Error('Authorization denied or expired.');if(disposed)return;token.current=j.data.token;expiry=setTimeout(()=>{token.current='';setData(undefined);setStatus('Embedded session expired. Reauthorize through your host.');},j.data.expiresIn*1000);const result=await fetch('/api/bcs/app/embed-session',{method:'POST',headers:{Authorization:`Bearer ${token.current}`}});const payload=await result.json();if(!result.ok)throw Error('This embedded session has no reporting permission.');if(!disposed){setData(payload.data);setStatus('Universal Notify · scoped reporting · sending disabled');}}catch(e){token.current='';if(!disposed)setStatus((e as Error).message);}finally{exchanging=false;}}
+  window.addEventListener('message',receive);return()=>{disposed=true;clearTimeout(expiry);token.current='';window.removeEventListener('message',receive);};
+ },[]);
+ return <main className="bcs-card-body"><Panel title="Universal Notify" subtitle="Embedded portal · simulation only"><div className="bcs-card-body"><p role="status">{status}</p>{data&&<><p>Company {data.company} · Portal {data.portal}</p>{data.campaigns.map(c=><p key={c.id}>{c.title} · {c.state}</p>)}<ActionButton onClick={async()=>{try{const r=await fetch('/api/bcs/app/embed-session',{method:'DELETE',headers:{Authorization:`Bearer ${token.current}`}});if(!r.ok)throw Error();token.current='';setData(undefined);setStatus('Signed out.');}catch{setStatus('Logout unavailable. Session expires within five minutes.');}}}>Sign out of embedded portal</ActionButton></>}</div></Panel></main>;
+}

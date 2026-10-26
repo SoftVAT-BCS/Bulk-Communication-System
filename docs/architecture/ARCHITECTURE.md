@@ -80,3 +80,7 @@ consequences, cost/prerequisites and owner approval. Add a focused ADR file only
 actual decision under review. Do not create false Accepted ADRs or placeholder technical
 claims. Authentication and tenant-isolation contracts must precede real recipient access,
 even though their fuller implementation appears later in the product roadmap.
+
+## Increment 1 implemented boundary — 19 October 2026
+
+The existing Next API now has scoped draft simulation-policy save source, with an explicit missing-migration failure. The standalone Node worker is restricted to durable synthetic fixtures, with no network/provider/database path. It is not a production persistence adapter. PostgreSQL worker implementation and isolated acceptance remain blocked; no source schema was executed. See [increment report](../implementation/BCS-SAAS-INCREMENT-1-IMPLEMENTATION.md).

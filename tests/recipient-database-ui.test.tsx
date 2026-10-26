@@ -65,3 +65,18 @@ it("rejects expired requests and unsuccessful/malformed envelopes", async () => 
   vi.stubGlobal("fetch", vi.fn(() => Promise.resolve(Response.json({}, { status: 400 }))));
   await expect(fetchRead("/api/bcs/v1/recipients", new AbortController().signal)).rejects.toThrow("Invalid recipient filters");
 });
+
+it("creates all-matching snapshots through the server without downloading matching rows", async()=>{
+ const onSnapshot=vi.fn(),onCompose=vi.fn(),setSelected=vi.fn();
+ const fetcher=vi.fn((url:string,init?:RequestInit)=>{
+  if(url.includes('/selections'))return reply(init?.method==='POST'?{id,count:213}:{ids:[id],count:213});
+  return reply(url.includes('options')?options:{rows:[row],total:240,eligible:213,meta:{page:0,size:10}});
+ });vi.stubGlobal('fetch',fetcher);
+ render(<RecipientSelection database onSnapshot={onSnapshot} selected={new Set()} setSelected={setSelected} onCompose={onCompose} />);
+ await screen.findByText('DEMO-1');fireEvent.click(screen.getByRole('button',{name:'Select all matching'}));
+ await waitFor(()=>expect(onSnapshot).toHaveBeenCalledWith(id));
+ const post=fetcher.mock.calls.find(([u,i])=>u.includes('/selections')&&i?.method==='POST');
+ expect(JSON.parse(String(post?.[1]?.body))).toMatchObject({mode:'all_matching'});
+ expect(JSON.parse(String(post?.[1]?.body))).not.toHaveProperty('ids');
+ fireEvent.click(screen.getByRole('button',{name:/Continue to compose/}));expect(onCompose).toHaveBeenCalled();
+});

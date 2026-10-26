@@ -75,9 +75,9 @@ describe("V1 fidelity interactions (jsdom, not pixel acceptance)", () => {
     const label = "Send / Approve Communication / Recipients";
     expect((screen.getByRole("switch", { name: label }) as HTMLInputElement).checked).toBe(true);
     await user.click(screen.getByRole("switch", { name: label }));
-    await user.selectOptions(screen.getByLabelText("Connected portal"), "SoftVAT CRM");
+    await user.selectOptions(within(screen.getByRole("tabpanel", { name: "User Rights" })).getByRole("combobox", { name: "Connected portal" }), "SoftVAT CRM");
     expect((screen.getByRole("switch", { name: label }) as HTMLInputElement).checked).toBe(true);
-    await user.selectOptions(screen.getByLabelText("Connected portal"), "SkillMonk Academy");
+    await user.selectOptions(within(screen.getByRole("tabpanel", { name: "User Rights" })).getByRole("combobox", { name: "Connected portal" }), "SkillMonk Academy");
     expect((screen.getByRole("switch", { name: label }) as HTMLInputElement).checked).toBe(false);
     await user.selectOptions(screen.getByLabelText("Role / user"), "Read-only Auditor");
     expect(screen.getAllByRole("switch").filter(item => (item as HTMLInputElement).checked)).toHaveLength(9);

@@ -64,3 +64,17 @@ source-of-truth document after an accepted change.
 ## Proposed — Step 3C-1 recipient read boundary (17 October 2026)
 
 Use same-origin Next Node Route Handlers, pinned node-postgres and a modular repository for the first optional recipient read slice. Dedicated fixed synthetic identity is development/loopback only; proposed010 grants only six-table scoped reads and is not executed. This is not accepted SaaS authentication. Later Fastify extraction and authenticated tenant resolution remain separate decisions. See [Step 3C-1](../implementation/STEP-3C1-DYNAMIC-DATA-FOUNDATION.md).
+
+## Proposed — Increment 1 simulation policy and acceptance adapter
+
+Implement simulation-only policy contracts in packages/contracts and an independent Node worker in apps/worker. Use durable synthetic fixtures solely for offline concurrency/recovery acceptance; retain PostgreSQL as the production system of record. Default custom interval bounds 5–600 seconds, UTC quota days and provisional simulation caps need owner ratification. No live-provider mode, billing entitlement or production file-store architecture is accepted. Migration 022 is proposed and unexecuted. See [implementation evidence and limitations](../implementation/BCS-SAAS-INCREMENT-1-IMPLEMENTATION.md).
+
+## Proposed — Consolidated isolated SaaS implementation (19 October 2026)
+
+Use the existing Next authenticated API and BCS schema for tenant administration, registry-controlled pg/mysql2/mssql/HTTPS source readers, Ed25519 single-use embedded report sessions, independent campaign review and PostgreSQL simulation dispatch. The adapter reuses the fixture engine and existing queue/reservations; it is capped and restricted to a marked disposable loopback database. New migrations 023–025 are source only, not Accepted or executed. Platform-operator provisioning, bounded plan quotas, public-IPv4-only REST policy and read-only embedding scope require owner/security ratification and isolated execution evidence. No SES enablement or production deployment approval is implied. See [consolidated delivery](../implementation/BCS-CONSOLIDATED-SAAS-COMPLETION.md).
+
+## Proposed integration refinements — 19 October 2026
+
+Session CSV import reuses recipients.import, existing composite recipient identity and immutable import-batch receipts. File+mode+principal+portal identity and serialized 25-row chunks provide replay/continuation without pretending an application principal is an API client. Category remains a required descriptive recipient field; Group/Subgroup must resolve uniquely to existing active taxonomy. New Active contacts import Inactive; existing inactive/bounced/unsubscribed states never auto-reactivate. Optional blanks clear optional profile fields only in explicit update mode. All are implemented source contracts pending owner workflow acceptance and isolated SQL/RLS validation.
+
+Separate bcs-dev deployment variants preserve original 022–025 guards/bytes, retain FORCE RLS and explicitly keep the worker NOLOGIN and embedding deny-all. These are Proposed, not approved or executed. Existing broad embedded-grant source policy requires separate security acceptance before enablement. See [deployment review](../../database/deployment/bcs-dev-022-026/REVIEW.md) and [integration report](../implementation/BCS-SUPABASE-END-TO-END-INTEGRATION.md).

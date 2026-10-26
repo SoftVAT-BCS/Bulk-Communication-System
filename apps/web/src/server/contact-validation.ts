@@ -1,0 +1,5 @@
+import {contactIdentity} from '../../../../packages/contracts/src/contact-csv';
+import {ReadError} from './validation';
+import {text} from './campaign-validation';
+export function contact(value:unknown){if(!value||typeof value!=='object'||Array.isArray(value))throw new ReadError(400,'INVALID_CONTACT');const b=value as Record<string,unknown>;if(Object.keys(b).some(k=>!['targetId','name','email','group','subgroup'].includes(k)))throw new ReadError(400,'UNKNOWN_CONTACT_FIELD');const email=text(b.email,254).toLowerCase();if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))throw new ReadError(400,'INVALID_EMAIL');try{contactIdentity(text(b.targetId,100),text(b.name,200),email,text(b.group,100),text(b.subgroup,100));}catch{throw new ReadError(400,'INVALID_CONTACT');}return {target:text(b.targetId,100),name:text(b.name,200),email,group:text(b.group,100),subgroup:text(b.subgroup,100)};}
+export function importBody(b:Record<string,unknown>){if(Object.keys(b).some(k=>k!=='contacts')||!Array.isArray(b.contacts)||!b.contacts.length||b.contacts.length>100)throw new ReadError(400,'INVALID_BATCH');return b.contacts;}

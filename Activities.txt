@@ -1,0 +1,23 @@
+Chrome Profile
+SoftVAT BCS
+
+Vercel URL
+https://vercel.com/soft-vat-bcs
+
+Suppbase URL
+https://supabase.com/dashboard/project/jajhxjkukpgmsnlwdvmv
+
+
+Local Port Initiation
+
+cd /d "E:\Bulk-Communicatio-System"
+npm.cmd run dev
+
+
+Google App Password
+
+pohbybxypthlvkaf
+
+Aug 11 - 3000,
+Sept 9 3000,
+October 9 3000,

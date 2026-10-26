@@ -1,0 +1,5 @@
+import { response } from '../../../../../src/server/app-service';
+import { simulationControl,simulationOverview } from '../../../../../src/server/simulation-operations';
+export const runtime='nodejs';
+export async function GET(request:Request){const r=await response(()=>simulationOverview(request));if(!r.ok||new URL(request.url).searchParams.get('format')!=='csv')return r;const j=await r.json();const cell=(v:unknown)=>{const s=String(v??'');return `"${(/^[=+@\-\t\r\n]/.test(s)?"'":"")+s.replaceAll('"','""')}"`;};const rows=[['Campaign','State','Jobs','Queued','Simulated','Failed','Retries','Excluded'],...j.data.campaigns.map((v:Record<string,unknown>)=>[v.title,v.state,v.jobs,v.queued,v.simulated,v.failures,v.retries,v.excluded])];return new Response(rows.map(row=>row.map(cell).join(',')).join('\r\n'),{headers:{'Content-Type':'text/csv; charset=utf-8','Content-Disposition':'attachment; filename="BCS_Simulation.csv"','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});}
+export async function POST(request:Request){return response(()=>simulationControl(request));}

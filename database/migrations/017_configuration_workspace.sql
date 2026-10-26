@@ -1,0 +1,23 @@
+BEGIN;
+SET LOCAL search_path=pg_catalog;
+DO $$ BEGIN IF NOT EXISTS(SELECT 1 FROM bcs.schema_migrations WHERE version=16) OR EXISTS(SELECT 1 FROM bcs.schema_migrations WHERE version=17) THEN RAISE EXCEPTION 'Migration order mismatch at 017'; END IF; END $$;
+GRANT UPDATE(company_name,default_timezone) ON bcs.companies TO bcs_app_backend;
+CREATE POLICY app_company_settings ON bcs.companies FOR UPDATE TO bcs_app_backend USING(bcs.session_allows(id,NULL,'portals.manage')) WITH CHECK(bcs.session_allows(id,NULL,'portals.manage'));
+GRANT SELECT,INSERT ON bcs.portals,bcs.portal_connections,bcs.data_mappings,bcs.provider_accounts,bcs.sender_identities,bcs.sending_policies,bcs.roles,bcs.role_permissions,bcs.principal_role_assignments,bcs.principal_portal_scopes TO bcs_app_backend;
+GRANT UPDATE(portal_name,portal_kind,integration_mode,timezone,status) ON bcs.portals TO bcs_app_backend;
+GRANT UPDATE(connection_name,source_engine,integration_method,endpoint_reference,credentials_secret_ref,status) ON bcs.portal_connections TO bcs_app_backend;
+GRANT UPDATE(status,validated_at,approved_by) ON bcs.data_mappings TO bcs_app_backend;
+GRANT UPDATE(aws_region,credential_secret_ref,account_status) ON bcs.provider_accounts TO bcs_app_backend;
+GRANT UPDATE(display_name,reply_to_email) ON bcs.sender_identities TO bcs_app_backend;
+GRANT UPDATE(configured_rate_per_second,configured_daily_budget,max_retries,is_enabled) ON bcs.sending_policies TO bcs_app_backend;
+GRANT DELETE ON bcs.role_permissions,bcs.principal_role_assignments,bcs.principal_portal_scopes TO bcs_app_backend;
+DO $$ DECLARE t text; p text; BEGIN FOREACH t IN ARRAY ARRAY['portals','portal_connections','data_mappings','provider_accounts','sender_identities','sending_policies','roles','role_permissions','principal_role_assignments','principal_portal_scopes'] LOOP
+ p:=CASE WHEN t IN ('portals','portal_connections') THEN 'portals.manage' WHEN t='data_mappings' THEN 'mappings.manage' WHEN t IN ('provider_accounts','sender_identities','sending_policies') THEN 'ses.manage' ELSE 'access.manage' END;
+ EXECUTE format('CREATE POLICY app_configuration ON bcs.%I FOR ALL TO bcs_app_backend USING(bcs.session_allows(company_id,NULL,%L)) WITH CHECK(bcs.session_allows(company_id,NULL,%L))',t,p,p);
+END LOOP; END $$;
+CREATE POLICY app_mapping_connections ON bcs.portal_connections FOR SELECT TO bcs_app_backend USING(bcs.session_allows(company_id,NULL,'mappings.manage'));
+CREATE POLICY app_configuration_audit ON bcs.audit_events FOR INSERT TO bcs_app_backend WITH CHECK(bcs.session_allows(company_id,NULL,'portals.manage') OR bcs.session_allows(company_id,NULL,'mappings.manage') OR bcs.session_allows(company_id,NULL,'ses.manage') OR bcs.session_allows(company_id,NULL,'access.manage'));
+CREATE POLICY app_mapping_recipients ON bcs.recipients FOR SELECT TO bcs_app_backend USING(bcs.session_allows(company_id,NULL,'mappings.manage'));
+GRANT SELECT(category) ON bcs.recipients TO bcs_app_backend;
+INSERT INTO bcs.schema_migrations(version,description) VALUES(17,'Company authorized configuration metadata and constrained access administration');
+COMMIT;

@@ -1,0 +1,1570 @@
+{
+  "scope": "Tracked and nonignored source at delivery; excludes this manifest itself",
+  "files": [
+    {
+      "path": ".editorconfig",
+      "size": 1079,
+      "sha256": "3286627078380c9420f059f02ae34606ac052cb60d1c5e41cb8be1bb4e323806"
+    },
+    {
+      "path": ".gitattributes",
+      "size": 960,
+      "sha256": "404cf539aa6c68891ab2b66c24b306770587215af35066f3fa5269a9a301ace3"
+    },
+    {
+      "path": ".gitignore",
+      "size": 1054,
+      "sha256": "f0a9e05714c20efe537f7ae9bebe4b9e783c470f2a1fcdc80ebdac26ca2e1d80"
+    },
+    {
+      "path": "AGENTS.md",
+      "size": 4836,
+      "sha256": "cd72a76262b2a8efb783b7b6a97b8c8fdee0c02ee0d051a6d89d0819f034d1b9"
+    },
+    {
+      "path": "Activities.txt",
+      "size": 279,
+      "sha256": "4a2a8eb931217d36554521e950d4f5fa742aa97029ee6a5dafdf41db74ff9331"
+    },
+    {
+      "path": "IPX/IPX-BCS/Assets/app.js",
+      "size": 85647,
+      "sha256": "932312d56892d8a2e744d9d9e71c3dacaadb0bc71103b65c634c9599a698c94f"
+    },
+    {
+      "path": "IPX/IPX-BCS/Assets/favicon.svg",
+      "size": 268,
+      "sha256": "aa0e1760d24d228dc250b0aff5b1abf7968a7dd2536fd452bd85c70a7e902da9"
+    },
+    {
+      "path": "IPX/IPX-BCS/Assets/styles.css",
+      "size": 24771,
+      "sha256": "46bc7f263f6178d6ede21810314f2e6deb9f6ef32b47c741df064b43aa2dfc0a"
+    },
+    {
+      "path": "IPX/IPX-BCS/PARTNER_FEEDBACK.txt",
+      "size": 1033,
+      "sha256": "a8f8302463f2a639a568d7d81f707c066c73bd82a9b05207928dd831d0ec68b1"
+    },
+    {
+      "path": "IPX/IPX-BCS/READ_ME_FIRST.txt",
+      "size": 4466,
+      "sha256": "d36b8733bf7804c9de2d4447cc75b487775575a79d3a393a4f3b67e964a4d8fa"
+    },
+    {
+      "path": "IPX/IPX-BCS/communication.html",
+      "size": 565,
+      "sha256": "d010d574bc54831e482b41dac2eac075e674bcc81172a41e75581daab3f2c5df"
+    },
+    {
+      "path": "IPX/IPX-BCS/configuration.html",
+      "size": 565,
+      "sha256": "6a63b4d2ed5d7d7ed75dd98d46408d6b11c533ec8a415fee67e11491cb3e08de"
+    },
+    {
+      "path": "IPX/IPX-BCS/dashboard.html",
+      "size": 557,
+      "sha256": "acd8ee6788faf3ec7c9fb7b271b68892aac9b4b72de092f6c12f4b6d468c26ca"
+    },
+    {
+      "path": "IPX/IPX-BCS/index.html",
+      "size": 557,
+      "sha256": "acd8ee6788faf3ec7c9fb7b271b68892aac9b4b72de092f6c12f4b6d468c26ca"
+    },
+    {
+      "path": "IPX/IPX-BCS/reports.html",
+      "size": 553,
+      "sha256": "086aeca908d0f5d5417c54a9996d1a84cbb44660b8198eca59c85554ad9247bf"
+    },
+    {
+      "path": "IPX/IPX-BCS/scheduling.html",
+      "size": 559,
+      "sha256": "5265fa871413b998eb5f3f64abc76954d4e05dfcbc065bf7d95fa69e6531fb79"
+    },
+    {
+      "path": "IPX/Universal_Notify_Partner_UI_Review_V1.zip",
+      "size": 38269,
+      "sha256": "0c60b951ea59161cf50fa84a7d9f379dbeaab7a60ff9e771f04ff40a884e7147"
+    },
+    {
+      "path": "apps/web/.env.example",
+      "size": 1101,
+      "sha256": "b2f4ca26d9a9572d25e09f6fdca67bd0707fcb887fa0ee78a156befe31690725"
+    },
+    {
+      "path": "apps/web/app/activate/page.tsx",
+      "size": 143,
+      "sha256": "750ce8e5eed5ba3eae875da154751758c083be8ac3526526f35d7e7d5acd4b58"
+    },
+    {
+      "path": "apps/web/app/admin/connections/page.tsx",
+      "size": 582,
+      "sha256": "9e9005eaf7158a99054219a146507e536b6f2f084a59cd349db8438591101b80"
+    },
+    {
+      "path": "apps/web/app/admin/rights/page.tsx",
+      "size": 535,
+      "sha256": "b325dc2e237876cae7934edea1222de916ead602717c3c68ae28a9d23b422399"
+    },
+    {
+      "path": "apps/web/app/admin/users/page.tsx",
+      "size": 637,
+      "sha256": "67b23689cfa56c6861e32ed3b6b1f72bb146064d10866e145db184a504c4ea46"
+    },
+    {
+      "path": "apps/web/app/api/bcs/app/activation/route.ts",
+      "size": 275,
+      "sha256": "b3bae281844ed1228315868d0529dd5513708d5dc88ffaea6d8455e3c43d92e5"
+    },
+    {
+      "path": "apps/web/app/api/bcs/app/activity/route.ts",
+      "size": 313,
+      "sha256": "85f1685cf06a8d6c0cd4153c5d1325b6903c4dcfdf99a25fb39f413f67a9567b"
+    },
+    {
+      "path": "apps/web/app/api/bcs/app/auth-public/route.ts",
+      "size": 462,
+      "sha256": "7664e84698b5fb5527d66d8142de9327978d9de925f1772b661b52c0cacbba3e"
+    },
+    {
+      "path": "apps/web/app/api/bcs/app/campaign-review/route.ts",
+      "size": 359,
+      "sha256": "c09cba1a87994b91fceda000713a4d6bfb25ae43591424a5a0c2a17954ee8818"
+    },
+    {
+      "path": "apps/web/app/api/bcs/app/campaigns/route.ts",
+      "size": 300,
+      "sha256": "3e77e9c4ad31e5bfc6921049ae80e892fda227520ebcf18d59d26c8d64f0e51c"
+    },
+    {
+      "path": "apps/web/app/api/bcs/app/configuration/route.ts",
+      "size": 324,
+      "sha256": "2c9899cb428f7e8cc6a4588f5b7ad0709fcb768d9585b0f621ca0bdfe08c5cf6"
+    },
+    {
+      "path": "apps/web/app/api/bcs/app/connectors/route.ts",
+      "size": 272,
+      "sha256": "dbef21cf7c1f7f6445bd4c34c8461aa5e14507e83f4a3a4dd08f46ec241fb92c"
+    },
+    {
+      "path": "apps/web/app/api/bcs/app/contact-import/route.ts",
+      "size": 330,
+      "sha256": "ea0ec9c786bc93d4f1ea96f9c402b19ed453efdc85570282387afb3e97c988dc"
+    },
+    {
+      "path": "apps/web/app/api/bcs/app/dashboard/route.ts",
+      "size": 244,
+      "sha256": "5ac6dfa36e5659f45b8320ff5debe73de91a5eca91b3cc5a750721ca8bf0ad8c"
+    },
+    {
+      "path": "apps/web/app/api/bcs/app/documents/route.ts",
+      "size": 356,
+      "sha256": "32df1f8d5f3f5805727f737dfbd9703e5903d7d05e874e3af1e2afa8ff5a996e"
+    },
+    {
+      "path": "apps/web/app/api/bcs/app/embed-session/route.ts",
+      "size": 350,
+      "sha256": "8de729a8b061c26a4e472ddeddb9c922ea9274fd681f715bdd564ca478badca2"
+    },
+    {
+      "path": "apps/web/app/api/bcs/app/embed/route.ts",
+      "size": 260,
+      "sha256": "7ba3eeebc7870dc71dada76dcd1f006ed7606e8a83b61684e0226583735322ea"
+    },
+    {
+      "path": "apps/web/app/api/bcs/app/recipients/export/route.ts",
+      "size": 190,
+      "sha256": "1ce2e934f6815df6458a05cbbc5eeaa48c4b93120d5e29fb2797868da67c7f46"
+    },
+    {
+      "path": "apps/web/app/api/bcs/app/report-overview/route.ts",
+      "size": 247,
+      "sha256": "f1cce1962c4c13673c7d46517120f7c47ecdd7bc9fbe918b84a9549e2f3af6d9"
+    },
+    {
+      "path": "apps/web/app/api/bcs/app/scheduling/route.ts",
+      "size": 329,
+      "sha256": "839b84805ff085c74a7c3a26b2fabbde2d554ac05b3a2d951efd467ed36eab68"
+    },
+    {
+      "path": "apps/web/app/api/bcs/app/selections/route.ts",
+      "size": 302,
+      "sha256": "c19a993e5e3a1d9f56a70932af30899a9b54cd2fd7e2842fa4d6bf5fbe23cec0"
+    },
+    {
+      "path": "apps/web/app/api/bcs/app/session/route.ts",
+      "size": 1316,
+      "sha256": "d2c69431ee736d5e52dd79174b4cb19affb0c40923025c3eae6a1344173d4cd1"
+    },
+    {
+      "path": "apps/web/app/api/bcs/app/simulation-policy/route.ts",
+      "size": 286,
+      "sha256": "15d89cc2c636be50d22db0e8fbffbf2dbe0423bcc565db491463518b29ef597b"
+    },
+    {
+      "path": "apps/web/app/api/bcs/app/simulation/route.ts",
+      "size": 1096,
+      "sha256": "4d613f58a299b528bb74ad704d38281e3a2fa245d3b60c7959ad00b6d982867e"
+    },
+    {
+      "path": "apps/web/app/api/bcs/app/tenants/route.ts",
+      "size": 807,
+      "sha256": "c01dc0c6d3010d2c74ed029076bc0b42a3292f4bb72ebf9c328f23355d4e44ad"
+    },
+    {
+      "path": "apps/web/app/api/bcs/app/users/route.ts",
+      "size": 364,
+      "sha256": "f7de13282a05ff75f935f88e4b175bfaff63239cd33371e93b6bdfc8838aea7c"
+    },
+    {
+      "path": "apps/web/app/api/bcs/v1/audience/options/route.ts",
+      "size": 464,
+      "sha256": "aba7ea605bdecf360d71fbab0a802b1fd22de09effb0cac442907413074d4796"
+    },
+    {
+      "path": "apps/web/app/api/bcs/v1/contacts/route.ts",
+      "size": 285,
+      "sha256": "da65b2b35e93d137e46f40e10db66d75808ec7e64098c016d1ec3233d7a20306"
+    },
+    {
+      "path": "apps/web/app/api/bcs/v1/recipients/[id]/route.ts",
+      "size": 542,
+      "sha256": "394f03cba73a526fd88afd6984bc65cbb6cbc64dda54bf94264a4df44beff67e"
+    },
+    {
+      "path": "apps/web/app/api/bcs/v1/recipients/route.ts",
+      "size": 452,
+      "sha256": "b1b04297e458b1714f3457283f8386dc0eb7f47dc1adfb5792bbd14be6dba1e7"
+    },
+    {
+      "path": "apps/web/app/communication/page.tsx",
+      "size": 330,
+      "sha256": "342abd9bf3ab8712464c733ec8b79cfa66ec0e5b0ba28e932461c71c901162e6"
+    },
+    {
+      "path": "apps/web/app/configuration/page.tsx",
+      "size": 196,
+      "sha256": "f970b8dec6bbbf588d0e5d0dc9898279e277afb5f1e9a0c3d06871f3326284ae"
+    },
+    {
+      "path": "apps/web/app/embed/page.tsx",
+      "size": 125,
+      "sha256": "0b3ca8f15893f33052dfd6015ec85fa82cf19cf60cbc14df5aa5f1b46ba365d5"
+    },
+    {
+      "path": "apps/web/app/layout.tsx",
+      "size": 391,
+      "sha256": "9983a2e9b8f36e9b4e0656a32bc6f8273dae111fa2a1c7d8dd2f00c31a8c6eaf"
+    },
+    {
+      "path": "apps/web/app/login/page.tsx",
+      "size": 125,
+      "sha256": "acb3a99cffdd4764ec96056a539377c315d0f0b6cb65b4c28422015845a38485"
+    },
+    {
+      "path": "apps/web/app/page.tsx",
+      "size": 189,
+      "sha256": "9eac182343fdde2f83b36fc2416c1abe139cd4af4af84eaaec20419dfa2caa1b"
+    },
+    {
+      "path": "apps/web/app/reports/page.tsx",
+      "size": 190,
+      "sha256": "84ce2b60aa0f7172099f1288d6298aaf48b64945099c15fe4d8f0f24fa2b159f"
+    },
+    {
+      "path": "apps/web/app/scheduling/page.tsx",
+      "size": 193,
+      "sha256": "e3c11be58b80c9a8eaa0e5189f132432990ea9947b1b8168a5477e1589587ebe"
+    },
+    {
+      "path": "apps/web/next-env.d.ts",
+      "size": 295,
+      "sha256": "1b59d4c6b83807db275d43f3cf2cc8e9323f465fab764eea091cc5becd5bad37"
+    },
+    {
+      "path": "apps/web/next.config.ts",
+      "size": 878,
+      "sha256": "85d0e605fa4b5f13f109c570c1c884acd0dd2919b5f7990624413640c1bcf3e1"
+    },
+    {
+      "path": "apps/web/package.json",
+      "size": 426,
+      "sha256": "941670935927e8ff5dcb51b703d73a6b474094d2fb297fe507aa5b5615059af9"
+    },
+    {
+      "path": "apps/web/src/bcs-activate-account.tsx",
+      "size": 8092,
+      "sha256": "0f593a1f0ed0abc3b3f81a97b0a90b543862f2f6d8bcf08addaee20de47fbc9e"
+    },
+    {
+      "path": "apps/web/src/bcs-admin-login.tsx",
+      "size": 5907,
+      "sha256": "702d7c0ed6a9dd3996193ccbedf04c1d14d187e995c4f1a4dcf0c9c880f90d3a"
+    },
+    {
+      "path": "apps/web/src/bcs-admin-pages.css",
+      "size": 12571,
+      "sha256": "1980e5bd80e9533982f1b658a7ad895f06a4113673ed5eaf148e6d2592a7e72f"
+    },
+    {
+      "path": "apps/web/src/bcs-column-mapping.tsx",
+      "size": 6997,
+      "sha256": "5d0566a9dbd2473258a3fc964a3abdfe0f8545a0d24e613230083c5e3bce5587"
+    },
+    {
+      "path": "apps/web/src/bcs-configuration-panels.tsx",
+      "size": 617,
+      "sha256": "94ae63128c49f44bf5cf8eef400ab60221b86dbdbbb9b7f5cca643dadf7d3660"
+    },
+    {
+      "path": "apps/web/src/bcs-portal-database.tsx",
+      "size": 10224,
+      "sha256": "282af25151cea41fec934a13b18bb0c2cfc1443cdbfa62676cf34675145e47d0"
+    },
+    {
+      "path": "apps/web/src/bcs-ses-settings.tsx",
+      "size": 9270,
+      "sha256": "79e5b72d4eb0eaf83344a93a2cb229c200e965ef281ade964287e2d0d23602d7"
+    },
+    {
+      "path": "apps/web/src/bcs-user-creation.tsx",
+      "size": 19491,
+      "sha256": "624690fb78b09edf94a263023e38b8879ecdae5bc3ad81fd6bf9f6eca1b97fb6"
+    },
+    {
+      "path": "apps/web/src/bcs-user-rights.tsx",
+      "size": 16405,
+      "sha256": "feac4ebdf82b36b8e5d5df0b5b39190ff2864780181f98e0ec62f532f06a4f9b"
+    },
+    {
+      "path": "apps/web/src/campaign-workspace.tsx",
+      "size": 6627,
+      "sha256": "9f640cf6896f05b4d4d809b9388ca0481db9c0258128de10ea77080514e2dbdc"
+    },
+    {
+      "path": "apps/web/src/client-recipients.ts",
+      "size": 3547,
+      "sha256": "df2a48ededbf33c7532871d50d1d987f44a984572c9ccd738c4d704a57d0877a"
+    },
+    {
+      "path": "apps/web/src/communication.tsx",
+      "size": 12874,
+      "sha256": "d5ae9d00730f04b3664e22d591adb73aac60fe262637cf27f18a0ebc26a6eff9"
+    },
+    {
+      "path": "apps/web/src/configuration.tsx",
+      "size": 12532,
+      "sha256": "69dc726af503f954235bd89e5d6a1fc5b4bfef5318f5a08424cd6e05b2f48830"
+    },
+    {
+      "path": "apps/web/src/contact-import.tsx",
+      "size": 7609,
+      "sha256": "ebd3f1a50ddc7c21f216db3c03be9c5256537ef9a5a1159b51608e1cf89e0d1d"
+    },
+    {
+      "path": "apps/web/src/database-activity.tsx",
+      "size": 8861,
+      "sha256": "d59c96ec3f5b0f052033123b57dc8fc87441ec585d0aa426755598c9c32d49a0"
+    },
+    {
+      "path": "apps/web/src/database-configuration.tsx",
+      "size": 10739,
+      "sha256": "4457ccc8e66ddf596aee785ed5c176bd693d82bd09074fb83e7639f0d0eb6c5f"
+    },
+    {
+      "path": "apps/web/src/database-dashboard.tsx",
+      "size": 5989,
+      "sha256": "d33e0e11bfdcbc95ac40722f5ccebe904d9581d16730ebaf1facd6907c89acb1"
+    },
+    {
+      "path": "apps/web/src/database-email-store.ts",
+      "size": 3582,
+      "sha256": "e7fe936e1cf6313878f8e8fdca585058526df8a0cbb197a1bc18b8b467741dfe"
+    },
+    {
+      "path": "apps/web/src/database-scheduling.tsx",
+      "size": 9397,
+      "sha256": "f309f7b20bed0cd87ea0e3d47588bd43ef616ce664b927e62de12544dcc69be1"
+    },
+    {
+      "path": "apps/web/src/email-composer.tsx",
+      "size": 5762,
+      "sha256": "9c0ab65276a00f31aeae3af933e226b4be597e9675b6d1ed5f637aa8519d17cf"
+    },
+    {
+      "path": "apps/web/src/email-store.ts",
+      "size": 9766,
+      "sha256": "ed609b8c9c7ee103f0ace1c2d34bbd26a357fccb2a45c82fd68cde2b87e055a9"
+    },
+    {
+      "path": "apps/web/src/email-templates.tsx",
+      "size": 7084,
+      "sha256": "70e3dbec58ca115c5ccb4a0805847acc54f09a354f9982f74a10a0dbd82ae7d6"
+    },
+    {
+      "path": "apps/web/src/email-workspace.tsx",
+      "size": 3679,
+      "sha256": "838a69f82e4d99b05c1843c94143588fc7940dc97080fd3f69f4ef3c490b064a"
+    },
+    {
+      "path": "apps/web/src/embedded-portal.tsx",
+      "size": 2462,
+      "sha256": "537b00e8fd365dc2008d970fdd075782d15fbde70353a3fa5bde63a3214ff9c7"
+    },
+    {
+      "path": "apps/web/src/previews.tsx",
+      "size": 8912,
+      "sha256": "75ff3a6453814665cff2b24b490f228ab30fb6670525416637c5894c2a6d3456"
+    },
+    {
+      "path": "apps/web/src/recipient-csv.ts",
+      "size": 472,
+      "sha256": "308def355681126fd34c81d82282fc5717a7693cb2bc144995bb719894d23b47"
+    },
+    {
+      "path": "apps/web/src/role-home.ts",
+      "size": 1563,
+      "sha256": "2a80901927e0ffe7f4c12720d4aeba1232813dc788e525d8e40c4f2ebbb85266"
+    },
+    {
+      "path": "apps/web/src/saas-console.tsx",
+      "size": 9200,
+      "sha256": "2dd14d6285a955070c6f1320379afc0c14ff2dd13dc4127b999367cb2cf822be"
+    },
+    {
+      "path": "apps/web/src/server/activity-validation.ts",
+      "size": 1576,
+      "sha256": "e159e4d408a8327efaafbf8471743fe7ced0cac33785beec74f9350766cb2eca"
+    },
+    {
+      "path": "apps/web/src/server/activity.ts",
+      "size": 8538,
+      "sha256": "3f7d988c1d5badb33a347c4d89c301f6fa73360d333f14970804967cb8119267"
+    },
+    {
+      "path": "apps/web/src/server/app-service.ts",
+      "size": 10113,
+      "sha256": "b2014cbe2fb5fd7268aa836adce1bce7b526414583bdbda4af3b80152cfed6a0"
+    },
+    {
+      "path": "apps/web/src/server/campaign-review.ts",
+      "size": 946,
+      "sha256": "566350b8e32b281afffba06c74c2fee0441cde2325bfec5d8d5a80b1cd086372"
+    },
+    {
+      "path": "apps/web/src/server/campaign-validation.ts",
+      "size": 1233,
+      "sha256": "1b6e16fdcd4f0ba18401adcb3e714ed5f969f7d1924ff4ade8312bd166d29109"
+    },
+    {
+      "path": "apps/web/src/server/campaigns.ts",
+      "size": 15878,
+      "sha256": "afdb6df0bd798e45f632002303b968e1eb9dac990fe37253d2c4ea15220a476e"
+    },
+    {
+      "path": "apps/web/src/server/config.ts",
+      "size": 1188,
+      "sha256": "a13f0875972d3d15b2e7bdc7618016b4140031e877fce3dd553c025f7679bf5b"
+    },
+    {
+      "path": "apps/web/src/server/configuration-service.ts",
+      "size": 13973,
+      "sha256": "25f7452c29794c6da0795e642a0e345f993634e147dc112b31295be37989dd80"
+    },
+    {
+      "path": "apps/web/src/server/configuration-validation.ts",
+      "size": 1001,
+      "sha256": "c61d50202f451df3ca7daef157e223cabe45640d22767d3e1b10fc7cfdfcd3c5"
+    },
+    {
+      "path": "apps/web/src/server/connector-adapters.ts",
+      "size": 6778,
+      "sha256": "f870b4b43332cd589066825bacad94cc45fc1a3917643f062d104ecc1a45f59d"
+    },
+    {
+      "path": "apps/web/src/server/connector-service.ts",
+      "size": 9872,
+      "sha256": "cff0c51ec0c423263b0dcce10eb5b2eb1bf4a7218567ce2914e4e560b7dc1e95"
+    },
+    {
+      "path": "apps/web/src/server/contact-validation.ts",
+      "size": 1117,
+      "sha256": "14a3c70a42e86f51cacd9d30b0926b1fcab8488d69086fa37c576683cac3115c"
+    },
+    {
+      "path": "apps/web/src/server/contacts-api.ts",
+      "size": 7856,
+      "sha256": "209b7eeaaa8d86e3169e485dcd0b169820fcaa64be4b1a33da62e3f584ff7404"
+    },
+    {
+      "path": "apps/web/src/server/csv-import.ts",
+      "size": 8611,
+      "sha256": "ca3753376ca5b3510349799c9284617910c6483164e312c0824988edc1545b0b"
+    },
+    {
+      "path": "apps/web/src/server/dashboard.ts",
+      "size": 4084,
+      "sha256": "367dbb630dd59ec379d8fdeb01c06d4b487e1b8914ddfe33d4971669e1baf65d"
+    },
+    {
+      "path": "apps/web/src/server/document-safety.ts",
+      "size": 1004,
+      "sha256": "004e39acd39cae98a15e3c0959c7e5ec9fe1fd30e0cb2d9f15e37b0d5029d36e"
+    },
+    {
+      "path": "apps/web/src/server/documents.ts",
+      "size": 6894,
+      "sha256": "12d6bf37c103b9506df0ad957f2e910ffe1a18e3123306f67e8c505847be09ac"
+    },
+    {
+      "path": "apps/web/src/server/embed-contract.ts",
+      "size": 1400,
+      "sha256": "92b5a2f22f6c7799d34e8c0dff1973345dfb9262e1f9f0a64c7a6cb26df5dd3b"
+    },
+    {
+      "path": "apps/web/src/server/embedding.ts",
+      "size": 4874,
+      "sha256": "4403c4a77d9e47eba5171cc65620fd462510ee184b434057c22508c4b7132a14"
+    },
+    {
+      "path": "apps/web/src/server/handler.ts",
+      "size": 1638,
+      "sha256": "dbac23bc04482543b61e64edc66d560c794f2e6e7bfa550efcff1bd40f07c342"
+    },
+    {
+      "path": "apps/web/src/server/import-shared.ts",
+      "size": 638,
+      "sha256": "6bb794c2e669e15d7175c734219f9ac3b2aa95ab896e225e321bc33a52666ff9"
+    },
+    {
+      "path": "apps/web/src/server/invitation-activation.ts",
+      "size": 5121,
+      "sha256": "7e3b3513d27189ef446b9a9ea521c7f48332b561d79bb94e393b83968864b55e"
+    },
+    {
+      "path": "apps/web/src/server/personalization.ts",
+      "size": 961,
+      "sha256": "254ce9ea99fca3a1a67844c980363918dbde0253c19df49174a81a1c777e8253"
+    },
+    {
+      "path": "apps/web/src/server/recipient-access.ts",
+      "size": 602,
+      "sha256": "c886c8e113298590b64d7cfa5d0d7f631cb49c61cca9c399a41dfe7881a30cca"
+    },
+    {
+      "path": "apps/web/src/server/recipient-export.ts",
+      "size": 1218,
+      "sha256": "861fb4f71f80a230df1055106d103daf7aeb1e3e8ee223fc37e8b676f2d5c975"
+    },
+    {
+      "path": "apps/web/src/server/repository.ts",
+      "size": 4052,
+      "sha256": "97c60689a79892358e8b42a3890d5e7311485279dbc1425050ab352e0271d17c"
+    },
+    {
+      "path": "apps/web/src/server/runtime.ts",
+      "size": 882,
+      "sha256": "a86be26b3cdff99cba1528942e9c343833b6ee908331e9af838c69ed88a24ddd"
+    },
+    {
+      "path": "apps/web/src/server/schedule-validation.ts",
+      "size": 1526,
+      "sha256": "762509898eb715b264e8c9a234cda75ebdad94fedf83d98c85d69e8ecd11deb3"
+    },
+    {
+      "path": "apps/web/src/server/scheduling.ts",
+      "size": 7976,
+      "sha256": "b1577431e586c042042a90f9c9d1d8c41ac0074410c0f2d24f4e99834308c2fb"
+    },
+    {
+      "path": "apps/web/src/server/simulation-operations.ts",
+      "size": 6033,
+      "sha256": "f55b961203547c63badeac2a1b6df261f1f706c57db0dd898621b87a430cdfe1"
+    },
+    {
+      "path": "apps/web/src/server/simulation-policy.ts",
+      "size": 1935,
+      "sha256": "edfdeff503a835f37241f5438a134be7c367e8f955fe9f3e8d41e4f39d2306dd"
+    },
+    {
+      "path": "apps/web/src/server/supabase-auth.ts",
+      "size": 2965,
+      "sha256": "9419f6449ea8c5d5416b3d1fd1c092db57a94597d95006da365ab6a892c53056"
+    },
+    {
+      "path": "apps/web/src/server/tenant-administration.ts",
+      "size": 4370,
+      "sha256": "0696f7192764f241885d89c89a86c16245e2f288e893cdeacbf7c97e90d21a95"
+    },
+    {
+      "path": "apps/web/src/server/tenant-context.ts",
+      "size": 1146,
+      "sha256": "bae317ab7ddecbb6b2a36d1c601993975b6b120eaa8131444591fda7f8b8105c"
+    },
+    {
+      "path": "apps/web/src/server/transaction.ts",
+      "size": 4880,
+      "sha256": "f8454cc848b3e5f7124a8128155cf4de60325968010ce38a2e26c76b04b4f794"
+    },
+    {
+      "path": "apps/web/src/server/user-management.ts",
+      "size": 16970,
+      "sha256": "dc135eefb0afe5cb79cde318d7a9c886f642a6354448ccd10277a8c7714363ec"
+    },
+    {
+      "path": "apps/web/src/server/user-onboarding.ts",
+      "size": 9651,
+      "sha256": "389985089e9bd2f4d543e3b15075c858a3b18bc6257df73ac4416aa2d3910270"
+    },
+    {
+      "path": "apps/web/src/server/validation.ts",
+      "size": 2853,
+      "sha256": "2c0041e59156bd4dd95e257adbc6320d2863ac3809d17a0c13a22d963a5bbcb3"
+    },
+    {
+      "path": "apps/web/src/session-gate.tsx",
+      "size": 3282,
+      "sha256": "9631bd55994ad9362542d9138f0fca5c12a382600b417adc4daa384ebaf709bd"
+    },
+    {
+      "path": "apps/web/src/simulation-policy-panel.tsx",
+      "size": 4318,
+      "sha256": "8ab93094b4222a8a906e9009b21c0f6352bf1212584902a2b4a2e5d4f1b68035"
+    },
+    {
+      "path": "apps/web/src/synthetic.ts",
+      "size": 3838,
+      "sha256": "b059d0125d6dd8a3edf54fea7694384a5c746642198e98f44c508b34e63b68c8"
+    },
+    {
+      "path": "apps/web/src/workspace.tsx",
+      "size": 6541,
+      "sha256": "c93d743d902c0a92fa4238ccef3f996307abdb24a4d79f72c13be1cc161f9347"
+    },
+    {
+      "path": "apps/web/tsconfig.json",
+      "size": 254,
+      "sha256": "d1467b54513b32cf664808c05e5a368eba2ea9ecbe3009ea420e7fbd51702cec"
+    },
+    {
+      "path": "apps/worker/src/fixture-store.ts",
+      "size": 3304,
+      "sha256": "6a16ed234094bbdb45b064c349ee450f00d87e089c4d2dd4e1f672e8ed80e13e"
+    },
+    {
+      "path": "apps/worker/src/fixture.ts",
+      "size": 1586,
+      "sha256": "ca31e008bfaab176c911e4d7543de0c1012d84ddf35237760c07694d93735e39"
+    },
+    {
+      "path": "apps/worker/src/main.ts",
+      "size": 1730,
+      "sha256": "845ac75759c21b5d664f4f6b70ae62434adc167135b6da89f7523bd148f37883"
+    },
+    {
+      "path": "apps/worker/src/postgres-main.ts",
+      "size": 634,
+      "sha256": "a4c03c12c20f2c9b082b64748c4674de9516c84735e515c8a162a8107fd6012f"
+    },
+    {
+      "path": "apps/worker/src/postgres-store.ts",
+      "size": 11351,
+      "sha256": "72693c540295dee913ddd6aa3a4940ac6d457928f867126aa2bc6439c1f22f13"
+    },
+    {
+      "path": "apps/worker/src/simulation-engine.ts",
+      "size": 9421,
+      "sha256": "fe8ff3a8d56b79a1c3be6c23187be32b155f4b8276a3d8f3992a95b85125e291"
+    },
+    {
+      "path": "biome.json",
+      "size": 747,
+      "sha256": "b2b580a598dbd596f72f4dbd0e28e022c5c7d7ff564381dfedfc40f0d0d5a447"
+    },
+    {
+      "path": "database.zip",
+      "size": 67095,
+      "sha256": "426a4e4562d731ec7cf6e977718ee8393fd8aad97dd69ad6f8ca6f69be1deabd"
+    },
+    {
+      "path": "database/TableDesign.json",
+      "size": 445853,
+      "sha256": "48a2b30a2e0b9078fd972ee96f9e1279832c2c572148e4e4aac913d4f3dbec63"
+    },
+    {
+      "path": "database/deployment/bcs-dev-022-026/022_reviewed_bcs_dev.sql",
+      "size": 3269,
+      "sha256": "47ddf8e40a8e97283079b96bde30ceec25cbc790f43871a69ace213db01ef558"
+    },
+    {
+      "path": "database/deployment/bcs-dev-022-026/023_reviewed_bcs_dev.sql",
+      "size": 4254,
+      "sha256": "4db2f03469bce764b7db54a53986229cb4d5b59b3a6ba2d4b050398f7ae42e03"
+    },
+    {
+      "path": "database/deployment/bcs-dev-022-026/024_reviewed_bcs_dev.sql",
+      "size": 12304,
+      "sha256": "22e4c90f7e90d1d3fff2f0fe9b109dd1fe933124ec3d40c8a48e7fda2c6d9b65"
+    },
+    {
+      "path": "database/deployment/bcs-dev-022-026/025_reviewed_bcs_dev.sql",
+      "size": 5083,
+      "sha256": "29367ccb65ea16cb34d704c0536012bd339017bd1ef7f2b015ee516cdd389983"
+    },
+    {
+      "path": "database/deployment/bcs-dev-022-026/026_reviewed_bcs_dev.sql",
+      "size": 4949,
+      "sha256": "c0e7e669fb610c425c5970c41f5ffa376e4b4d05c201329c564b8bb510f6a790"
+    },
+    {
+      "path": "database/deployment/bcs-dev-022-026/REVIEW.md",
+      "size": 5285,
+      "sha256": "42195b6a0cd308eecffbf6f32d4e5cfd87fac624d0ca407651c8305886c7235e"
+    },
+    {
+      "path": "database/deployment/bcs-dev-022-026/manifest.json",
+      "size": 2031,
+      "sha256": "51cb8cf98e11c49181f18913a6d8a9f67e8f40c411605af13e2ec8e445e045cd"
+    },
+    {
+      "path": "database/deployment/bcs-dev-022-026/postflight-read-only.sql",
+      "size": 897,
+      "sha256": "fad67e6f7ebc551458600e75ea2d70c538c4ce2549ca8e366dc2ac8b59027f7a"
+    },
+    {
+      "path": "database/fixtures/022_simulation_policy_isolated.sql",
+      "size": 2060,
+      "sha256": "6bc99a856c8e843f1756c2525ae85ab6f1d32a4159a47336b624c4a6dbd72148"
+    },
+    {
+      "path": "database/migrations/001_foundation.sql",
+      "size": 9505,
+      "sha256": "98f39ab1646368eca95c149454a76f22b423ca9e22319f5c8bc21969c70b854f"
+    },
+    {
+      "path": "database/migrations/002_audience_and_preferences.sql",
+      "size": 9564,
+      "sha256": "f687b9784612fdeb6c2c1b4f6c16f30772dcf8c56fb298ae636201e9e769baa5"
+    },
+    {
+      "path": "database/migrations/003_connectors_and_mappings.sql",
+      "size": 5401,
+      "sha256": "66af6166020e75b01bb77ce3ee2713dab3daa82b0234ce50d6f6efef171409d3"
+    },
+    {
+      "path": "database/migrations/004_templates_and_ses.sql",
+      "size": 9557,
+      "sha256": "b052b628ad6a321d767791d790519625673900d3a0e63582592af807f2720eaa"
+    },
+    {
+      "path": "database/migrations/005_campaigns_queue_and_feedback.sql",
+      "size": 13122,
+      "sha256": "4dd09b91d04f86514b6800509b753e4c2ca7cb9893ab1a4c46a859f8fb83cba6"
+    },
+    {
+      "path": "database/migrations/006_scheduling_audit_and_exports.sql",
+      "size": 8431,
+      "sha256": "46f8d2d5162722e4b2bc89fd815cd80a237a10e32360a0d317d99067e8732d3a"
+    },
+    {
+      "path": "database/migrations/007_saas_plans_usage_and_api_idempotency.sql",
+      "size": 5638,
+      "sha256": "1ef35b05c6011265bb15b3c32c6afbc3163846016bd9ea9f5133d1016d0c4ed9"
+    },
+    {
+      "path": "database/migrations/008_finalize_guards.sql",
+      "size": 3537,
+      "sha256": "c41a17b2522460b178d2c51d6ae9db73738acb6ef518cea1f98368d84aa99c50"
+    },
+    {
+      "path": "database/migrations/009_add_recipient_state_and_district.sql",
+      "size": 2040,
+      "sha256": "8c9c0b6c9d63b04c59836f597d626b8dd813035ea03874ca663ae6fc038057a1"
+    },
+    {
+      "path": "database/migrations/00_PREFLIGHT_READ_ONLY.sql",
+      "size": 1382,
+      "sha256": "fe3974a2c4da96ca9cb8c64e9ac8c1e5fbf572cb7eaa9d30fb53cf56c4e90e09"
+    },
+    {
+      "path": "database/migrations/011_authenticated_email_workspace.sql",
+      "size": 6113,
+      "sha256": "e28ffbf1a0b5cafb0bcadc4fa6fb05467b29582abd2a2f822715dbf64f1cb56f"
+    },
+    {
+      "path": "database/migrations/012_draft_portal_workspace_access.sql",
+      "size": 1735,
+      "sha256": "e37084e2b65ba094d74771d8e569cf3b018e84de58dd59c3c9d0d2a66b5d5f2e"
+    },
+    {
+      "path": "database/migrations/013_authenticated_dashboard.sql",
+      "size": 2302,
+      "sha256": "decc5d17f7af40c06b70bf3b0f350aa9ec5c11c072a69928d355ca26b195e232"
+    },
+    {
+      "path": "database/migrations/014_authenticated_scheduling.sql",
+      "size": 1835,
+      "sha256": "fb69783ce5394d4ec73e62dc52ac21c0c4cbc0b50fed58404891643116d649ef"
+    },
+    {
+      "path": "database/migrations/015_reports_and_queue_controls.sql",
+      "size": 4295,
+      "sha256": "3ecee87066a8d659babeafd988ddf8748944d0ccc130745b8453070afb0b7553"
+    },
+    {
+      "path": "database/migrations/016_campaign_workspace.sql",
+      "size": 3975,
+      "sha256": "0c01807721075aceef5e17ecafa9a8bcfefa3026728a24a611f0dc6645350860"
+    },
+    {
+      "path": "database/migrations/017_configuration_workspace.sql",
+      "size": 3136,
+      "sha256": "9c796c1538a948219ba78b9e13bcaaa394e0a4c02ab9d6075f1250a721031beb"
+    },
+    {
+      "path": "database/migrations/018_contact_api.sql",
+      "size": 4824,
+      "sha256": "eef7b50802bf599c784eff511dc6f2d3958025b58f5e28ae29272f761a9ee9c3"
+    },
+    {
+      "path": "database/migrations/019_contact_taxonomy.sql",
+      "size": 934,
+      "sha256": "d74e55d58055c1846dfe2a7baa4da1b539c076cf25f3c151716762d9ad7abbb0"
+    },
+    {
+      "path": "database/migrations/020_user_onboarding_scoped.sql",
+      "size": 1613,
+      "sha256": "93e296987a7a751c679c2725751f419e83caf2af0b117ab5ab05ac3dbca71431"
+    },
+    {
+      "path": "database/migrations/021_company_user_management.sql",
+      "size": 1811,
+      "sha256": "02e02f7a4fb579d62eff6f46bde695331bae96cf5ffe8e47a91f5e957d059979"
+    },
+    {
+      "path": "database/migrations/022_simulation_policy_and_receipts.sql",
+      "size": 3847,
+      "sha256": "268fd116c94a054d7722c25fb8d418046d6fd357066fbc3d472ba3867e081abb"
+    },
+    {
+      "path": "database/migrations/023_isolated_simulation_worker.sql",
+      "size": 4271,
+      "sha256": "2eabb19810da1e479b7bdded452429712d45976623dc775bbe536d8ee4235655"
+    },
+    {
+      "path": "database/migrations/024_tenant_embed_and_workflows.sql",
+      "size": 12091,
+      "sha256": "2665902776913d516f9fb5505ecff7cb2cf44c26a0049e560680c45cf7bc7854"
+    },
+    {
+      "path": "database/migrations/025_quotas_and_independent_review.sql",
+      "size": 4884,
+      "sha256": "696e6e8c2a035add898a421a56bb84f0404cead32bafc397b70423402a216559"
+    },
+    {
+      "path": "database/migrations/Codex_0001_bcs_demo_recipients.sql",
+      "size": 4382,
+      "sha256": "6056bd877cb788bbe04f8f407da1537dbd112496f66a228b92a3894aa9f18089"
+    },
+    {
+      "path": "database/migrations/SoftVAT_BCS_Migration_001_Rehearsal_V2_FullRollback.sql",
+      "size": 15808,
+      "sha256": "a44492b9ce028ba58502db617e3cd2f5973bb86f024210ca06b041f5e33a82c1"
+    },
+    {
+      "path": "database/proposals/010_VERIFY_READ_ONLY.sql",
+      "size": 5628,
+      "sha256": "0769e65414d9620967e698ed46a00936d7acc9b7888316b0067553ef9d8653e7"
+    },
+    {
+      "path": "database/proposals/010_recipient_reader_PENDING_APPROVAL.sql",
+      "size": 9039,
+      "sha256": "504e4043cda7c1c8ad1d4cb4e7c8aea022b557f9b818593e27ed02e802974254"
+    },
+    {
+      "path": "database/proposals/010a_bcs_dev_permission_remediation.sql",
+      "size": 2886,
+      "sha256": "b1fd050733d6cfadd3ae6a538c021af2188f3872e8b6cc249394b922ca5d0838"
+    },
+    {
+      "path": "database/proposals/010a_bcs_dev_permission_restore.sql",
+      "size": 2327,
+      "sha256": "d47080ab5cd57ed7d674a10fde7230cf4cb324cb9e3bb831b8fb2e785fdfce3e"
+    },
+    {
+      "path": "database/proposals/026_session_csv_import_PENDING_APPROVAL.sql",
+      "size": 5019,
+      "sha256": "f0fcdce8ade862267dcdd5c9c391e1af1f632a683d73fcdb4a9b9c04d5b27077"
+    },
+    {
+      "path": "database/seeds/OPTIONAL_240_SYNTHETIC_RECIPIENTS_V2_ENRICHED.sql",
+      "size": 53750,
+      "sha256": "98e7245a8c3c37340dfa4a6422d5a6c8e7b101a1711bee6b466a46583537f45c"
+    },
+    {
+      "path": "database/seeds/VERIFY_240_SYNTHETIC_RECIPIENTS_V2.sql",
+      "size": 1764,
+      "sha256": "ed4f4dd052aa0920d51c1d8de88a075402fef8611b0e94bfed171e9478bc3307"
+    },
+    {
+      "path": "docs/PROJECT-MASTER.md",
+      "size": 6775,
+      "sha256": "eca67a1436fe7511b2513e360123e0162f9d89468559b478660b4d63de997a84"
+    },
+    {
+      "path": "docs/README.md",
+      "size": 6420,
+      "sha256": "0ca20f52f99bc1b1581e655140b5c27fbce6a73d96eeaa75efaaef768b46a7ab"
+    },
+    {
+      "path": "docs/adr/DECISION-LOG.md",
+      "size": 8840,
+      "sha256": "13f86e35d2a1b3e6ff4a51ec6a7d24c16f38d78a9c975f517ef0bd4ed20742dc"
+    },
+    {
+      "path": "docs/architecture/ARCHITECTURE.md",
+      "size": 6374,
+      "sha256": "2fc61f4c6623aede58b673bbc36c7b04f9799b9e4563ef34e5e530ad4dee48fb"
+    },
+    {
+      "path": "docs/architecture/BCS-SAAS-IMPLEMENTATION-READINESS.md",
+      "size": 36828,
+      "sha256": "3d363d7cb94c56e1f1c5f4cfc6b207059afac99f0b81a457887e37f37c5c3e2a"
+    },
+    {
+      "path": "docs/architecture/DATABASE-ARCHITECTURE.md",
+      "size": 8569,
+      "sha256": "dc9690bddd7002b63fac16cd8e8fd59efd7c230ea7a1bc1594e828e03ea61c49"
+    },
+    {
+      "path": "docs/architecture/PHASE-1-ARCHITECTURE-PROPOSAL.md",
+      "size": 26901,
+      "sha256": "ad807f3388b2d086e01019620f353cdbfa38e3866c3162b6de2f80a4343ff7d9"
+    },
+    {
+      "path": "docs/architecture/RECIPIENT-DATA-FOUNDATION.md",
+      "size": 15288,
+      "sha256": "78d7205602ec4976a796871458232314fa9a9c7e58fbfd5658d7d312a8fd2f4f"
+    },
+    {
+      "path": "docs/architecture/STEP-3B-2-ISOLATION-REVIEW.md",
+      "size": 15514,
+      "sha256": "923e5ab7f90c46a80b11cafbab597f1be41484229bc0f230dc271ca91dd22063"
+    },
+    {
+      "path": "docs/email/BCS_SUPABASE_RECOVERY_TEMPLATE.html",
+      "size": 1635,
+      "sha256": "b83241c8b2b7e1e2afafc5305b95a52b6462076958915dbff639584cd91b7d92"
+    },
+    {
+      "path": "docs/handover/STEP-1C-INSTALL-REPORT.json",
+      "size": 4050,
+      "sha256": "494282e525e44776b790f1be911ee131e671af1daf1918f174fb5aab4ba50a22"
+    },
+    {
+      "path": "docs/handover/STEP-1E-REPOSITORY-RULES-REPORT.json",
+      "size": 1577,
+      "sha256": "6bf266d4cfd1e65d89e1c54a5465bf5b40fed8a6a4a2add1b078ced620d02ec4"
+    },
+    {
+      "path": "docs/handover/WORK-STATUS.md",
+      "size": 27098,
+      "sha256": "e2d80f00101f0db566cd9cb65a8947862dfa1285de6ae908b003ffb241c86790"
+    },
+    {
+      "path": "docs/implementation/BCS-CONSOLIDATED-SAAS-COMPLETION.md",
+      "size": 35009,
+      "sha256": "89617e76a6dbf7a7f8d9aeedc02abe614d9dacccd507dfa6578de3f8e07f5bb6"
+    },
+    {
+      "path": "docs/implementation/BCS-SAAS-INCREMENT-1-IMPLEMENTATION.md",
+      "size": 20921,
+      "sha256": "65e8f838c8b68d6a4bbb08675b218036ad7a717902b2ee749791f6d7d9d80e6a"
+    },
+    {
+      "path": "docs/implementation/BCS-SUPABASE-END-TO-END-INTEGRATION.md",
+      "size": 29473,
+      "sha256": "970e1c55365f037123a87397ecc708c07c5245b31d2bc77ea6c19fbc9f26bcdd"
+    },
+    {
+      "path": "docs/implementation/BCS_ADMIN_MENU_RIGHTS_UI_PATCH.md",
+      "size": 2961,
+      "sha256": "1eb363ae759858b1304f4736b5159adeabc4abaa8bb77cb1d2cb394e5d53fb50"
+    },
+    {
+      "path": "docs/implementation/BCS_AUTH_INVITATION_ACTIVATION.md",
+      "size": 5913,
+      "sha256": "fee60f5fbdbdc48310375ff2edee3105e6c192a703f7e6d21ecbdcc4601e0813"
+    },
+    {
+      "path": "docs/implementation/BCS_UI_CLEANUP_INVITATION_READINESS.md",
+      "size": 2656,
+      "sha256": "da7e16a97766cdde511afc2ebc1a3e2f2da2875e01716bf90604729a2b4d0b31"
+    },
+    {
+      "path": "docs/implementation/BCS_USER_MANAGEMENT_ALL_IN_ONE.md",
+      "size": 4199,
+      "sha256": "bedf2228df827ec02a22224026f3b4b9d712286ae66973b8a4d96a1ffbf3e272"
+    },
+    {
+      "path": "docs/implementation/MASTER-DYNAMIC-IMPLEMENTATION-STATUS.md",
+      "size": 32612,
+      "sha256": "9a2638ac0d79ce172dcd4d3d5ede3f8c9494d4fc18bc6c769d0a09b1e099692e"
+    },
+    {
+      "path": "docs/implementation/REGRESSION-STABILIZATION-2026-10-19.md",
+      "size": 7817,
+      "sha256": "a34a05ca8fff3f65b4a01b75ffc92ca0bb11565d74c27ff88baa6df8cc19f029"
+    },
+    {
+      "path": "docs/implementation/SAAS-CONTACT-API.md",
+      "size": 3329,
+      "sha256": "a5fc34a7bb9d7082eb75b94a8884b57361cdddf35e951897cedfe4aead014659"
+    },
+    {
+      "path": "docs/implementation/STEP-3A-UI-FOUNDATION.md",
+      "size": 18883,
+      "sha256": "703fcaf15987dfcdb51fc1231a63fbfd0488e45627c38e0c586951c4c9bb5931"
+    },
+    {
+      "path": "docs/implementation/STEP-3A-V1-VISUAL-FIDELITY-REVIEW.md",
+      "size": 13410,
+      "sha256": "098eca0b4aafbe217046eec8a15e85dee9f2f17307bcdde6ee0777ae77483d9e"
+    },
+    {
+      "path": "docs/implementation/STEP-3A-V2-RICH-EMAIL-EDITOR.md",
+      "size": 12115,
+      "sha256": "ea5db2d53d927d68e2bd574ac1b38ac324624e51b9f6f2007ab988ed5febd05f"
+    },
+    {
+      "path": "docs/implementation/STEP-3C1-DYNAMIC-DATA-FOUNDATION.md",
+      "size": 17103,
+      "sha256": "f3cc7e1a2ece6b711af273a6c40d7c139ec17b4afac48538cb212d8c49543d7e"
+    },
+    {
+      "path": "docs/implementation/STEP-3C2-LIVE-PREFLIGHT-RESULT.md",
+      "size": 10373,
+      "sha256": "3ec936aac4bd0d389f9646451f2bb7cbdf271f1d7b96e6b747e6557ae82920a9"
+    },
+    {
+      "path": "docs/implementation/STEP-3C2-RESTRICTED-DATABASE-ACCESS.md",
+      "size": 20246,
+      "sha256": "123f7a99dadd65534f2c6cc726ff5acbb5c9c35fca87bd5c985514e4924bdb7a"
+    },
+    {
+      "path": "docs/implementation/STEP-3C2B-DYNAMIC-INTEGRATION-RESULT.md",
+      "size": 11872,
+      "sha256": "c83e8c79884d97ddd2ffe3af9b5ae620693353a14a509cf253341829666fb847"
+    },
+    {
+      "path": "docs/implementation/SUPABASE-AUTH-LOGIN-CORRECTION.md",
+      "size": 9120,
+      "sha256": "e3238de9b2e3be63d9fa019b2683ae59dc9d95a256d20175a88b98350a47d558"
+    },
+    {
+      "path": "docs/reference/IPX-BASELINE-SHA256.json",
+      "size": 3142,
+      "sha256": "74cd469a9ea44f09f8cf6fbfd4b41859f25df18fc4b33966b728168ce4f37285"
+    },
+    {
+      "path": "docs/reference/IPX-BASELINE.md",
+      "size": 4163,
+      "sha256": "98835e86726d154ee63f4cb89806cb411ff13ff00926ca2d050ebbfe492e4d00"
+    },
+    {
+      "path": "docs/reference/ORIGINAL-PROJECT-HANDOVER.md",
+      "size": 35796,
+      "sha256": "3e20a50fadc1cdd231ef774cc24e001a68687b1984bd4dbbadc2533695bbaf6a"
+    },
+    {
+      "path": "docs/reference/SMART-CONTROLS-REVIEW.md",
+      "size": 10926,
+      "sha256": "295ccf371ca03e8858b36873c6b212feabcbac7a9366ad14f829c457e562733a"
+    },
+    {
+      "path": "docs/reference/smart-controls/README.md",
+      "size": 3649,
+      "sha256": "fd30dd2c72b9b03670b2427918ca846a6387b0ef83acce857108c75147365fa5"
+    },
+    {
+      "path": "docs/reference/smart-controls/SOURCE-MANIFEST.json",
+      "size": 1214,
+      "sha256": "aba7b1674f4e491e3ab0127983f07ddffe4e0fe87970934e322e2536ddbdb3cc"
+    },
+    {
+      "path": "docs/reference/smart-controls/SmartMultiSelect(1).tsx",
+      "size": 1550,
+      "sha256": "49f43540edbc2535bf85183d0c12156422866b425c5a53bf6d640fdb8893d8bb"
+    },
+    {
+      "path": "docs/reference/smart-controls/SmartSearchLookup(1).tsx",
+      "size": 23770,
+      "sha256": "257113927428e3d64b8b1429dfe8875ae3d6fa4e27b0fb70ceab9335544b567c"
+    },
+    {
+      "path": "docs/reference/smart-controls/SmartSelect(1).tsx",
+      "size": 5711,
+      "sha256": "4e60508cfb3cd137de3dd0165d5798503770625c601226b19cbeeda2473ccd45"
+    },
+    {
+      "path": "docs/requirements/DEVELOPMENT-ROADMAP.md",
+      "size": 4944,
+      "sha256": "086b10e9bd4d3002e2d1315fbe652e535491630a9231d8c6d57c82f86b8ed120"
+    },
+    {
+      "path": "docs/standards/REUSABLE-COMPONENTS.md",
+      "size": 6879,
+      "sha256": "28393757e1a96ddbc67ce26840ecd6c9f8b3786de779e66ac703061a616dfb67"
+    },
+    {
+      "path": "docs/standards/SECURITY-STANDARDS.md",
+      "size": 5027,
+      "sha256": "a8d719fefc9b78f27247e9dfa1c7ee05d37916f64b6026c2bc06ee72034f45e3"
+    },
+    {
+      "path": "docs/standards/TESTING-AND-ACCEPTANCE.md",
+      "size": 4453,
+      "sha256": "10254ba262b5ddbd5c5802fc55c8458ad9578a7e34d17f65b55efbe504d6a06d"
+    },
+    {
+      "path": "docs/standards/UI-DESIGN-SYSTEM.md",
+      "size": 4242,
+      "sha256": "55bd78a78a57f41b12c920002544f8f886e31c16d98aeab77b7cbdce01a83a59"
+    },
+    {
+      "path": "examples/connectors/registry.example.json",
+      "size": 2265,
+      "sha256": "356c97cf10b92ab3dd97bf709bf65fc5af9b8be250f177cd9700ba22dfa6bb92"
+    },
+    {
+      "path": "examples/connectors/synthetic-views.sql.txt",
+      "size": 1728,
+      "sha256": "92242a4a14d2cbf4fd6b9c307b0edd17f2c62545fc06e66396f2f73eb7ed323b"
+    },
+    {
+      "path": "examples/embedding/host.mjs",
+      "size": 3571,
+      "sha256": "de3619d7261da2e702940a92e28fda67696bf6d843873fd6028aac8242d5adb4"
+    },
+    {
+      "path": "examples/embedding/issuers.example.json",
+      "size": 1377,
+      "sha256": "fb55a67eb6040273a8f999f56cbd1814bf2bc788ccda0c41ac481a4bcaf741d9"
+    },
+    {
+      "path": "examples/import/contacts.sample.csv",
+      "size": 428,
+      "sha256": "69ad09655eb3ea7b5cba14782bcd72e3b5097c4c38e00ab13d13a3d620a190f5"
+    },
+    {
+      "path": "package-lock.json",
+      "size": 151093,
+      "sha256": "b3b9be66d54c14ac9b582778f96ba6e2bb7d015c5de8cee027d9fd962516823e"
+    },
+    {
+      "path": "package.json",
+      "size": 1049,
+      "sha256": "e831e12da00ab3a8d54969e23aa0436356c5d9416ba54bcfdbf70f5be032d0d3"
+    },
+    {
+      "path": "packages/contracts/package.json",
+      "size": 112,
+      "sha256": "2162a543a24692694e77e82cf2e3a39e5faad73bc07a6f11e582f8d88babf42e"
+    },
+    {
+      "path": "packages/contracts/src/contact-csv.ts",
+      "size": 5748,
+      "sha256": "44c53c2404a1d73a1678162dde6325fd0a60f931f0acf6b0b463d524dc88a9f5"
+    },
+    {
+      "path": "packages/contracts/src/dispatch-policy.ts",
+      "size": 3760,
+      "sha256": "dae59b1972e1ad2913c26320383b63ea33563bad2de45488c5b993f14c9e2c6a"
+    },
+    {
+      "path": "packages/contracts/src/index.ts",
+      "size": 2975,
+      "sha256": "24ffb82933990f3b2fb411f317273ffbdb5006b087ff22778feb7219b29e0257"
+    },
+    {
+      "path": "packages/contracts/src/provider-contract.ts",
+      "size": 1673,
+      "sha256": "c4d0828172ad9fa486d95b3e66bda406770b8aa540a1b48f5fd8da47d4537102"
+    },
+    {
+      "path": "packages/ui/package.json",
+      "size": 597,
+      "sha256": "d80d3adfce13a73fb2612cc7111b64af1e3f4115dd6b7731910908b9e27e44b2"
+    },
+    {
+      "path": "packages/ui/src/email-html.ts",
+      "size": 6348,
+      "sha256": "e6b7833e4ae2882182a15160ac91cc1bc430d0fac78e65790b2291d95bdc3bd0"
+    },
+    {
+      "path": "packages/ui/src/email-modal.tsx",
+      "size": 2925,
+      "sha256": "6bd51c7fb5fcd82be0ee4bdb324cf6a6241d26401ded2c015d238bcc6b935181"
+    },
+    {
+      "path": "packages/ui/src/email-preview.tsx",
+      "size": 1564,
+      "sha256": "7a9ba9b8dc31401f9679a16702061d0dd7acfe67df5746466a037ad3e10917a1"
+    },
+    {
+      "path": "packages/ui/src/form-kit.tsx",
+      "size": 1275,
+      "sha256": "e62a53c8211761087195a9cdf7be73dbb877588de9ba78e72cf1c3bc30ddc3c2"
+    },
+    {
+      "path": "packages/ui/src/grid.tsx",
+      "size": 7807,
+      "sha256": "f3a50d19dd107bf0b1d40f2d35d8bbca656800ea15976a8525203cf9d18080a0"
+    },
+    {
+      "path": "packages/ui/src/icons.tsx",
+      "size": 4175,
+      "sha256": "af0c083d911af77dc1659d1bfc39fe3f7974fb0d4bd72fa9f7e978432316dc57"
+    },
+    {
+      "path": "packages/ui/src/index.ts",
+      "size": 240,
+      "sha256": "db51a9bc48ab6efc48b79dbb41ec31c53c683965e876f543057f14087548fbd9"
+    },
+    {
+      "path": "packages/ui/src/ipx-base.css",
+      "size": 24890,
+      "sha256": "410e50fa93bc6ff54fc03deb702360d6b07aa1c37cdb09cd3aad14ff9667fec0"
+    },
+    {
+      "path": "packages/ui/src/multi-select.tsx",
+      "size": 3735,
+      "sha256": "be2d4774a75e049d3425043f3eb7375fe11c05b4760f6dd2b313d441e27e7664"
+    },
+    {
+      "path": "packages/ui/src/popover.tsx",
+      "size": 3700,
+      "sha256": "9650bdda398b7cf8eff9411332a31b36c195cfef864e1f1c552f9600cb16c33f"
+    },
+    {
+      "path": "packages/ui/src/primitives.tsx",
+      "size": 14718,
+      "sha256": "0e05f807816d832ada578674752a8114bb661a39763925a46b8803d6d0dc8e2b"
+    },
+    {
+      "path": "packages/ui/src/react.css",
+      "size": 10629,
+      "sha256": "e8468dab882908f2ff940dde28c06be9f113c367294664fe3ca77ffc039375fd"
+    },
+    {
+      "path": "packages/ui/src/rich-email-editor.css",
+      "size": 9485,
+      "sha256": "1442acb974e224e59719e9c654f137d21b65212c1e2a0178f79d6d2308885c66"
+    },
+    {
+      "path": "packages/ui/src/rich-email-editor.tsx",
+      "size": 9265,
+      "sha256": "5608eee62d7cd4b51bc17a69dfc2023f69fe581514cc2a3bd6758dc1ae7b573e"
+    },
+    {
+      "path": "packages/ui/src/selects.tsx",
+      "size": 3517,
+      "sha256": "dbc2f6655a5899f4fcfe261c0d038bbfe9ee14b8d07fad90403d357eae205dc1"
+    },
+    {
+      "path": "packages/ui/src/styles.css",
+      "size": 84,
+      "sha256": "5f28deac47a4d1b18136262506164cc686285b27a72e607f0616090fc8c0eb78"
+    },
+    {
+      "path": "scripts/BCS_Consolidated_Rollback.ps1",
+      "size": 2690,
+      "sha256": "207323797a0fd712ee515c4953ae520f96fcf0bdf132f73ff70f2b576039d60c"
+    },
+    {
+      "path": "scripts/BCS_Consolidated_Validate.cmd",
+      "size": 786,
+      "sha256": "637ddd047f71693e652d3148550f4af1b22fbdac6b1d44704bf15d827027ce67"
+    },
+    {
+      "path": "scripts/BCS_Integration_Install_Check.cmd",
+      "size": 475,
+      "sha256": "006355e3867ec1786cd6edf22b7198ffae60f974d9b03b7225918ddfa63f5922"
+    },
+    {
+      "path": "scripts/BCS_Integration_Preview.cmd",
+      "size": 224,
+      "sha256": "d505e62323bbc58d91cfb5a1382efd3f0927feb8b9dad3d7c893bb2e8d029a6d"
+    },
+    {
+      "path": "scripts/BCS_Integration_Rollback.ps1",
+      "size": 2693,
+      "sha256": "4eb1f32a82fe3282b0cbe7e6ac841120644b5391597d3841b66e25962e0fc88e"
+    },
+    {
+      "path": "scripts/BCS_Integration_Verify.cmd",
+      "size": 463,
+      "sha256": "8456b268059502d61e1a808916a2cee28ca6285e38f00aee3c5efa0844507505"
+    },
+    {
+      "path": "scripts/BCS_Isolated_Simulation_Worker.cmd",
+      "size": 332,
+      "sha256": "750a085ef70c7db4749c3df5cb0fc52b7a4a83c19bfd9b0612a17af0486d27a2"
+    },
+    {
+      "path": "scripts/BCS_Phase1_Step1C_CreateDocs.cmd",
+      "size": 146629,
+      "sha256": "de19246fce2efd34946688daa1c5e072f3cfce85440a0dc4e971be7995cfd236"
+    },
+    {
+      "path": "scripts/BCS_Phase1_Step1E_RepositoryRules.cmd",
+      "size": 20983,
+      "sha256": "4f2b8b472c6aa2d595b3f1e0dc00853677c85bc4140c052513efba0907ec18ad"
+    },
+    {
+      "path": "scripts/BCS_Phase1_Step1G_FirstBaseline.cmd",
+      "size": 18636,
+      "sha256": "822df77746f8523dcba64589c57f77b09fe713e5c9fa856426b7512039271f9f"
+    },
+    {
+      "path": "scripts/accept-isolated-saas.mjs",
+      "size": 11018,
+      "sha256": "e6c893d7545393c9d5b504ef486b1f0b37245f369fc5e9798d631ed30f497b43"
+    },
+    {
+      "path": "scripts/accept-source-connector.mjs",
+      "size": 1422,
+      "sha256": "9dd4dc672e68123a0cd533a9c6a34feedab53de4ac49cb1e9c13661d6f019048"
+    },
+    {
+      "path": "scripts/bcs-integration-preflight.cjs",
+      "size": 4569,
+      "sha256": "16215e903da5497eb566313848f7a48c829475a20b4e20e8ca3474548b355c97"
+    },
+    {
+      "path": "scripts/bcs-reviewed-deployment.cjs",
+      "size": 5055,
+      "sha256": "549a35a1e1fe39836abc44646f09c9b5585121dc1668e87de6b3f4a0022af3d9"
+    },
+    {
+      "path": "scripts/bcs-source-integrity.cjs",
+      "size": 823,
+      "sha256": "5c9636c10417f8be8f04cdec49bb32afe258af5af55695ea6a1bb4f548d67c45"
+    },
+    {
+      "path": "scripts/validate_recipient_csv.py",
+      "size": 4810,
+      "sha256": "5a411672d990d686227e57cd60c06ebe5021fd2430ddc74a93e539fee103b5b3"
+    },
+    {
+      "path": "scripts/verify_bcs_reader_api.mjs",
+      "size": 2628,
+      "sha256": "ef01d11a7f2dfa03f5d21b8c7f51170dd3620e2ed9f22b35ebe7fca46e65bfac"
+    },
+    {
+      "path": "tests/activation-link-strictmode.test.tsx",
+      "size": 1789,
+      "sha256": "2bfe81a52289d66a894f5e03c0291f75b4878cdaf417a6470d17b72859b3494d"
+    },
+    {
+      "path": "tests/activation-localhost-origin.test.ts",
+      "size": 2953,
+      "sha256": "0cc466e8ce3397608ebcec89c579b80070573b0a43005b86c749045014183f4f"
+    },
+    {
+      "path": "tests/activity.test.ts",
+      "size": 652,
+      "sha256": "a8edc082ecd8875e3df170e11cc851280d2457f2e1cddba3dea38b9e4c79a60e"
+    },
+    {
+      "path": "tests/admin-navigation.test.tsx",
+      "size": 3056,
+      "sha256": "6c2cb385ffe4387900dbfb6cbe922c16cb12ae58e9eb52ce4be57c68ac3efa56"
+    },
+    {
+      "path": "tests/admin-rights-layout.test.tsx",
+      "size": 2023,
+      "sha256": "39efdba21cf7b95249ea5af1062a021e842b6fb493ad78f80aa27bd91b2dc619"
+    },
+    {
+      "path": "tests/admin-ui-cleanup.test.tsx",
+      "size": 2508,
+      "sha256": "977de205465187747c33c1e4630a3428997fa5b0b8754cf13da0d06f8f9dd569"
+    },
+    {
+      "path": "tests/authenticated-documents.test.ts",
+      "size": 2199,
+      "sha256": "13adc2488a5d5938d6f4538f929bdc75316f0c4ee79cd12d3967e4885fd99ef6"
+    },
+    {
+      "path": "tests/consolidated-api.test.ts",
+      "size": 4601,
+      "sha256": "cb3531a5ec9dca1f00b33ca2287b276d3c4f02298127e4d060d2a43fce20f1a7"
+    },
+    {
+      "path": "tests/consolidated-contracts.test.ts",
+      "size": 7861,
+      "sha256": "179d270021698f557b1a95c8abde061913e00cce221dafa15176ca9305e90e63"
+    },
+    {
+      "path": "tests/consolidated-ui.test.tsx",
+      "size": 1728,
+      "sha256": "4c0ed68c7a08c99fc4e258078b4fa127c5b5f16eb5b4d5dc902d8877640ce998"
+    },
+    {
+      "path": "tests/contact-csv.test.ts",
+      "size": 3003,
+      "sha256": "b5bfbee083ad4f8ed98c8d9e3b33969b161f0bf4370070e200883057520a89b4"
+    },
+    {
+      "path": "tests/contact-import-ui.test.tsx",
+      "size": 1348,
+      "sha256": "54a05c5cc4b795783c5084491a3585d5195e2a69f410fff9dfaca3290c63cc0c"
+    },
+    {
+      "path": "tests/csv-import-api.test.ts",
+      "size": 6298,
+      "sha256": "9c5115e137c4d856c7f1683a93a24ebcd49dde7b3b5692321283aa8e4d2d4f1d"
+    },
+    {
+      "path": "tests/dashboard.test.ts",
+      "size": 635,
+      "sha256": "d52af5638c004d46bdeadeed2852dacb77a0d87ff4d69c16d1f073ef69745541"
+    },
+    {
+      "path": "tests/dynamic-workflows.test.ts",
+      "size": 2563,
+      "sha256": "7694ec76f61a1bd48f55f7f131383e66264d04c1c706b6fabbc775d5de112782"
+    },
+    {
+      "path": "tests/email-editor.test.tsx",
+      "size": 16095,
+      "sha256": "88087edf1eb49e6b2b3e3764c38dff59c24caab5d7b35ca331e4f0bdaa371d25"
+    },
+    {
+      "path": "tests/email-security.test.ts",
+      "size": 5869,
+      "sha256": "3d79f79e4e364573164b098c9c7c79d33726838e686de99928b74170608a6bff"
+    },
+    {
+      "path": "tests/fidelity.test.tsx",
+      "size": 6913,
+      "sha256": "9043f6696b511fabc2eed6bc48110824590bd0e808e0084e38767d7cbbb7d7cb"
+    },
+    {
+      "path": "tests/invitation-activation.test.ts",
+      "size": 4095,
+      "sha256": "cb7050313faaee259f4123cc4beacff3a867fb8c0428b2ca7bf3ec3e173db680"
+    },
+    {
+      "path": "tests/login-permission-gate.test.ts",
+      "size": 2125,
+      "sha256": "06dddd48f050f23a4f96818c994bad0854258782a4b55d4bb44fece2606c1671"
+    },
+    {
+      "path": "tests/personalization.test.ts",
+      "size": 658,
+      "sha256": "40ca781d2904ba59414fab1a405febb389ec5e933e589b6b0aed2b5a7c065613"
+    },
+    {
+      "path": "tests/reader-config.test.ts",
+      "size": 2928,
+      "sha256": "3bdb2587c266c51b9a3c9d7898c52b7fca5addd85b334e80b63d6e9cc7273a73"
+    },
+    {
+      "path": "tests/recipient-database-ui.test.tsx",
+      "size": 6313,
+      "sha256": "1198b3ee69aa814586cee3a48652cb5c8b85dff42a4554e829965e5d304a3b37"
+    },
+    {
+      "path": "tests/recipient-export.test.ts",
+      "size": 769,
+      "sha256": "36440d1e54219c9ef4a0e31b13bdcc2597992059c159675b9672e7264654f700"
+    },
+    {
+      "path": "tests/recipient-live.integration.test.ts",
+      "size": 6494,
+      "sha256": "072e774e2d925426dabf85111322cf65520476cdc3c6c61edb74faf2a9c7f7c1"
+    },
+    {
+      "path": "tests/recipient-server.test.ts",
+      "size": 8700,
+      "sha256": "cdabc64d1f025fc3565f08535aace8eae0924741361ddfbd9cfc13c729604d87"
+    },
+    {
+      "path": "tests/report-grid.test.tsx",
+      "size": 1448,
+      "sha256": "9ce75a3429cff2c3e5baab773db0695be17d87733ceb452362a1bab3fe1bc2d0"
+    },
+    {
+      "path": "tests/saas-simulation.test.ts",
+      "size": 11724,
+      "sha256": "65a8a1d91e48a2eac7a2847388cf323adc9631f9d9af24186484a6aad7e08378"
+    },
+    {
+      "path": "tests/scheduling.test.ts",
+      "size": 1116,
+      "sha256": "f318e9e9775fd567600156725c3c007c16b31b200eaab2a74ded85b36539ae3f"
+    },
+    {
+      "path": "tests/selection.test.ts",
+      "size": 2098,
+      "sha256": "ec1d0ce52c98a0e2622940eae37e1be76a88a1088d9b87caf3cc784e838e7a7f"
+    },
+    {
+      "path": "tests/setup.ts",
+      "size": 417,
+      "sha256": "144f91e8adbb965cba3a15292e18429115b326632feac7b74ccf7d5523510e87"
+    },
+    {
+      "path": "tests/simulation-policy-api.test.ts",
+      "size": 2885,
+      "sha256": "83302469ec17bb6b363a974d558eb24bc184e5d0fa14de06c84337647383281b"
+    },
+    {
+      "path": "tests/simulation-policy-ui.test.tsx",
+      "size": 3103,
+      "sha256": "b3094f742dd8f500d2c30e251e15d46a145dbffcedd0f2235fb630f44e4cf641"
+    },
+    {
+      "path": "tests/supabase-auth.test.ts",
+      "size": 3677,
+      "sha256": "944c8a2c9730fc6426c7137a4b44d7c0d9d8371bab8175bd3222bc77f0f939cb"
+    },
+    {
+      "path": "tests/supabase-session-live.test.ts",
+      "size": 4162,
+      "sha256": "e89eba10782b47f768d47e20b4c8510666f68594e9140c9b643d5e07612e3558"
+    },
+    {
+      "path": "tests/ui.test.tsx",
+      "size": 6456,
+      "sha256": "eb278b1c4f219f24b5135bb6560fb14d9e9f27fe3263ee061e24850597539e2f"
+    },
+    {
+      "path": "tests/user-management-readiness.test.ts",
+      "size": 2638,
+      "sha256": "52cb75850b71c8654fd04d446dff95bcc3b8c10b546cba9c7a17a4f6824b5c51"
+    },
+    {
+      "path": "tests/user-management.test.ts",
+      "size": 1757,
+      "sha256": "a76e6c6655614c28a4593b493dde66e33e120cb81fcf0baf0e84db36b93d380a"
+    },
+    {
+      "path": "tests/user-recovery-activation.test.ts",
+      "size": 2309,
+      "sha256": "e89a9e3ef11cd0e6a98bca9bd0a1b70b3b3b805865e63a976915d2db93de3074"
+    },
+    {
+      "path": "tsconfig.json",
+      "size": 588,
+      "sha256": "648a6a7b4e6e04f387944ee60e1ba99e60233e2a55760115fc42750866fca4ab"
+    },
+    {
+      "path": "vitest.config.mts",
+      "size": 246,
+      "sha256": "28a3085508e19dc99236d69a58c270f00c22ad944f6433b2c8f8f597a0eec92c"
+    }
+  ]
+}

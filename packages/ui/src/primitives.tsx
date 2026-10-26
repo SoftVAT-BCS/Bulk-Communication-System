@@ -15,19 +15,74 @@ export function TabBar({ tabs, value, onChange }: { tabs: readonly string[]; val
     if (next !== null) { event.preventDefault(); onChange(tabs[next]); document.getElementById(`tab-${next}`)?.focus(); }
   }}>{tab}</button>)}</div></div>;
 }
-export const navigation = [{ label: "Dashboard", href: "/", icon: "dashboard" }, { label: "Communication", href: "/communication", icon: "mail" }, { label: "Scheduling", href: "/scheduling", icon: "calendar" }, { label: "Reports", href: "/reports", icon: "reports" }, { label: "Configuration", href: "/configuration", icon: "settings" }];
-export function NavItem({ label, href, icon, active, index }: typeof navigation[number] & { active: boolean; index: number }) { return <a className={`nav-link ${active ? "active" : ""}`} href={href} aria-current={active ? "page" : undefined}><Icon name={icon} /><span>{label}</span><span className="nav-key">0{index + 1}</span></a>; }
-export function AppShell({ page, children }: { page: string; children: ReactNode }) {
+export const navigation = [
+  { label: "Dashboard", href: "/", icon: "dashboard" },
+  { label: "Communication", href: "/communication", icon: "mail" },
+  { label: "Scheduling", href: "/scheduling", icon: "calendar" },
+  { label: "Reports", href: "/reports", icon: "reports" },
+  { label: "Configuration", href: "/configuration", icon: "settings" },
+];
+
+/** Additional authenticated workspace routes. Backend APIs still enforce access. */
+export const administrationNavigation = [
+  { label: "User Creation", href: "/admin/users", icon: "users" },
+  { label: "User Rights", href: "/admin/rights", icon: "shield" },
+];
+
+type NavigationItem = { label: string; href: string; icon: string };
+export function NavItem({ label, href, icon, active, index }: NavigationItem & { active: boolean; index?: number }) {
+  return <a className={`nav-link ${active ? "active" : ""}`} href={href} aria-label={label} aria-current={active ? "page" : undefined} title={label}>
+    <Icon name={icon} />
+    <span className="bcs-nav-text">{label}</span>
+    {index !== undefined && <span className="nav-key">{String(index + 1).padStart(2, "0")}</span>}
+  </a>;
+}
+
+/** Shared IPX navigation, now with an accessible, persistent desktop mini-sidebar. */
+export function AppShell({ page, mode = "synthetic", children }: { page: string; mode?: "synthetic" | "authenticated"; children: ReactNode }) {
   const [dark, setDark] = useState(false);
   const [drawer, setDrawer] = useState(false);
+  const [collapsed, setCollapsed] = useState(false);
+  const [signingOut, setSigningOut] = useState(false);
+  const [signOutError, setSignOutError] = useState("");
+  const [currentName, setCurrentName] = useState("");
+  const [currentPermissions, setCurrentPermissions] = useState<string[] | null>(null);
   const toggle = useRef<HTMLButtonElement>(null);
-  useEffect(() => { try { setDark(localStorage.getItem("bcs-theme") === "dark"); } catch { /* Preferences are optional. */ } }, []);
+  useEffect(() => {
+    try {
+      setDark(localStorage.getItem("bcs-theme") === "dark");
+      setCollapsed(localStorage.getItem("bcs-sidebar-collapsed") === "1");
+    } catch { /* Optional browser-only UI preferences. */ }
+  }, []);
   useEffect(() => { document.body.dataset.theme = dark ? "dark" : "light"; }, [dark]);
-  const toggleTheme = () => { const next = !dark; setDark(next); try { localStorage.setItem("bcs-theme", next ? "dark" : "light"); } catch { /* In-memory appearance remains usable. */ } };
+  useEffect(() => {
+    if (mode !== "authenticated" || typeof fetch !== "function") return;
+    const controller = new AbortController();
+    void fetch("/api/bcs/app/session", { cache:"no-store", credentials:"same-origin", signal:controller.signal })
+      .then(async result => result.ok ? result.json() : null)
+      .then(payload => {
+        if (controller.signal.aborted) return;
+        const name = payload?.data?.name;
+        if (typeof name === "string" && name.trim()) setCurrentName(name.trim());
+        if (Array.isArray(payload?.data?.permissions)) setCurrentPermissions(payload.data.permissions.filter((p:unknown):p is string => typeof p === "string"));
+      })
+      .catch(() => { /* Keep non-identifying fallback if optional header lookup fails. */ });
+    return () => controller.abort();
+  }, [mode]);
+  const toggleTheme = () => {
+    const next = !dark;
+    setDark(next);
+    try { localStorage.setItem("bcs-theme", next ? "dark" : "light"); } catch { /* In-memory appearance remains usable. */ }
+  };
+  const toggleSidebar = () => {
+    const next = !collapsed;
+    setCollapsed(next);
+    try { localStorage.setItem("bcs-sidebar-collapsed", next ? "1" : "0"); } catch { /* In-memory setting remains usable. */ }
+  };
   useEffect(() => {
     if (!drawer) return;
     const menu = document.getElementById("navigation");
-    const controls = Array.from(menu?.querySelectorAll<HTMLElement>("button,a[href]") ?? []);
+    const controls = Array.from(menu?.querySelectorAll<HTMLElement>("button:not(:disabled),a[href]") ?? []);
     controls[0]?.focus();
     const handleKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") { event.preventDefault(); setDrawer(false); }
@@ -40,12 +95,83 @@ export function AppShell({ page, children }: { page: string; children: ReactNode
     document.addEventListener("keydown", handleKey);
     return () => { document.removeEventListener("keydown", handleKey); toggle.current?.focus(); };
   }, [drawer]);
-  useEffect(() => { document.body.classList.toggle("mobile-nav-open", drawer); return () => document.body.classList.remove("mobile-nav-open"); }, [drawer]);
-  return <div className="app-shell"><a className="skip-link" href="#workspace">Skip to content</a><aside className={`sidebar ${drawer ? "bcs-open" : ""}`} id="navigation"><div className="logo"><div className="brandmark"><Icon name="send" /></div><div><div className="brandname">UNIVERSAL NOTIFY</div><div className="brandsub">Communication Engine</div></div></div><button type="button" className="btn mobile-toggle" onClick={() => { setDrawer(false); toggle.current?.focus(); }}>Close navigation</button><div className="nav-label">MAIN WORKSPACE</div><nav className="navlinks" aria-label="Main workspace">{navigation.map((item, index) => <NavItem key={item.href} {...item} index={index} active={page === item.label} />)}</nav><div className="nav-label">CONNECTED PORTAL</div><div className="navlinks"><a href="/configuration" className="nav-link"><Icon name="school" /> SkillMonk Academy <Icon name="chevron" /></a></div><div className="sidebar-bottom"><div className="side-note"><strong>Synthetic UI foundation</strong><p>Fictional sample data. No external database, Amazon SES or live email connection.</p></div><div className="sidebar-mini"><span className="live-dot" /> Step 3A · 5 reusable pages</div></div></aside>{drawer && <button type="button" className="bcs-backdrop" aria-label="Close navigation" onClick={() => setDrawer(false)} />}<div className="main"><header className="topbar"><div className="top-start"><button type="button" className="round-icon mobile-toggle" ref={toggle} aria-label="Open navigation" aria-expanded={drawer} aria-controls="navigation" onClick={() => setDrawer(!drawer)}><Icon name="menu" /></button><div className="breadcrumb">Workspace <Icon name="chevron" /><strong>{page}</strong></div></div><div className="top-actions"><div className="demo-ribbon"><Icon name="spark" /> SYNTHETIC UI DEMO</div><button type="button" className="round-icon" aria-label="Toggle appearance" aria-pressed={dark} onClick={toggleTheme}><Icon name="moon" /></button><button type="button" className="round-icon" disabled aria-label="Notifications — preview only"><Icon name="bell" /></button><div className="userbox"><div className="top-avatar">SM</div><div><strong>Portal Admin</strong><small>SkillMonk Academy</small></div></div></div></header><main className="content" id="workspace">{children}</main><footer className="footer"><span>© 2026 Universal Notify · UI foundation</span><span>Synthetic data · No actual messages sent</span></footer></div></div>;
+  useEffect(() => {
+    document.body.classList.toggle("mobile-nav-open", drawer);
+    return () => document.body.classList.remove("mobile-nav-open");
+  }, [drawer]);
+
+  const signOut = async () => {
+    if (signingOut) return;
+    setSigningOut(true);
+    setSignOutError("");
+    try {
+      const response = await fetch("/api/bcs/app/session", { method: "DELETE", credentials: "same-origin", cache: "no-store" });
+      if (!response.ok) throw Error("Sign out could not be completed. Please retry.");
+      window.location.assign("/login");
+    } catch {
+      setSignOutError("Sign out failed. Please try again.");
+      setSigningOut(false);
+    }
+  };
+
+  // Menu visibility improves discoverability; PostgreSQL RLS/API checks remain authoritative.
+  const can = (...codes:string[]) => currentPermissions === null || codes.some(code => currentPermissions.includes(code));
+  const primaryLinks = navigation.filter(item => {
+    if (item.label === "Dashboard") return can("dashboard.view");
+    if (item.label === "Communication") return can("recipients.view","recipients.select","recipients.export","recipients.import","templates.view","templates.manage","compose.draft","campaigns.send_test","campaigns.schedule","campaigns.send","campaigns.approve");
+    if (item.label === "Scheduling") return can("scheduling.manage","queue.manage");
+    if (item.label === "Reports") return can("reports.view","reports.export","suppression.manage");
+    if (item.label === "Configuration") return can("portals.manage","mappings.manage","ses.manage");
+    return true;
+  });
+  const adminLinks = administrationNavigation.filter(() => can("access.manage"));
+  return <div className={`app-shell ${collapsed ? "bcs-sidebar-collapsed" : ""}`}>
+    <a className="skip-link" href="#workspace">Skip to content</a>
+    <aside className={`sidebar ${drawer ? "bcs-open" : ""}`} id="navigation" aria-label="BCS sidebar">
+      <div className="logo bcs-sidebar-header">
+        <div className="brandmark"><Icon name="send" /></div>
+        <div className="bcs-brand-copy"><div className="brandname">UNIVERSAL NOTIFY</div><div className="brandsub">Communication Engine</div></div>
+      </div>
+      <button type="button" className="btn mobile-toggle bcs-mobile-close" onClick={() => { setDrawer(false); toggle.current?.focus(); }}>Close navigation</button>
+      <div className="bcs-sidebar-sections" id="bcs-sidebar-sections">
+        <div className="nav-label">MAIN WORKSPACE</div>
+        <nav className="navlinks" aria-label="Main workspace">{primaryLinks.map((item, index) => <NavItem key={item.href} {...item} index={index} active={page === item.label} />)}</nav>
+        {can("portals.manage","mappings.manage","ses.manage") && <><div className="nav-label">CONNECTED PORTAL</div>
+        <nav className="navlinks" aria-label="Connected portal"><a href="/configuration" className="nav-link" title="SkillMonk Academy" aria-label="SkillMonk Academy"><Icon name="school" /><span className="bcs-nav-text">SkillMonk Academy</span><span className="bcs-nav-trailing"><Icon name="chevron" /></span></a></nav></>}
+        {mode === "authenticated" && adminLinks.length > 0 && <><div className="nav-label">ADMINISTRATION</div><nav className="navlinks" aria-label="Administration">
+          {adminLinks.map(item => <NavItem key={item.href} {...item} active={page === item.label} />)}
+        </nav></>}
+      </div>
+      <div className="sidebar-bottom">
+        <div className="side-note bcs-sidebar-note"><strong>{mode === "authenticated" ? "BCS development workspace" : "Synthetic UI foundation"}</strong><p>{mode === "authenticated" ? "PostgreSQL development data. Amazon SES sending is disabled." : "Fictional sample data. No external database, Amazon SES or live email connection."}</p></div>
+        {mode === "authenticated"
+          ? <button type="button" className="nav-link bcs-sidebar-signout" aria-label="Log Out" title="Log Out" onClick={() => void signOut()} disabled={signingOut}><Icon name="logout" /><span className="bcs-nav-text">{signingOut ? "Signing out…" : "Log Out"}</span></button>
+          : <a className="nav-link bcs-sidebar-signout" href="/login" aria-label="Sign in" title="Sign in"><Icon name="lock" /><span className="bcs-nav-text">Sign in</span></a>}
+        {signOutError && <p className="bcs-signout-error" role="alert">{signOutError}</p>}
+        <div className="sidebar-mini"><span className="live-dot" /> <span className="bcs-nav-text">5 workspace pages · 2 admin pages</span></div>
+      </div>
+    </aside>
+    {drawer && <button type="button" className="bcs-backdrop" aria-label="Close navigation" onClick={() => setDrawer(false)} />}
+    <div className="main">
+      <header className="topbar"><div className="top-start">
+        <button type="button" className="round-icon mobile-toggle" ref={toggle} aria-label="Open navigation" aria-expanded={drawer} aria-controls="navigation" onClick={() => setDrawer(!drawer)}><Icon name="menu" /></button>
+        <button type="button" className="round-icon bcs-desktop-collapse" onClick={toggleSidebar} aria-label={collapsed ? "Expand main menu" : "Minimize main menu"} aria-expanded={!collapsed} aria-controls="bcs-sidebar-sections" title={collapsed ? "Expand main menu" : "Minimize main menu"}><span className="bcs-collapse-chevron"><Icon name="chevron" /></span></button>
+        <div className="breadcrumb">Workspace <Icon name="chevron" /><strong>{page}</strong></div>
+      </div><div className="top-actions"><div className="demo-ribbon"><Icon name="spark" /> {mode === "authenticated" ? "DEVELOPMENT DATABASE" : "SYNTHETIC UI DEMO"}</div>
+        <button type="button" className="round-icon" aria-label="Toggle appearance" aria-pressed={dark} onClick={toggleTheme}><Icon name="moon" /></button>
+        <button type="button" className="round-icon" disabled aria-label="Notifications — preview only"><Icon name="bell" /></button>
+        <div className="userbox"><div className="top-avatar">{mode === "authenticated" ? (currentName.split(/\s+/).map(word => word[0] ?? "").slice(0,2).join("").toUpperCase() || "BC") : "SM"}</div><div><strong>{mode === "authenticated" ? currentName || "BCS User" : "Portal Admin"}</strong><small>SkillMonk Academy</small></div></div>
+      </div></header>
+      <main className="content" id="workspace">{children}</main>
+      <footer className="footer"><span>© 2026 Universal Notify · UI foundation</span><span>{mode === "authenticated" ? "BCS development · Live email sending disabled" : "Synthetic data · No actual messages sent"}</span></footer>
+    </div>
+  </div>;
 }
-export function DetailDialog({ title, children, onClose }: { title: string; children: ReactNode; onClose(): void }) {
+
+export function DetailDialog({ title, children, onClose, fullScreen=false, closeDisabled=false }: { title: string; children: ReactNode; onClose(): void; fullScreen?: boolean; closeDisabled?: boolean }) {
   const ref = useRef<HTMLDialogElement>(null);
   const id = useId();
+  useEffect(()=>{if(!fullScreen)return;const previous=document.body.style.overflow;document.body.style.overflow="hidden";return()=>{document.body.style.overflow=previous;};},[fullScreen]);
   useEffect(() => { const opener = document.activeElement as HTMLElement | null; const dialog = ref.current; dialog?.showModal(); return () => { dialog?.close(); queueMicrotask(() => opener?.focus()); }; }, []);
-  return <dialog ref={ref} className="dialog bcs-dialog" aria-labelledby={id} onCancel={event => { event.preventDefault(); onClose(); }}><div className="dialog-head"><h2 id={id}>{title}</h2><ActionButton onClick={onClose} aria-label="Close details">Close</ActionButton></div><div className="dialog-body">{children}</div></dialog>;
+  return <dialog ref={ref} className={`dialog bcs-dialog ${fullScreen ? "bcs-dialog-fullscreen" : ""}`} aria-labelledby={id} onCancel={event => { event.preventDefault(); onClose(); }}><div className="dialog-head"><h2 id={id}>{title}</h2><ActionButton disabled={closeDisabled} onClick={onClose} aria-label="Close details">Close</ActionButton></div><div className="dialog-body">{children}</div></dialog>;
 }

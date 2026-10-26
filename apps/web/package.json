@@ -9,11 +9,13 @@
   "dependencies": {
     "@bcs/contracts": "0.1.0",
     "@bcs/ui": "0.1.0",
+    "jsdom": "30.1.3",
+    "mssql": "12.7.10",
+    "mysql2": "3.24.6",
     "next": "16.4.2",
     "pg": "8.23.1",
     "react": "19.3.1",
     "react-dom": "19.3.1",
-    "server-only": "0.0.1",
-    "jsdom": "30.1.3"
+    "server-only": "0.0.1"
   }
 }
