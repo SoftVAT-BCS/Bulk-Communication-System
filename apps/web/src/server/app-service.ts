@@ -60,13 +60,115 @@ export async function session(c:PoolClient,token:string):Promise<Session> {
    AND (a.expires_at IS NULL OR a.expires_at>now()))`,[digest(token)]);
   if(r.rows.length!==1)throw new ReadError(401,"LOGIN_REQUIRED");return r.rows[0];
 }
-function checkRequest(request:Request,write=false) {
-  const url=new URL(request.url),host=request.headers.get("host")??url.host;
-  if(!/^(localhost|127\.0\.0\.1|\[::1\])(:[0-9]+)?$/.test(host))throw new ReadError(403,"LOCAL_DEMO_ONLY");
-  const canonical=new URL(url);canonical.host=host;
-  localRequest(new Request(canonical,{headers:request.headers}),process.env.NODE_ENV);
-  if(write && request.headers.get("origin")!==canonical.origin)throw new ReadError(403,"CSRF_REJECTED");
+
+function checkRequest(request: Request, write = false) {
+  const url = new URL(request.url);
+  const mode = process.env.BCS_APPLICATION_MODE;
+  const environment = process.env.NODE_ENV;
+  const configuredOrigin = process.env.BCS_PUBLIC_APP_ORIGIN;
+
+  if (environment === "development") {
+    const host = request.headers.get("host") ?? url.host;
+
+    if (!/^(localhost|127\.0\.0\.1|\[::1\])(:[0-9]+)?$/.test(host)) {
+      throw new ReadError(403, "LOCAL_DEMO_ONLY");
+    }
+
+    const canonical = new URL(url);
+    canonical.host = host;
+
+    localRequest(
+      new Request(canonical, { headers: request.headers }),
+      environment
+    );
+
+    if (write && request.headers.get("origin") !== canonical.origin) {
+      throw new ReadError(403, "CSRF_REJECTED");
+    }
+
+    return;
+  }
+
+  if (mode !== "authenticated" || !configuredOrigin) {
+    throw new ReadError(503, "APPLICATION_NOT_CONFIGURED");
+  }
+
+  let expected: URL;
+
+  try {
+    expected = new URL(configuredOrigin);
+  } catch {
+    throw new ReadError(503, "APPLICATION_NOT_CONFIGURED");
+  }
+
+  if (
+    expected.protocol !== "https:" ||
+    expected.username ||
+    expected.password ||
+    expected.pathname !== "/" ||
+    expected.search ||
+    expected.hash
+  ) {
+    throw new ReadError(503, "APPLICATION_NOT_CONFIGURED");
+  }
+
+  const host = request.headers.get("host");
+
+  if (!host || host.toLowerCase() !== expected.host.toLowerCase()) {
+    throw new ReadError(403, "HOST_REJECTED");
+  }
+
+  if (url.host.toLowerCase() !== expected.host.toLowerCase()) {
+    throw new ReadError(403, "HOST_REJECTED");
+  }
+
+  if (url.protocol !== "https:") {
+    throw new ReadError(403, "HTTPS_REQUIRED");
+  }
+
+  const origin = request.headers.get("origin");
+
+  if (write) {
+    if (!origin) {
+      throw new ReadError(403, "CSRF_REJECTED");
+    }
+
+    let suppliedOrigin: URL;
+
+    try {
+      suppliedOrigin = new URL(origin);
+    } catch {
+      throw new ReadError(403, "CSRF_REJECTED");
+    }
+
+    if (
+      suppliedOrigin.origin !== expected.origin ||
+      suppliedOrigin.origin !== url.origin
+    ) {
+      throw new ReadError(403, "CSRF_REJECTED");
+    }
+
+    if (request.headers.get("sec-fetch-site") === "cross-site") {
+      throw new ReadError(403, "CSRF_REJECTED");
+    }
+  } else if (origin) {
+    let suppliedOrigin: URL;
+
+    try {
+      suppliedOrigin = new URL(origin);
+    } catch {
+      throw new ReadError(403, "ORIGIN_REJECTED");
+    }
+
+    if (
+      suppliedOrigin.origin !== expected.origin ||
+      suppliedOrigin.origin !== url.origin
+    ) {
+      throw new ReadError(403, "ORIGIN_REJECTED");
+    }
+  }
 }
+
 /** Read a valid company-and-portal-scoped session without requiring dashboard.view.
  * UI routing is NOT authorization: each feature API still uses authorized(). */
 export async function validSession<T>(request:Request,work:(c:PoolClient,s:Session)=>Promise<T>) {
